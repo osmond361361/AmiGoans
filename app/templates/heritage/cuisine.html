@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+{% block title %}Cuisine{% endblock %}
+{% block meta_description %}Goan cuisine for UK Goans and the Goan NRI diaspora: fish thali, vindaloo, cafreal, cutlet pao, choris pao and more &mdash; recipes and cooking videos.{% endblock %}
+{% block meta_keywords %}Goan food, fish thali, Vindaloo, cafreal, cutlet pao, pao, sausage pao, choris pao, Goan cuisine, UK Goan, Goan NRI{% endblock %}
+{% block content %}
+
+<section class="ag-directory-banner">
+  <div class="container">
+    <h1 class="ag-heading-serif">Goan Cuisine</h1>
+    <p>Rice, seafood, coconut and spice &mdash; the dishes at the heart of Goan food, with recipes and videos to try at home.</p>
+  </div>
+</section>
+
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <p>Goan cuisine consists of regional foods popular in Goa, India. Rice, seafood, coconut, vegetables, meat, bread, pork and local spices are staples of Goan cuisine. Use of kokum and vinegar is another distinct feature, and Goan food is considered incomplete without fish. Centuries of Portuguese influence also shaped a unique Indo-Portuguese repertoire found nowhere else in India.</p>
+    <p class="ag-attribution">Source: <a href="https://en.wikipedia.org/wiki/Goan_cuisine" target="_blank" rel="noopener">Wikipedia &mdash; Goan cuisine</a>, used under CC BY-SA.</p>
+  </div>
+</section>
+
+<section class="ag-section ag-section-cream">
+  <div class="container">
+    <h2 class="ag-heading-serif ag-section-heading">Popular Dishes &amp; Recipes</h2>
+    <div class="ag-recipe-grid">
+
+      <div class="ag-card ag-recipe-card">
+        <img src="{{ url_for('static', filename='images/heritage/food-vindaloo.jpg') }}" alt="Goan pork vindaloo">
+        <div class="ag-recipe-card-body">
+          <h3>Vindaloo</h3>
+          <p>A fiery Goan curry of Portuguese origin, traditionally pork marinated in vinegar and garlic and cooked in a spicy chilli paste &mdash; tangier and more complex than the British curry-house version it inspired.</p>
+          <div class="ag-recipe-columns">
+            <div>
+              <h4>Ingredients</h4>
+              <ul>
+                <li>750g pork shoulder, cubed</li>
+                <li>8&ndash;10 dried Kashmiri chillies</li>
+                <li>6 cloves garlic, 1in ginger</li>
+                <li>1 tsp each cumin, peppercorns, mustard seeds</li>
+                <li>Cinnamon, 4 cloves, &frac12; tsp turmeric</li>
+                <li>4 tbsp vinegar, 2 onions, oil, salt</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Method</h4>
+              <ol>
+                <li>Soak chillies, blend with spices, garlic, ginger and vinegar into a paste.</li>
+                <li>Marinate the pork for 4+ hours, ideally overnight.</li>
+                <li>Fry onions until golden, add pork and brown.</li>
+                <li>Add water, cover and simmer 45&ndash;60 min until tender.</li>
+                <li>Season and serve with rice or poee bread.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ag-card ag-recipe-card">
+        <img src="{{ url_for('static', filename='images/heritage/dish-xacuti.jpg') }}" alt="Goan xacuti curry">
+        <div class="ag-recipe-card-body">
+          <h3>Xacuti</h3>
+          <p>A curry with complex spicing &mdash; white poppy seeds, toasted coconut and dried red chillies &mdash; traditionally made with chicken, lamb, beef or crab.</p>
+          <div class="ag-recipe-columns">
+            <div>
+              <h4>Ingredients</h4>
+              <ul>
+                <li>1 chicken, jointed (~750g)</li>
+                <li>1 cup grated coconut</li>
+                <li>2 tbsp white poppy seeds</li>
+                <li>8 dried red chillies</li>
+                <li>Coriander &amp; cumin seeds, cloves, cinnamon, cardamom, star anise</li>
+                <li>2 onions, garlic, ginger, oil, salt</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Method</h4>
+              <ol>
+                <li>Dry-roast coconut and whole spices, then grind to a paste.</li>
+                <li>Fry onions until golden, add garlic and ginger.</li>
+                <li>Add the spice paste, cook until oil separates.</li>
+                <li>Add chicken and water, simmer 30&ndash;35 min until cooked.</li>
+                <li>Season and serve with rice.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ag-card ag-recipe-card">
+        <img src="{{ url_for('static', filename='images/heritage/dish-sorpotel.jpg') }}" alt="Goan sorpotel">
+        <div class="ag-recipe-card-body">
+          <h3>Sorpotel</h3>
+          <p>A spicy, tangy pork dish of Portuguese origin, now a Goan Christmas and celebration staple, cooked in a thick vinegar-based sauce.</p>
+          <div class="ag-recipe-columns">
+            <div>
+              <h4>Ingredients</h4>
+              <ul>
+                <li>500g pork (shoulder or belly)</li>
+                <li>8 dried red chillies</li>
+                <li>Cumin, peppercorns, cinnamon</li>
+                <li>6 cloves garlic, 1in ginger, &frac12; tsp turmeric</li>
+                <li>5 tbsp vinegar, 2 onions, green chillies</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Method</h4>
+              <ol>
+                <li>Boil pork until just cooked, dice, reserve the liquid.</li>
+                <li>Grind chillies, spices, garlic, ginger and vinegar to a paste.</li>
+                <li>Fry onions, add paste and cook until fragrant.</li>
+                <li>Add pork and reserved liquid, simmer 30 min until thick.</li>
+                <li>Rest overnight &mdash; sorpotel is said to taste best the next day.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ag-card ag-recipe-card">
+        <img src="{{ url_for('static', filename='images/heritage/dish-bebinca.jpg') }}" alt="Goan bebinca layered dessert">
+        <div class="ag-recipe-card-body">
+          <h3>Bebinca</h3>
+          <p>A rich, layered dessert sometimes called the "Queen of Goan Desserts", traditionally baked in up to sixteen individual layers and especially popular at Christmas.</p>
+          <div class="ag-recipe-columns">
+            <div>
+              <h4>Ingredients</h4>
+              <ul>
+                <li>10 egg yolks</li>
+                <li>400ml thick coconut milk</li>
+                <li>250g sugar</li>
+                <li>150g plain flour</li>
+                <li>100g ghee, melted</li>
+                <li>&frac14; tsp grated nutmeg</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Method</h4>
+              <ol>
+                <li>Whisk yolks and sugar, mix in coconut milk, flour and nutmeg.</li>
+                <li>Grease a dish with ghee, pour a thin (~5mm) layer of batter.</li>
+                <li>Bake/grill until set and golden, brush with ghee.</li>
+                <li>Pour and bake each next layer on top; repeat 7&ndash;16 times.</li>
+                <li>Cool fully before turning out and slicing.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ag-more-dishes">
+      <div class="ag-more-dish">
+        <img src="{{ url_for('static', filename='images/heritage/dish-balchao.jpg') }}" alt="Goan balchão">
+        <div>
+          <h3>Balchão</h3>
+          <p>A bright, tangy pickle-curry of prawns (or other seafood) cooked in a spicy vinegar sauce &mdash; often made in a big batch and kept as a store-cupboard staple.</p>
+        </div>
+      </div>
+      <div class="ag-more-dish">
+        <img src="{{ url_for('static', filename='images/heritage/dish-choris.jpg') }}" alt="Goan choris sausages">
+        <div>
+          <h3>Choris (Goan Sausage)</h3>
+          <p>A spiced, vinegar-cured pork sausage descended from Portuguese chouriço, adapted with local chillies and preserved by pickling the meat before curing. Pan-fried and stuffed into a bread roll, it's the classic <strong>choris pao</strong> (sausage pao) &mdash; or served simply with rice.</p>
+        </div>
+      </div>
+      <div class="ag-more-dish">
+        <img src="{{ url_for('static', filename='images/heritage/feni-cashew.jpg') }}" alt="Cashew apples used to make feni">
+        <div>
+          <h3>Feni</h3>
+          <p>Goa's signature spirit, double-distilled from fermented cashew (or coconut) fruit juice. The single-distilled, lighter version is called urrak.</p>
+        </div>
+      </div>
+      <div class="ag-more-dish">
+        <img src="{{ url_for('static', filename='images/heritage/dish-cafreal.jpg') }}" alt="Cafreal-style guinea fowl">
+        <div>
+          <h3>Cafreal</h3>
+          <p>A vivid green, herb-and-chilli marinated poultry dish brought to Goan cuisine by the Portuguese and the African soldiers who served under them &mdash; usually chicken cafreal, grilled or pan-fried whole or in pieces.</p>
+        </div>
+      </div>
+      <div class="ag-more-dish">
+        <img src="{{ url_for('static', filename='images/heritage/dish-fish-thali.jpg') }}" alt="Goan fish thali">
+        <div>
+          <h3>Fish Thali</h3>
+          <p>The everyday Goan meal: rice, fish curry (kodi), fried fish, kismur (a dried prawn and coconut salad), pickle and sol kadi, all served together on one platter.</p>
+        </div>
+      </div>
+      <div class="ag-more-dish">
+        <img src="{{ url_for('static', filename='images/heritage/dish-poee.jpg') }}" alt="Goan poee bread rolls">
+        <div>
+          <h3>Pão / Poee</h3>
+          <p>Goa's own bread culture: poee (pão) is a soft, pocketed leavened bread baked by traditional paders. The same bread rolls are the base for two beloved street snacks &mdash; <strong>cutlet pao</strong> (a crumbed, fried meat cutlet in a roll) and choris pao &mdash; sold at stalls and bakeries across Goa.</p>
+        </div>
+      </div>
+    </div>
+    <p class="ag-attribution">Sources: Wikipedia &mdash; <a href="https://en.wikipedia.org/wiki/Vindaloo" target="_blank" rel="noopener">Vindaloo</a>, <a href="https://en.wikipedia.org/wiki/Xacuti" target="_blank" rel="noopener">Xacuti</a>, <a href="https://en.wikipedia.org/wiki/Sarapatel" target="_blank" rel="noopener">Sorpotel</a>, <a href="https://en.wikipedia.org/wiki/Bebinca" target="_blank" rel="noopener">Bebinca</a>, <a href="https://en.wikipedia.org/wiki/Balch%C3%A3o" target="_blank" rel="noopener">Balchão</a>, <a href="https://en.wikipedia.org/wiki/Goan_sausage" target="_blank" rel="noopener">Goan sausage</a>, <a href="https://en.wikipedia.org/wiki/Feni_(liquor)" target="_blank" rel="noopener">Feni</a>, <a href="https://en.wikipedia.org/wiki/Cafreal" target="_blank" rel="noopener">Cafreal</a>, <a href="https://en.wikipedia.org/wiki/Poee" target="_blank" rel="noopener">Poee</a>. Cutlet pao has no dedicated Wikipedia article; described from general/traditional knowledge. Recipes are traditional/general methods, not copied from a single source. Photos via Wikimedia Commons, used under Creative Commons licences &mdash; see the site's image attributions.</p>
+  </div>
+</section>
+
+<section class="ag-section" aria-label="Cooking videos">
+  <div class="container">
+    <h2 class="ag-heading-serif ag-section-heading">Watch: Goan Recipes</h2>
+    <div class="ag-video-grid">
+      <div>
+        <div class="ag-video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/GAH0rhzRST4" title="Goan Pork Vindaloo recipe" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="ag-video-caption">Goan Pork Vindaloo &mdash; K2N Family</p>
+      </div>
+      <div>
+        <div class="ag-video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/_WQXFEwikBo" title="Goan Xacuti Masala recipe" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="ag-video-caption">Goan Xacuti Masala &mdash; Ellaroy</p>
+      </div>
+      <div>
+        <div class="ag-video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/NqR5VVtE44o" title="Goan Bebinca recipe" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="ag-video-caption">Goan Bebinca &mdash; Cooking Addiction</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

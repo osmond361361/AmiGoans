@@ -1,0 +1,4 @@
+# Development-only tooling. Not needed to run the app in production -
+# keeps the ~300MB Chromium download out of the production install.
+-r requirements.txt
+playwright==1.61.0

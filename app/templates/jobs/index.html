@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Jobs{% endblock %}
+{% block meta_description %}Job opportunities shared by and for the UK Goan community.{% endblock %}
+{% block content %}
+<section class="ag-section" id="search">
+  <div class="container ag-narrow">
+    <h1 class="ag-heading-serif">Jobs</h1>
+    <p>A place for the community to share job opportunities they know of, for other Goans to apply.</p>
+    <p class="ag-empty-state">No job links have been shared yet. Job search and posting will be available in a later stage.</p>
+  </div>
+</section>
+<section class="ag-section ag-section-cream">
+  <div class="container ag-narrow">
+    <h2 class="ag-heading-serif ag-section-heading">Add a Job Recommendation</h2>
+    <p>Know of a job that might suit a fellow Goan? Share it with the community.</p>
+    <a class="btn ag-btn-primary" href="{{ url_for('jobs.add') }}">Add a Job Recommendation</a>
+  </div>
+</section>
+{% endblock %}

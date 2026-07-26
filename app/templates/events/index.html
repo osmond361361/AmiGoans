@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% from "components/_icons.html" import icon %}
+{% block title %}Events{% endblock %}
+{% block meta_description %}UK Goan community events, including Goa Day, plus Goan community groups to follow for more.{% endblock %}
+{% block content %}
+
+<section class="ag-directory-banner">
+  <div class="container">
+    <h1 class="ag-heading-serif">UK Events</h1>
+    <p>Goan events across the United Kingdom &mdash; starting with Goa Day, the UK's biggest Goan community celebration.</p>
+  </div>
+</section>
+
+<section class="ag-section" aria-label="Featured event">
+  <div class="container">
+    <h2 class="ag-heading-serif ag-section-heading">Goa Day &mdash; The UK Goan Festival</h2>
+    <div class="ag-card ag-event-feature">
+      <img src="https://img.youtube.com/vi/MC5cXy76bto/hqdefault.jpg" alt="Goa Day London, UK Goan Festival">
+      <div class="ag-event-feature-body">
+        <p><strong>Goa Day</strong>, also known as the UK Goan Festival, is an annual celebration of Goan culture, food, music and faith, held at Cranford Community College in Hounslow, London, and organised by the Goan Association (UK). It's the largest yearly gathering of the UK Goan community, drawing thousands of visitors for a day of Mass, cultural performances, food stalls and live entertainment.</p>
+        <p class="ag-empty-state">Exact dates vary year to year &mdash; check the Goan Association UK's Facebook page below for the current year's date, and see recordings on our <a href="{{ url_for('videos.index') }}">Videos &amp; Podcasts</a> page.</p>
+        <p><a href="https://www.youtube.com/watch?v=T2UQpOtGuRM" target="_blank" rel="noopener">Watch: Goa Day 2026 vlog on YouTube &rarr;</a> (its creator has embedding turned off, so it can't be played directly on this page)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ag-section ag-section-cream" aria-label="Upcoming events">
+  <div class="container">
+    <h2 class="ag-heading-serif ag-section-heading">Upcoming Events</h2>
+    <div class="ag-card ag-upcoming-event">
+      <span class="ag-badge-unconfirmed">Unconfirmed date &mdash; please verify</span>
+      <h3>Diamond Jubilee UK Goan Festival 2026 (Goa Day)</h3>
+      <p>Reported as Sunday 2 August 2026 at Cranford Community College, Hounslow, London, marking the Goan Association (UK)'s 60th anniversary. We found this date via general web search rather than the Goan Association UK's own listings, so please confirm it on their Facebook page (below) before relying on it.</p>
+    </div>
+    <p class="ag-empty-state">No other upcoming events have been submitted yet. Real, admin-approved event listings with dates and booking details arrive in a later stage.</p>
+  </div>
+</section>
+
+<section class="ag-section" aria-label="Goan community groups">
+  <div class="container">
+    <h2 class="ag-heading-serif ag-section-heading">Find More Goan Events</h2>
+    <p>These community-run Facebook groups and pages regularly share event details &mdash; a good place to check for what's coming up near you.</p>
+    <div class="ag-community-grid">
+      <a class="ag-card ag-community-card" href="https://www.facebook.com/profile.php?id=100067776737121" target="_blank" rel="noopener">
+        {{ icon("chevron-right") }}
+        <h3>Goan Association UK</h3>
+        <p>Organisers of Goa Day and the UK Goan Festival.</p>
+      </a>
+      <a class="ag-card ag-community-card" href="https://www.facebook.com/groups/1002016496482015" target="_blank" rel="noopener">
+        {{ icon("chevron-right") }}
+        <h3>United Goans Of Aberdeen</h3>
+        <p>Community group for Goans in and around Aberdeen.</p>
+      </a>
+      <a class="ag-card ag-community-card" href="https://www.facebook.com/groups/1443779475855215" target="_blank" rel="noopener">
+        {{ icon("chevron-right") }}
+        <h3>United Goans UK</h3>
+        <p>UK-wide community group for Goans.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

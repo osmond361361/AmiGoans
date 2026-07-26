@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Heritage{% endblock %}
+{% block meta_description %}Goan history, culture, festivals, music and the story of Goan migration to Britain.{% endblock %}
+{% block content %}
+
+<section class="ag-directory-banner">
+  <div class="container">
+    <h1 class="ag-heading-serif">Heritage &amp; Culture</h1>
+    <p>The history, traditions and people that shape the Goan community &mdash; in Goa and across the UK.</p>
+  </div>
+</section>
+
+<section class="ag-section">
+  <div class="container">
+    <div class="ag-content-row">
+      <img src="{{ url_for('static', filename='images/heritage/our-history-bom-jesus.jpg') }}" alt="Basilica of Bom Jesus, Old Goa">
+      <div class="ag-content-text">
+        <h2 class="ag-heading-serif">Our History</h2>
+        <p>Goa was the capital of the Estado da Índia, the Portuguese State of India, founded seven years after Vasco da Gama's sea route to India was discovered. Its capital served as the governing centre for a string of Portuguese military forts and maritime ports along the Indian Ocean coast, and Goa remained under Portuguese rule until 1961 &mdash; one of the longest colonial presences in India.</p>
+        <p>Old Goa's <strong>Basilica of Bom Jesus</strong>, now a UNESCO World Heritage Site, holds the body of St Francis Xavier and remains the spiritual heart of Goan Catholic identity. The Portuguese period also brought the <strong>Goa Inquisition</strong>, a difficult chapter that enforced Catholic orthodoxy, alongside centuries of cultural exchange that shaped a distinct Indo-Portuguese identity still visible in Goa's architecture, surnames, food and faith today.</p>
+        <p class="ag-attribution">Sources: Wikipedia &mdash; <a href="https://en.wikipedia.org/wiki/Portuguese_India" target="_blank" rel="noopener">Portuguese India</a>, <a href="https://en.wikipedia.org/wiki/Basilica_of_Bom_Jesus" target="_blank" rel="noopener">Basilica of Bom Jesus</a>, <a href="https://en.wikipedia.org/wiki/Goa_Inquisition" target="_blank" rel="noopener">Goa Inquisition</a>. Photo: I.Mahesh, CC BY-SA 4.0, via Wikimedia Commons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ag-section ag-section-cream">
+  <div class="container">
+    <div class="ag-content-row reverse">
+      <img src="{{ url_for('static', filename='images/heritage/culture-dekhni-dance.jpg') }}" alt="Dekhni dance at Vagator, Goa">
+      <div class="ag-content-text">
+        <h2 class="ag-heading-serif">Culture &amp; Traditions</h2>
+        <p>Goans are Konkani people &mdash; an Indo-Aryan ethnolinguistic group native to the Konkan coast, speaking dialects of the Konkani language. Goan identity blends Indo-Aryan, Dravidian, Indo-Portuguese and Austro-Asiatic influences into something distinct from the rest of India: village feasts, church confraternities, and a strong tradition of music and dance that runs through everyday life.</p>
+        <p>One striking example is the <strong>Dekhni</strong>, a semi-classical Goan dance form that blends Indian classical movement with Western musical influence &mdash; often performed by women in traditional dress, telling a story through gesture as much as song.</p>
+        <p class="ag-attribution">Sources: Wikipedia &mdash; <a href="https://en.wikipedia.org/wiki/Konkani_people" target="_blank" rel="noopener">Konkani people</a>, <a href="https://en.wikipedia.org/wiki/Dekhni" target="_blank" rel="noopener">Dekhni</a>. Photo: Joegoauk Goa, CC BY-SA 2.0, via Wikimedia Commons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ag-section">
+  <div class="container">
+    <h2 class="ag-heading-serif ag-section-heading">Festivals</h2>
+    <div class="ag-content-row">
+      <img src="{{ url_for('static', filename='images/heritage/festivals-carnival.jpg') }}" alt="Dancers at Goa Carnival">
+      <div class="ag-content-text">
+        <p>The <strong>Goa Carnival</strong> is the largest in India and one of the few traditional Western Christian carnival celebrations in Asia. Held in February, King Momo takes over the state for three days and nights of parades, floats and music &mdash; the modern version was modelled on Rio's Carnival in 1965 by Goan musician Timoteo Fernandes to attract tourism, and has been a highlight of the Goan calendar ever since.</p>
+        <p class="ag-attribution">Source: Wikipedia &mdash; <a href="https://en.wikipedia.org/wiki/Carnival_in_Goa" target="_blank" rel="noopener">Carnival in Goa</a>. Photo: Donkey335, CC BY-SA 4.0, via Wikimedia Commons.</p>
+      </div>
+    </div>
+
+    <div class="ag-festival-grid">
+      <div class="ag-festival-item">
+        <img src="{{ url_for('static', filename='images/heritage/festival-sao-joao.jpg') }}" alt="Floral crown worn for the São João festival">
+        <h3>São João</h3>
+        <p>Celebrated on 24 June, young Goan Catholics leap into wells, streams and ponds after Mass to honour the birth of St John the Baptist &mdash; a tradition that also marks the arrival of the monsoon.</p>
+      </div>
+      <div class="ag-festival-item">
+        <img src="{{ url_for('static', filename='images/heritage/festival-shigmo.jpg') }}" alt="Shigmo festival celebrations in Goa">
+        <h3>Shigmo</h3>
+        <p>A spring festival and one of Goa's major Hindu celebrations, incorporating Holi, colourful processions and traditional folk dance and drumming.</p>
+      </div>
+      <div class="ag-festival-item">
+        <img src="{{ url_for('static', filename='images/heritage/dish-bebinca.jpg') }}" alt="Monti Fest sweets">
+        <h3>Monti Fest</h3>
+        <p>Held on 8 September, this Catholic harvest festival celebrates the Nativity of the Virgin Mary and traditionally sees the first offering of the new corn crop blessed in church.</p>
+      </div>
+    </div>
+    <p class="ag-attribution">Sources: Wikipedia &mdash; <a href="https://en.wikipedia.org/wiki/S%C3%A3o_Jo%C3%A3o_Festival_in_Goa" target="_blank" rel="noopener">São João Festival in Goa</a>, <a href="https://en.wikipedia.org/wiki/Shigmo" target="_blank" rel="noopener">Shigmo</a>, <a href="https://en.wikipedia.org/wiki/Monti_Fest" target="_blank" rel="noopener">Monti Fest</a>. Photos: Frederick Noronha (CC BY-SA 4.0) and Wikimedia Commons contributors, via Wikimedia Commons.</p>
+  </div>
+</section>
+
+<section class="ag-section ag-section-cream">
+  <div class="container">
+    <div class="ag-content-row">
+      <img src="{{ url_for('static', filename='images/heritage/music-tiatr.jpg') }}" alt="Stills from a Konkani tiatr stage production">
+      <div class="ag-content-text">
+        <h2 class="ag-heading-serif">Music &amp; Tiatr</h2>
+        <p><strong>Tiatr</strong> is Goa's own musical theatre tradition &mdash; performed in Romi Konkani with music, dance and often sharp social satire, popular not just in Goa but among Goan communities in Mumbai and across the diaspora, including the UK.</p>
+        <p>The <strong>Mando</strong> is a slower, more romantic musical form that developed among Goan Catholics in the 19th and 20th centuries, blending local Goan melody with Western musical structure &mdash; the major theme is almost always love.</p>
+        <div class="ag-video-embed">
+          <iframe src="https://www.youtube-nocookie.com/embed/ZLsIUVyDPgY" title="Farar Far | Lorna | Anthony San | Traditional Konkani Goan Song" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="ag-attribution">"Farar Far" &mdash; Lorna &amp; Anthony San, via Saregama Konkani on YouTube. Sources: Wikipedia &mdash; <a href="https://en.wikipedia.org/wiki/Tiatr" target="_blank" rel="noopener">Tiatr</a>, <a href="https://en.wikipedia.org/wiki/Mando_(music)" target="_blank" rel="noopener">Mando</a>. Photo: Frederick Noronha, CC BY-SA 4.0, via Wikimedia Commons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ag-section">
+  <div class="container">
+    <div class="ag-card ag-migration-card">
+      <h2 class="ag-heading-serif">Goan Migration to Britain</h2>
+      <p>The Goan community in the UK reflects several distinct waves of migration: early seafaring Goans who settled in London from the mid-19th century onward; Goans who arrived from former British colonies in East Africa during the 1960s and 1970s; Goan doctors, dentists and other professionals who came directly from India; and more recent arrivals holding Portuguese passports, available to Goans born before the end of Portuguese rule in 1961.</p>
+      <p>Many overseas Goans settled in Swindon, Leicester and London &mdash; particularly Wembley and Southall &mdash; where community associations, social clubs and parish groups continue to celebrate Goan Catholic feast days, Konkani language and culture, and mutual support among the diaspora. Ami Goans exists to help connect and strengthen that community across the UK today.</p>
+      <p class="ag-attribution">Sources: Wikipedia &mdash; <a href="https://en.wikipedia.org/wiki/Goan_Catholics_under_the_British_Indian_Empire" target="_blank" rel="noopener">Goan Catholics under the British Indian Empire</a>; community information from the Goan Association UK.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

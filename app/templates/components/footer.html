@@ -1,0 +1,44 @@
+<footer class="ag-footer">
+  <div class="container">
+    <div class="ag-footer-grid">
+      <div class="ag-footer-brand">
+        <span class="ag-logo-text ag-footer-logo">Ami Goans</span>
+        <p>A trusted community for UK Goans, connecting people, supporting businesses and celebrating our shared heritage.</p>
+      </div>
+
+      <div class="ag-footer-col">
+        <h2 class="ag-footer-heading">Explore</h2>
+        <ul>
+          <li><a href="{{ url_for('main.about') }}">About Ami Goans</a></li>
+          <li><a href="{{ url_for('businesses.directory') }}">Businesses</a></li>
+          <li><a href="{{ url_for('events.index') }}">Events</a></li>
+          <li><a href="{{ url_for('heritage.index') }}">Heritage</a></li>
+          <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ag-footer-col">
+        <h2 class="ag-footer-heading">Legal</h2>
+        <ul>
+          <li><a href="{{ url_for('main.legal') }}#privacy">Privacy Policy</a></li>
+          <li><a href="{{ url_for('main.legal') }}#cookies">Cookie Policy</a></li>
+          <li><a href="{{ url_for('main.legal') }}#terms">Terms of Use</a></li>
+          <li><a href="{{ url_for('main.legal') }}#guidelines">Community Guidelines</a></li>
+        </ul>
+      </div>
+
+      <div class="ag-footer-col">
+        <h2 class="ag-footer-heading">Follow</h2>
+        <ul class="ag-footer-social">
+          <li><a href="#" aria-label="Ami Goans on Facebook">Facebook</a></li>
+          <li><a href="#" aria-label="Ami Goans on Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Ami Goans on YouTube">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ag-footer-bottom">
+      <p>&copy; {{ current_year if current_year else 2026 }} Ami Goans. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

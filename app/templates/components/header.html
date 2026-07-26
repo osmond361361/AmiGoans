@@ -1,0 +1,59 @@
+{% from "components/_icons.html" import icon %}
+<header class="ag-header">
+  <div class="container ag-header-inner">
+    <a class="ag-logo" href="{{ url_for('main.home') }}" aria-label="Ami Goans home">
+      <img class="ag-logo-image" src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Ami Goans - Bringing Goans Together">
+    </a>
+
+    <nav class="ag-nav d-none d-lg-flex" aria-label="Primary">
+      {% set nav_style = "desktop" %}
+      {% include "components/nav.html" %}
+    </nav>
+
+    <div class="ag-header-actions d-none d-lg-flex">
+      <button type="button" class="ag-icon-btn" aria-label="Search Ami Goans">
+        {{ icon("search") }}
+      </button>
+      {% if current_user.is_authenticated %}
+        {# Stage 3 wires real profile/sign-out routes and a real photo;
+           current_user.is_authenticated is always False until then, so
+           this branch is unreachable today but ready for when it isn't. #}
+        <div class="dropdown">
+          <button class="ag-account-btn dropdown-toggle" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+            {{ icon("account") }}
+            <span>{{ current_user.display_name }}</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end ag-nav-dropdown-menu">
+            <li><a class="dropdown-item" href="#">My Profile</a></li>
+            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+          </ul>
+        </div>
+      {% else %}
+        <a class="btn ag-btn-outline" href="{{ url_for('auth.sign_in') }}">Sign In</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('auth.join') }}">Join Now</a>
+      {% endif %}
+    </div>
+
+    <button class="ag-menu-toggle d-lg-none" type="button" aria-label="Open menu"
+            aria-expanded="false" aria-controls="ag-mobile-nav" data-ag-menu-toggle>
+      {{ icon("menu") }}
+    </button>
+  </div>
+
+  <div class="ag-mobile-nav" id="ag-mobile-nav" data-ag-mobile-nav hidden>
+    <nav aria-label="Primary mobile">
+      {% set nav_style = "mobile" %}
+      {% include "components/nav.html" %}
+    </nav>
+    <div class="ag-mobile-actions">
+      {% if current_user.is_authenticated %}
+        <a class="btn ag-btn-outline w-100" href="#">My Profile</a>
+        <a class="btn ag-btn-outline w-100" href="#">Sign Out</a>
+      {% else %}
+        <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_in') }}">Sign In</a>
+        <a class="btn ag-btn-primary w-100" href="{{ url_for('auth.join') }}">Join Now</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

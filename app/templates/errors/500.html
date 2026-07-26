@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Something Went Wrong{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow text-center">
+    <h1 class="ag-heading-serif">Something Went Wrong</h1>
+    <p>An unexpected error occurred. Please try again shortly.</p>
+    <a class="btn ag-btn-primary" href="{{ url_for('main.home') }}">Back to Home</a>
+  </div>
+</section>
+{% endblock %}

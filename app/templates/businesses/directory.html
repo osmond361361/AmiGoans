@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% from "components/_icons.html" import icon %}
+
+{% block title %}Businesses{% endblock %}
+{% block meta_description %}Discover and support Goan-owned businesses across the United Kingdom &mdash; from UK Goan and Goan NRI entrepreneurs.{% endblock %}
+{% block meta_keywords %}Goan business directory, UK Goan business, Goan NRI business, Goan-owned business UK{% endblock %}
+
+{% block content %}
+<section class="ag-directory-banner">
+  <div class="container">
+    <h1 class="ag-heading-serif">Goan Businesses Across the UK</h1>
+    <p>Discover and support Goan-owned businesses near you.</p>
+    <a class="btn ag-btn-primary ag-directory-add-btn" href="{{ url_for('businesses.add') }}">Add Your Business</a>
+  </div>
+</section>
+
+<section class="ag-section ag-directory-filters-section">
+  <div class="container">
+    <form class="ag-card ag-filter-bar" role="search" method="get">
+      <label class="visually-hidden" for="dir-search">Search business name or keyword</label>
+      <div class="ag-filter-search">
+        {{ icon("search", class="ag-filter-search-icon") }}
+        <input id="dir-search" type="search" name="q" class="form-control" placeholder="Search business name or keyword&hellip;">
+      </div>
+      <select class="form-select" name="nation" aria-label="Filter by nation">
+        <option value="">Nation</option>
+        <option>England</option>
+        <option>Scotland</option>
+        <option>Wales</option>
+        <option>Northern Ireland</option>
+      </select>
+      <select class="form-select" name="county" aria-label="Filter by county">
+        <option value="">County</option>
+      </select>
+      <select class="form-select" name="town" aria-label="Filter by town">
+        <option value="">Town</option>
+      </select>
+      <select class="form-select" name="category" aria-label="Filter by category">
+        <option value="">Category</option>
+        <option>Restaurants</option>
+        <option>Travel</option>
+        <option>Shopping</option>
+        <option>Services</option>
+        <option>Events</option>
+        <option>Real Estate</option>
+        <option>Other</option>
+      </select>
+      <button class="btn ag-btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+</section>
+
+<section class="ag-section ag-section-cream" aria-label="Featured businesses">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h2 class="ag-heading-serif ag-section-heading">Featured Businesses</h2>
+      <a class="ag-view-all" href="#">View All {{ icon("chevron-right") }}</a>
+    </div>
+
+    {% if config.DEBUG %}
+      <p class="ag-sample-notice">Example listings shown in development only &mdash; real, admin-approved businesses replace these in Stage 4.</p>
+      <div class="ag-business-grid ag-business-grid-featured">
+        {% for biz in [
+          {"name": "Example Goan Kitchen", "category": "Restaurant", "town": "Manchester", "county": "Greater Manchester", "image": "food-vindaloo.jpg"},
+          {"name": "Example Coastal Travel", "category": "Travel & Tours", "town": "London", "county": "Greater London", "image": "hero-vagator-beach.jpg"},
+          {"name": "Example Spice & Grocery", "category": "Grocery", "town": "Leicester", "county": "Leicestershire", "image": "spice-market.jpg"},
+        ] %}
+          <div class="ag-card ag-business-card">
+            <span class="ag-badge ag-badge-sponsored">Sponsored</span>
+            <span class="ag-badge ag-badge-sample">Sample</span>
+            <img src="{{ url_for('static', filename='images/heritage/' ~ biz.image) }}" alt="" class="ag-business-card-image">
+            <div class="ag-business-card-body">
+              <span class="ag-business-card-category">{{ biz.category }}</span>
+              <h3>{{ biz.name }}</h3>
+              <p class="ag-business-card-location">{{ icon("pin") }} {{ biz.town }}, {{ biz.county }}</p>
+              <a class="btn ag-btn-outline ag-btn-sm" href="#">View Details</a>
+            </div>
+          </div>
+        {% endfor %}
+        <div class="ag-card ag-advertise-card">
+          <h3>Advertise Your Business</h3>
+          <p>Reach Goans across the UK and grow your business.</p>
+          <a class="btn ag-btn-primary" href="{{ url_for('businesses.add') }}">Advertise Now</a>
+        </div>
+      </div>
+    {% else %}
+      <p class="ag-empty-state">No featured businesses yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="ag-section" aria-label="Browse by category">
+  <div class="container">
+    <h2 class="ag-heading-serif ag-section-heading">Browse by Category</h2>
+    <div class="ag-category-grid">
+      {% for cat, ic in [
+        ("Restaurants", "restaurant"),
+        ("Travel", "travel"),
+        ("Shopping", "shopping-bag"),
+        ("Services", "add-business"),
+        ("Events", "events"),
+        ("Real Estate", "real-estate"),
+      ] %}
+        <a class="ag-category-item" href="?category={{ cat }}">
+          <span class="ag-category-icon">{{ icon(ic) }}</span>
+          <span>{{ cat }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="ag-section ag-section-cream" aria-label="Recent listings">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h2 class="ag-heading-serif ag-section-heading">Recent Listings</h2>
+    </div>
+
+    {% if config.DEBUG %}
+      <div class="ag-business-grid ag-business-grid-compact">
+        {% for biz in [
+          {"name": "Example Goan Delights", "category": "Restaurant", "town": "Reading", "image": "food-vindaloo.jpg"},
+          {"name": "Example Ocean Holidays", "category": "Travel Agency", "town": "Bristol", "image": "hero-vagator-beach.jpg"},
+          {"name": "Example Konkan Traders", "category": "Grocery Store", "town": "Wembley", "image": "spice-market.jpg"},
+          {"name": "Example Palm & Sea Weddings", "category": "Event Planner", "town": "Swindon", "image": "our-history-bom-jesus.jpg"},
+        ] %}
+          <div class="ag-card ag-business-card ag-business-card-compact">
+            <span class="ag-badge ag-badge-sample">Sample</span>
+            <img src="{{ url_for('static', filename='images/heritage/' ~ biz.image) }}" alt="" class="ag-business-card-image">
+            <div class="ag-business-card-body">
+              <span class="ag-business-card-category">{{ biz.category }}</span>
+              <h3>{{ biz.name }}</h3>
+              <p class="ag-business-card-location">{{ icon("pin") }} {{ biz.town }}</p>
+              <a class="btn ag-btn-outline ag-btn-sm" href="#">View</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <nav aria-label="Business directory pagination" class="ag-pagination">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled"><span class="page-link">Previous</span></li>
+          <li class="page-item active"><span class="page-link">1</span></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    {% else %}
+      <p class="ag-empty-state">No businesses have been listed yet. Be the first to add yours.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="ag-section" aria-label="Advertise with us">
+  <div class="container">
+    <div class="ag-card ag-promote-banner">
+      <div>
+        <h2 class="ag-heading-serif">Want to promote your business?</h2>
+        <p>Join our UK Goan community and get exclusive visibility.</p>
+      </div>
+      <a class="btn ag-btn-primary" href="{{ url_for('businesses.add') }}">Advertise Now</a>
+    </div>
+    <div class="ag-promote-stats">
+      <div><span>{{ icon("globe") }}</span> Across the UK</div>
+      <div><span>{{ icon("members") }}</span> Trusted Community</div>
+      <div><span>{{ icon("star") }}</span> Targeted Audience</div>
+      <div><span>{{ icon("business") }}</span> Grow &amp; Support</div>
+    </div>
+  </div>
+</section>
+{% endblock %}

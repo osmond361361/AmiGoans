@@ -1,0 +1,40 @@
+{# Icon helper. Content icons use Bootstrap Icons (bundled via CDN in base.html).
+   Facebook/Google keep hand-built SVGs so their brand colours render correctly
+   -- a single-colour font glyph can't reproduce Google's four-colour "G". #}
+
+{% set bi_map = {
+  "search": "search",
+  "members": "people-fill",
+  "business": "shop",
+  "add-business": "plus-circle",
+  "tv": "tv-fill",
+  "events": "calendar-event-fill",
+  "heritage": "bank2",
+  "menu": "list",
+  "globe": "globe",
+  "star": "star-fill",
+  "pin": "geo-alt-fill",
+  "chevron-right": "chevron-right",
+  "restaurant": "cup-hot-fill",
+  "travel": "airplane-fill",
+  "shopping-bag": "bag-fill",
+  "real-estate": "house-door-fill",
+  "check": "check-lg",
+  "account": "person-circle",
+  "jobs": "briefcase-fill",
+} %}
+
+{% macro icon(name, class="ag-icon") %}
+  {% if name in bi_map %}
+    <i class="bi bi-{{ bi_map[name] }} {{ class }}" aria-hidden="true"></i>
+  {% elif name == "facebook" %}
+    <svg class="{{ class }}" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#1877F2"></circle><path d="M15.5 12.5h-2v7h-2.7v-7H9.3v-2.3h1.5V8.7c0-1.5.9-2.9 3.2-2.9h2v2.2H14.5c-.3 0-.7.2-.7.9v1.3h2.1l-.4 2.3Z" fill="#fff"></path></svg>
+  {% elif name == "google" %}
+    <svg class="{{ class }}" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M22.5 12.2c0-.8-.1-1.5-.2-2.2H12v4.3h5.9c-.3 1.4-1 2.5-2.2 3.3v2.7h3.6c2.1-2 3.2-4.8 3.2-8.1Z" fill="#4285F4"></path>
+      <path d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.7c-1 .7-2.2 1.1-3.6 1.1-2.8 0-5.1-1.9-6-4.4H2.3v2.8C4.1 20.6 7.8 23 12 23Z" fill="#34A853"></path>
+      <path d="M6 14.4c-.2-.7-.4-1.4-.4-2.2s.1-1.5.4-2.2V7.2H2.3A11 11 0 0 0 1 12.2c0 1.8.4 3.5 1.3 5l3.7-2.8Z" fill="#FBBC05"></path>
+      <path d="M12 5.6c1.6 0 3 .5 4.1 1.6l3.1-3.1C17.4 2.3 14.9 1.2 12 1.2 7.8 1.2 4.1 3.6 2.3 7.2L6 10c.9-2.5 3.2-4.4 6-4.4Z" fill="#EA4335"></path>
+    </svg>
+  {% endif %}
+{% endmacro %}
