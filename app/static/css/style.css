@@ -904,8 +904,17 @@ a {
 .ag-auth-card {
   text-align: center;
 }
-.ag-auth-card .btn {
+.ag-auth-card form {
+  text-align: left;
+  margin-top: 1.5rem;
+}
+.ag-auth-card > a.btn {
   margin-top: 1rem;
+}
+.ag-auth-switch {
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  font-size: 0.95rem;
 }
 
 /* Footer */

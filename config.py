@@ -19,6 +19,11 @@ class Config:
     MAX_CONTENT_LENGTH = 5 * 1024 * 1024  # 5 MB upload limit
     UPLOAD_FOLDER = os.path.join(basedir, "app", "static", "uploads")
 
+    GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID")
+    GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET")
+    FACEBOOK_CLIENT_ID = os.environ.get("FACEBOOK_CLIENT_ID")
+    FACEBOOK_CLIENT_SECRET = os.environ.get("FACEBOOK_CLIENT_SECRET")
+
 
 class DevelopmentConfig(Config):
     DEBUG = True

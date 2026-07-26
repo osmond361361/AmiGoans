@@ -15,9 +15,6 @@
         {{ icon("search") }}
       </button>
       {% if current_user.is_authenticated %}
-        {# Stage 3 wires real profile/sign-out routes and a real photo;
-           current_user.is_authenticated is always False until then, so
-           this branch is unreachable today but ready for when it isn't. #}
         <div class="dropdown">
           <button class="ag-account-btn dropdown-toggle" type="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,8 +22,8 @@
             <span>{{ current_user.display_name }}</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end ag-nav-dropdown-menu">
-            <li><a class="dropdown-item" href="#">My Profile</a></li>
-            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('members.index') }}">My Profile</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('auth.sign_out') }}">Sign Out</a></li>
           </ul>
         </div>
       {% else %}
@@ -48,8 +45,8 @@
     </nav>
     <div class="ag-mobile-actions">
       {% if current_user.is_authenticated %}
-        <a class="btn ag-btn-outline w-100" href="#">My Profile</a>
-        <a class="btn ag-btn-outline w-100" href="#">Sign Out</a>
+        <a class="btn ag-btn-outline w-100" href="{{ url_for('members.index') }}">My Profile</a>
+        <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_out') }}">Sign Out</a>
       {% else %}
         <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_in') }}">Sign In</a>
         <a class="btn ag-btn-primary w-100" href="{{ url_for('auth.join') }}">Join Now</a>

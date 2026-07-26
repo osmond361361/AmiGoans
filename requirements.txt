@@ -9,6 +9,8 @@ python-dotenv==1.0.1
 psycopg[binary]==3.2.13
 SQLAlchemy==2.0.36
 Pillow==11.1.0
+Authlib==1.7.2
+requests==2.34.2
 gunicorn==22.0.0
 pytest==8.2.1
 ruff==0.4.7

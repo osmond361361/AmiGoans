@@ -11,30 +11,35 @@
     <div class="row g-3 align-items-stretch">
       <div class="col-lg-4 d-none d-lg-block">
         <div class="ag-card ag-welcome-card">
-          <h1 class="ag-heading-serif">Welcome to Ami Goans</h1>
-          <p>A trusted community for UK Goans, connecting people, supporting businesses and celebrating our shared heritage.</p>
+          {% if current_user.is_authenticated %}
+            <h1 class="ag-heading-serif">Welcome back, {{ current_user.display_name }}!</h1>
+            <p>Good to see you again. Here's what's happening across the community.</p>
+          {% else %}
+            <h1 class="ag-heading-serif">Welcome to Ami Goans</h1>
+            <p>A trusted community for UK Goans, connecting people, supporting businesses and celebrating our shared heritage.</p>
 
-          <div class="ag-welcome-actions">
-            <a class="btn ag-btn-primary w-100" href="{{ url_for('auth.join') }}">Join Now</a>
-            <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_in') }}">Sign In</a>
-          </div>
+            <div class="ag-welcome-actions">
+              <a class="btn ag-btn-primary w-100" href="{{ url_for('auth.join') }}">Join Now</a>
+              <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_in') }}">Sign In</a>
+            </div>
 
-          <div class="ag-divider"><span>or</span></div>
+            <div class="ag-divider"><span>or</span></div>
 
-          <div class="ag-social-actions">
-            <a class="btn ag-btn-social" href="{{ url_for('auth.facebook_placeholder') }}">
-              {{ icon("facebook") }} <span>Continue with Facebook</span>
-            </a>
-            <a class="btn ag-btn-social" href="{{ url_for('auth.google_placeholder') }}">
-              {{ icon("google") }} <span>Continue with Google</span>
-            </a>
-          </div>
+            <div class="ag-social-actions">
+              <a class="btn ag-btn-social" href="{{ url_for('auth.facebook_login') }}">
+                {{ icon("facebook") }} <span>Continue with Facebook</span>
+              </a>
+              <a class="btn ag-btn-social" href="{{ url_for('auth.google_login') }}">
+                {{ icon("google") }} <span>Continue with Google</span>
+              </a>
+            </div>
 
-          <p class="ag-fine-print">
-            By joining, you agree to our
-            <a href="{{ url_for('main.legal') }}#terms">Terms of Use</a> and
-            <a href="{{ url_for('main.legal') }}#privacy">Privacy Policy</a>.
-          </p>
+            <p class="ag-fine-print">
+              By joining, you agree to our
+              <a href="{{ url_for('main.legal') }}#terms">Terms of Use</a> and
+              <a href="{{ url_for('main.legal') }}#privacy">Privacy Policy</a>.
+            </p>
+          {% endif %}
         </div>
       </div>
 

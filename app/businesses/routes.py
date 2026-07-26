@@ -13,7 +13,4 @@ def directory():
 @businesses_bp.route("/add")
 @login_required
 def add():
-    # Adding a business requires a registered account. No one can be
-    # authenticated yet (Stage 3 adds real accounts), so this always
-    # redirects to sign-in for now -- that's correct, not a bug.
     return render_template("businesses/add.html")

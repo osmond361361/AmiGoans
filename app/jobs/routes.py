@@ -14,7 +14,4 @@ def index():
 @jobs_bp.route("/add")
 @login_required
 def add():
-    # Recommending a job requires a registered account. No one can be
-    # authenticated yet (Stage 3 adds real accounts), so this always
-    # redirects to sign-in for now -- that's correct, not a bug.
     return render_template("jobs/add.html")

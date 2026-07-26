@@ -5,8 +5,41 @@
   <div class="container ag-narrow">
     <div class="ag-card ag-auth-card">
       <h1 class="ag-heading-serif">Sign In</h1>
-      <p>Account sign-in will be enabled in a later stage.</p>
-      <a class="btn ag-btn-primary" href="{{ url_for('main.home') }}">Back to Home</a>
+      <p>Welcome back to Ami Goans.</p>
+
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+          {{ form.email.label(class="form-label") }}
+          {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), autocomplete="email") }}
+          {% for error in form.email.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+          {% endfor %}
+        </div>
+
+        <div class="mb-3">
+          {{ form.password.label(class="form-label") }}
+          {{ form.password(class="form-control" + (" is-invalid" if form.password.errors else ""), autocomplete="current-password") }}
+          {% for error in form.password.errors %}
+            <div class="invalid-feedback">{{ error }}</div>
+          {% endfor %}
+        </div>
+
+        <div class="mb-3 form-check">
+          {{ form.remember_me(class="form-check-input") }}
+          {{ form.remember_me.label(class="form-check-label") }}
+        </div>
+
+        <button type="submit" class="btn ag-btn-primary w-100">Sign In</button>
+      </form>
+
+      <div class="ag-auth-divider"><span>or</span></div>
+
+      <a class="btn ag-btn-outline w-100 mb-2" href="{{ url_for('auth.google_login') }}">Continue with Google</a>
+      <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.facebook_login') }}">Continue with Facebook</a>
+
+      <p class="ag-auth-switch">New to Ami Goans? <a href="{{ url_for('auth.join') }}">Create an account</a></p>
     </div>
   </div>
 </section>
