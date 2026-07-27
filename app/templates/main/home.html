@@ -6,268 +6,224 @@
 {% block meta_keywords %}UK Goan, Goan, Goa, Goan NRI, NRI, Ami Goans, Goan community UK, Goan business directory, Goan events UK{% endblock %}
 
 {% block content %}
-<section class="ag-hero-section">
-  <div class="container">
-    <div class="row g-3 align-items-stretch">
-      <div class="col-lg-4 d-none d-lg-block">
-        <div class="ag-card ag-welcome-card">
-          {% if current_user.is_authenticated %}
-            <h1 class="ag-heading-serif">Welcome back, {{ current_user.display_name }}!</h1>
-            <p>Good to see you again. Here's what's happening across the community.</p>
-          {% else %}
-            <h1 class="ag-heading-serif">Welcome to Ami Goans</h1>
-            <p>A trusted community for UK Goans, connecting people, supporting businesses and celebrating our shared heritage.</p>
-
-            <div class="ag-welcome-actions">
-              <a class="btn ag-btn-primary w-100" href="{{ url_for('auth.join') }}">Join Now</a>
-              <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_in') }}">Sign In</a>
-            </div>
-
-            <div class="ag-divider"><span>or</span></div>
-
-            <div class="ag-social-actions">
-              <a class="btn ag-btn-social" href="{{ url_for('auth.facebook_login') }}">
-                {{ icon("facebook") }} <span>Continue with Facebook</span>
-              </a>
-              <a class="btn ag-btn-social" href="{{ url_for('auth.google_login') }}">
-                {{ icon("google") }} <span>Continue with Google</span>
-              </a>
-            </div>
-
-            <p class="ag-fine-print">
-              By joining, you agree to our
-              <a href="{{ url_for('main.legal') }}#terms">Terms of Use</a> and
-              <a href="{{ url_for('main.legal') }}#privacy">Privacy Policy</a>.
-            </p>
-          {% endif %}
-        </div>
-      </div>
-
-      <div class="col-lg-8">
-        <div class="ag-hero-panel">
-          <div class="ag-hero-slides" aria-hidden="true">
-            {% for image in [
-              "hero-colva-church.jpg",
-              "hero-vagator-beach.jpg",
-              "our-history-bom-jesus.jpg",
-              "culture-dekhni-dance.jpg",
-            ] %}
-              <div class="ag-hero-slide {{ 'active' if loop.first else '' }}"
-                   style="background-image: url('{{ url_for('static', filename='images/heritage/' ~ image) }}');"></div>
-            {% endfor %}
-          </div>
-          <div class="ag-hero-overlay"></div>
-
-          <div class="ag-hero-content">
-            <h2 class="ag-heading-serif ag-hero-heading">
-              Bringing Goans <span class="ag-script">Together</span>
-            </h2>
-            <p class="ag-hero-lead">Discover Goan people, businesses, events, culture and opportunities across the United Kingdom.</p>
-
-            <form class="ag-hero-search" role="search" action="{{ url_for('businesses.directory') }}" method="get">
-              <label class="visually-hidden" for="hero-search">Search businesses, events, towns or services</label>
-              {{ icon("search", class="ag-hero-search-icon") }}
-              <input id="hero-search" type="search" name="q" class="form-control"
-                     placeholder="Search businesses, events, towns or services&hellip;">
-              <button class="btn ag-btn-primary" type="submit">Search</button>
-            </form>
-
-            <div class="ag-hero-buttons">
-              <a class="btn ag-btn-primary" href="{{ url_for('businesses.directory') }}">Explore Businesses</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row g-3 align-items-stretch mt-3">
-      <div class="col-lg-4 d-none d-lg-block">
-        <div class="ag-card ag-why-join-card">
-          <h2 class="ag-heading-serif ag-why-join-heading">Why Join Ami Goans?</h2>
-          <ul class="ag-why-join-list">
-            <li><span class="ag-why-join-emoji" aria-hidden="true">🌍</span> Connect with Goans around the world</li>
-            <li><span class="ag-why-join-emoji" aria-hidden="true">🤝</span> Discover and support Goan-owned businesses</li>
-            <li><span class="ag-why-join-emoji" aria-hidden="true">🎉</span> Explore Goan events, festivals, and celebrations</li>
-            <li><span class="ag-why-join-emoji" aria-hidden="true">🎥</span> Watch Goan videos, podcasts, and stories</li>
-            <li><span class="ag-why-join-emoji" aria-hidden="true">🌿</span> Pass on our Goan roots, culture, and heritage to future generations</li>
-            <li><span class="ag-why-join-emoji" aria-hidden="true">🌐</span> Everything Goan, all on one platform</li>
-          </ul>
-        </div>
-      </div>
-
-      <section class="col-lg-8" aria-label="Get started">
-        <h2 class="ag-heading-serif ag-section-heading ag-text-center">What would you like to do today?</h2>
-        <div class="ag-action-grid ag-action-grid-compact">
-          <a class="ag-card ag-action-card" href="{{ url_for('members.index') }}">
-            <span class="ag-action-icon ag-action-icon-orange">{{ icon("members") }}</span>
-            <h3>Find Members</h3>
-            <p>Connect with Goans across the UK.</p>
-          </a>
-          <a class="ag-card ag-action-card" href="{{ url_for('businesses.directory') }}">
-            <span class="ag-action-icon ag-action-icon-green">{{ icon("business") }}</span>
-            <h3>Find a Business</h3>
-            <p>Discover Goan-owned businesses.</p>
-          </a>
-          <a class="ag-card ag-action-card" href="{{ url_for('businesses.add') }}">
-            <span class="ag-action-icon ag-action-icon-teal">{{ icon("add-business") }}</span>
-            <h3>Add Your Business</h3>
-            <p>List your business in the directory.</p>
-          </a>
-          <a class="ag-card ag-action-card" href="{{ url_for('jobs.index') }}">
-            <span class="ag-action-icon ag-action-icon-gold">{{ icon("jobs") }}</span>
-            <h3>Find a Job</h3>
-            <p>Browse jobs shared by the community.</p>
-          </a>
-          <a class="ag-card ag-action-card" href="{{ url_for('videos.index') }}">
-            <span class="ag-action-icon ag-action-icon-dark">{{ icon("tv") }}</span>
-            <h3>Videos / Podcasts</h3>
-            <p>Watch and listen to approved content.</p>
-          </a>
-          <a class="ag-card ag-action-card" href="{{ url_for('events.index') }}">
-            <span class="ag-action-icon ag-action-icon-orange">{{ icon("events") }}</span>
-            <h3>Events</h3>
-            <p>Find upcoming Goan events near you.</p>
-          </a>
-        </div>
-      </section>
-    </div>
+<section class="ag-hero-full">
+  <div class="ag-hero-slides" aria-hidden="true">
+    {% for image in [
+      "hero-colva-church.jpg",
+      "hero-vagator-beach.jpg",
+      "our-history-bom-jesus.jpg",
+      "culture-dekhni-dance.jpg",
+    ] %}
+      <div class="ag-hero-slide {{ 'active' if loop.first else '' }}"
+           style="background-image: url('{{ url_for('static', filename='images/heritage/' ~ image) }}');"></div>
+    {% endfor %}
   </div>
-</section>
+  <div class="ag-hero-full-overlay"></div>
 
-<section class="ag-section ag-section-cream" aria-label="Featured businesses">
-  <div class="container">
-    <div class="ag-section-heading-row">
-      <h2 class="ag-heading-serif ag-section-heading">Featured Businesses</h2>
-      <a class="ag-view-all" href="{{ url_for('businesses.directory') }}">View All {{ icon("chevron-right") }}</a>
-    </div>
+  <div class="container ag-hero-full-content">
+    <p class="ag-hero-eyebrow">Welcome Home,</p>
+    {% if current_user.is_authenticated %}
+      <h1 class="ag-heading-serif ag-hero-full-heading">{{ current_user.display_name }} {{ icon("heart", class="ag-hero-heart") }}</h1>
+    {% else %}
+      <h1 class="ag-heading-serif ag-hero-full-heading">Ami Goans {{ icon("heart", class="ag-hero-heart") }}</h1>
+    {% endif %}
+    <p class="ag-hero-full-motto">Connect. Celebrate. Preserve.</p>
+    <p class="ag-hero-full-lead">Your global Goan community &mdash; all on one platform.</p>
 
     {% if config.DEBUG %}
-      <p class="ag-sample-notice">Example listings shown in development only &mdash; real approved businesses appear here from Stage 4 onward.</p>
-      <div class="ag-business-grid">
-        {% for biz in [
-          {"name": "Example Goan Kitchen", "category": "Restaurant", "town": "Manchester", "county": "Greater Manchester", "image": "food-vindaloo.jpg", "desc": "Home-style Goan curries, sausages and sweets.", "sponsored": true},
-          {"name": "Example Spice & Grocery", "category": "Grocery", "town": "Leicester", "county": "Leicestershire", "image": "spice-market.jpg", "desc": "Goan spices, pickles and imported groceries.", "sponsored": false},
-          {"name": "Example Coastal Weddings", "category": "Events & Weddings", "town": "Swindon", "county": "Wiltshire", "image": "our-history-bom-jesus.jpg", "desc": "Goan-Catholic wedding planning and catering.", "sponsored": true},
-        ] %}
-          <div class="ag-card ag-business-card">
-            {% if biz.sponsored %}<span class="ag-badge ag-badge-sponsored">Sponsored</span>{% endif %}
-            <span class="ag-badge ag-badge-sample">Sample</span>
-            <img src="{{ url_for('static', filename='images/heritage/' ~ biz.image) }}" alt="" class="ag-business-card-image">
-            <div class="ag-business-card-body">
-              <span class="ag-business-card-category">{{ biz.category }}</span>
-              <h3>{{ biz.name }}</h3>
-              <p class="ag-business-card-location">{{ icon("pin") }} {{ biz.town }}, {{ biz.county }}</p>
-              <p>{{ biz.desc }}</p>
-              <a class="btn ag-btn-outline ag-btn-sm" href="{{ url_for('businesses.directory') }}">View Business</a>
-            </div>
-          </div>
-        {% endfor %}
+      <div class="ag-hero-avatars">
+        <span class="ag-hero-avatar-stack" aria-hidden="true">
+          <span class="ag-hero-avatar-dot"></span>
+          <span class="ag-hero-avatar-dot"></span>
+          <span class="ag-hero-avatar-dot"></span>
+          <span class="ag-hero-avatar-dot"></span>
+        </span>
+        <span class="ag-hero-avatar-caption">Join thousands of Goans around the world <span class="ag-badge ag-badge-sample">Sample</span></span>
       </div>
-    {% else %}
-      <p class="ag-empty-state">No featured businesses yet. Approved listings will appear here once the business directory launches.</p>
     {% endif %}
+
+    <div class="ag-hero-full-buttons">
+      {% if current_user.is_authenticated %}
+        <a class="btn ag-btn-primary" href="{{ url_for('members.profile') }}">My Profile</a>
+      {% else %}
+        <a class="btn ag-btn-primary" href="{{ url_for('auth.join') }}">Join Our Community</a>
+      {% endif %}
+      <a class="btn ag-btn-outline-light" href="#explore-community">Explore More</a>
+    </div>
   </div>
 </section>
 
-<section class="ag-section" aria-label="Live TV, events and blogs">
+<div class="container">
+  <nav class="ag-quick-actions-bar" aria-label="Quick actions">
+    <a class="ag-quick-action" href="{{ url_for('members.index') }}">
+      <span class="ag-quick-action-icon ag-quick-action-icon-green">{{ icon("members") }}</span>
+      <span class="ag-quick-action-label">Connect<br><small>with Goans worldwide</small></span>
+    </a>
+    <a class="ag-quick-action" href="{{ url_for('businesses.directory') }}">
+      <span class="ag-quick-action-icon ag-quick-action-icon-orange">{{ icon("business") }}</span>
+      <span class="ag-quick-action-label">Support<br><small>Goan-owned businesses</small></span>
+    </a>
+    <a class="ag-quick-action" href="{{ url_for('events.index') }}">
+      <span class="ag-quick-action-icon ag-quick-action-icon-red">{{ icon("events") }}</span>
+      <span class="ag-quick-action-label">Explore<br><small>Events &amp; celebrations</small></span>
+    </a>
+    <a class="ag-quick-action" href="{{ url_for('videos.index') }}">
+      <span class="ag-quick-action-icon ag-quick-action-icon-blue">{{ icon("play") }}</span>
+      <span class="ag-quick-action-label">Watch &amp; Listen<br><small>Goan videos &amp; podcasts</small></span>
+    </a>
+    <a class="ag-quick-action" href="{{ url_for('heritage.index') }}">
+      <span class="ag-quick-action-icon ag-quick-action-icon-green">{{ icon("tree") }}</span>
+      <span class="ag-quick-action-label">Preserve<br><small>Our roots &amp; heritage</small></span>
+    </a>
+    <a class="ag-quick-action" href="{{ url_for('main.motto') }}">
+      <span class="ag-quick-action-icon ag-quick-action-icon-blue">{{ icon("globe") }}</span>
+      <span class="ag-quick-action-label">All in One<br><small>Everything Goan</small></span>
+    </a>
+  </nav>
+</div>
+
+<section class="ag-section" aria-label="Why join">
   <div class="container">
-    <div class="row g-3">
-      <div class="col-md-4">
-        <div class="ag-card ag-panel-card">
-          <div class="ag-panel-card-header">
-            <h2>Ami Goans TV</h2>
-            <a class="ag-view-all" href="{{ url_for('videos.index') }}">View All</a>
-          </div>
-          {% if config.DEBUG %}
-            <div class="ag-panel-item">
-              <div class="ag-panel-thumb ag-panel-thumb-video" style="background-image: url('{{ url_for('static', filename='images/heritage/music-tiatr.jpg') }}');">
-                <span class="ag-badge ag-badge-live">Live</span>
-              </div>
-              <p class="ag-panel-item-title">Example: Goan Music Live Session</p>
-              <p class="ag-panel-item-meta">Sample preview &mdash; dev mode only</p>
-            </div>
-          {% else %}
-            <p class="ag-empty-state">No approved videos yet.</p>
-          {% endif %}
-        </div>
+    <h2 class="ag-heading-serif ag-section-heading ag-text-center">Why Join Ami Goans?</h2>
+    <div class="ag-why-join-cards">
+      <div class="ag-why-join-card-item">
+        <span class="ag-why-join-card-emoji" aria-hidden="true">🌍</span>
+        <p>Connect with Goans around the world</p>
       </div>
-
-      <div class="col-md-4">
-        <div class="ag-card ag-panel-card">
-          <div class="ag-panel-card-header">
-            <h2>Upcoming Events</h2>
-            <a class="ag-view-all" href="{{ url_for('events.index') }}">View All</a>
-          </div>
-          {% if config.DEBUG %}
-            {% for ev in [
-              {"name": "Example: Goa Festival", "date": "15 Sep", "town": "London", "image": "festivals-carnival.jpg"},
-              {"name": "Example: Sao Joao Celebration", "date": "24 Jun", "town": "Swindon", "image": "our-history-bom-jesus.jpg"},
-            ] %}
-              <div class="ag-panel-item ag-panel-item-list">
-                <img class="ag-panel-item-thumb" src="{{ url_for('static', filename='images/heritage/' ~ ev.image) }}" alt="">
-                <span>
-                  <span class="ag-panel-item-title">{{ ev.name }}</span>
-                  <span class="ag-panel-item-meta">{{ ev.date }} &middot; {{ ev.town }} &middot; Sample</span>
-                </span>
-              </div>
-            {% endfor %}
-          {% else %}
-            <p class="ag-empty-state">No upcoming events yet.</p>
-          {% endif %}
-        </div>
+      <div class="ag-why-join-card-item">
+        <span class="ag-why-join-card-emoji" aria-hidden="true">🤝</span>
+        <p>Discover and support Goan-owned businesses</p>
       </div>
-
-      <div class="col-md-4">
-        <div class="ag-card ag-panel-card">
-          <div class="ag-panel-card-header">
-            <h2>Featured Blogs</h2>
-            <a class="ag-view-all" href="{{ url_for('heritage.blogs') }}">View All</a>
-          </div>
-          {% if config.DEBUG %}
-            {% for post in [
-              {"title": "Example: The Rich Heritage of Goa", "author": "Sample author", "image": "our-history-bom-jesus.jpg"},
-              {"title": "Example: Traditional Goan Recipes", "author": "Sample author", "image": "food-vindaloo.jpg"},
-            ] %}
-              <div class="ag-panel-item ag-panel-item-list">
-                <img class="ag-panel-item-thumb" src="{{ url_for('static', filename='images/heritage/' ~ post.image) }}" alt="">
-                <span>
-                  <span class="ag-panel-item-title">{{ post.title }}</span>
-                  <span class="ag-panel-item-meta">By {{ post.author }} &middot; Sample</span>
-                </span>
-              </div>
-            {% endfor %}
-          {% else %}
-            <p class="ag-empty-state">No blog posts yet.</p>
-          {% endif %}
-        </div>
+      <div class="ag-why-join-card-item">
+        <span class="ag-why-join-card-emoji" aria-hidden="true">🎉</span>
+        <p>Explore Goan events, festivals, and celebrations</p>
+      </div>
+      <div class="ag-why-join-card-item">
+        <span class="ag-why-join-card-emoji" aria-hidden="true">🎥</span>
+        <p>Watch Goan videos, podcasts, and stories</p>
+      </div>
+      <div class="ag-why-join-card-item">
+        <span class="ag-why-join-card-emoji" aria-hidden="true">🌿</span>
+        <p>Pass on our Goan roots, culture, and heritage to future generations</p>
+      </div>
+      <div class="ag-why-join-card-item">
+        <span class="ag-why-join-card-emoji" aria-hidden="true">🌐</span>
+        <p>Everything Goan, all on one platform</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="ag-section ag-section-cream" aria-label="Heritage">
+<section class="ag-section ag-section-cream" id="explore-community" aria-label="Explore our community">
   <div class="container">
-    <div class="ag-section-heading-row">
-      <h2 class="ag-heading-serif ag-section-heading">Explore Goan Heritage</h2>
-      <a class="ag-view-all" href="{{ url_for('heritage.index') }}">View All {{ icon("chevron-right") }}</a>
-    </div>
-    <div class="ag-heritage-grid">
-      {% for card in [
-        {"title": "Our History", "image": "our-history-bom-jesus.jpg"},
-        {"title": "Culture & Traditions", "image": "culture-dekhni-dance.jpg"},
-        {"title": "Food & Drink", "image": "food-vindaloo.jpg"},
-        {"title": "Festivals", "image": "festivals-carnival.jpg"},
-        {"title": "Music & Tiatr", "image": "music-tiatr.jpg"},
-      ] %}
-        <a class="ag-heritage-card" href="{{ url_for('heritage.index') }}" style="background-image: url('{{ url_for('static', filename='images/heritage/' ~ card.image) }}');">
-          <span class="ag-heritage-card-title">{{ card.title }}</span>
-        </a>
-      {% endfor %}
-      <a class="ag-heritage-card ag-heritage-card-plain" href="{{ url_for('heritage.index') }}">
-        <span class="ag-heritage-card-title">Goan Migration to Britain</span>
+    <h2 class="ag-heading-serif ag-section-heading ag-text-center">Explore Our Community</h2>
+    <div class="ag-community-gallery">
+      <a class="ag-community-gallery-card" href="{{ url_for('businesses.directory') }}">
+        <img src="{{ url_for('static', filename='images/heritage/spice-market.jpg') }}" alt="">
+        <div class="ag-community-gallery-body">
+          <h3>Goan Businesses</h3>
+          <p>Support local. Support Goan.</p>
+          <span class="btn ag-btn-primary ag-btn-sm">Explore Directory</span>
+        </div>
+      </a>
+      <a class="ag-community-gallery-card" href="{{ url_for('events.index') }}">
+        <img src="{{ url_for('static', filename='images/heritage/festivals-carnival.jpg') }}" alt="">
+        <div class="ag-community-gallery-body">
+          <h3>Events &amp; Celebrations</h3>
+          <p>Festivals, feasts &amp; events near you and around the world.</p>
+          <span class="btn ag-btn-primary ag-btn-sm">View Events</span>
+        </div>
+      </a>
+      <a class="ag-community-gallery-card" href="{{ url_for('heritage.blogs') }}">
+        <img src="{{ url_for('static', filename='images/heritage/our-history-bom-jesus.jpg') }}" alt="">
+        <div class="ag-community-gallery-body">
+          <h3>Stories &amp; Memories</h3>
+          <p>Real stories. Real people. Our Goan journey.</p>
+          <span class="btn ag-btn-primary ag-btn-sm">Read Stories</span>
+        </div>
+      </a>
+      <a class="ag-community-gallery-card" href="{{ url_for('videos.index') }}">
+        <img src="{{ url_for('static', filename='images/heritage/music-tiatr.jpg') }}" alt="">
+        <div class="ag-community-gallery-body">
+          <h3>Videos &amp; Podcasts</h3>
+          <p>Watch, listen &amp; be inspired by Goan voices.</p>
+          <span class="btn ag-btn-primary ag-btn-sm">Watch Now</span>
+        </div>
+      </a>
+      <a class="ag-community-gallery-card" href="{{ url_for('heritage.index') }}">
+        <img src="{{ url_for('static', filename='images/heritage/culture-dekhni-dance.jpg') }}" alt="">
+        <div class="ag-community-gallery-body">
+          <h3>Our Heritage</h3>
+          <p>Preserve our culture, language, traditions &amp; history.</p>
+          <span class="btn ag-btn-primary ag-btn-sm">Discover More</span>
+        </div>
       </a>
     </div>
     <p class="ag-attribution">Heritage photos courtesy of Wikimedia Commons contributors, used under Creative Commons licences.</p>
   </div>
 </section>
+
+<section class="ag-section" aria-label="Recipe of the week">
+  <div class="container">
+    <div class="ag-card ag-recipe-of-week">
+      <img src="{{ url_for('static', filename='images/heritage/food-vindaloo.jpg') }}" alt="Goan pork vindaloo">
+      <div class="ag-recipe-of-week-body">
+        <span class="ag-recipe-of-week-eyebrow">Recipe of the Week</span>
+        <h3>Chicken Vindaloo</h3>
+        <p>A fiery Goan curry of Portuguese origin, traditionally marinated in vinegar and garlic and cooked in a spicy chilli paste &mdash; tangier and more complex than the British curry-house version it inspired.</p>
+        <a class="ag-view-all" href="{{ url_for('heritage.cuisine') }}#vindaloo">View Recipe {{ icon("chevron-right") }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ag-quote-banner">
+  <div class="container ag-quote-banner-inner">
+    <blockquote class="ag-quote">
+      &ldquo;Being Goan is not just where we come from, it's who we are.&rdquo;
+      <cite>&mdash; A Goan, Everywhere {{ icon("heart", class="ag-quote-heart") }}</cite>
+    </blockquote>
+
+    {% if config.DEBUG %}
+      <div class="ag-stats-row">
+        <span class="ag-badge ag-badge-sample ag-stats-sample-badge">Sample data &mdash; shown in development only</span>
+        <div class="ag-stat">
+          {{ icon("members") }}
+          <strong>10K+</strong>
+          <span>Members</span>
+        </div>
+        <div class="ag-stat">
+          {{ icon("globe") }}
+          <strong>100+</strong>
+          <span>Countries</span>
+        </div>
+        <div class="ag-stat">
+          {{ icon("heart") }}
+          <strong>5K+</strong>
+          <span>Stories Shared</span>
+        </div>
+        <div class="ag-stat">
+          {{ icon("business") }}
+          <strong>1K+</strong>
+          <span>Businesses Listed</span>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% if not current_user.is_authenticated %}
+<section class="ag-cta-banner">
+  <div class="container ag-cta-banner-inner">
+    <div class="ag-cta-banner-text">
+      <h2 class="ag-heading-serif">Be Part of Something Beautiful</h2>
+      <p>Join Ami Goans today and stay connected to your roots, your people and your heritage.</p>
+    </div>
+    <div class="ag-cta-banner-buttons">
+      <a class="btn ag-btn-primary" href="{{ url_for('auth.join') }}">Join Now &mdash; It's Free</a>
+      <a class="btn ag-btn-outline-light" href="{{ url_for('auth.sign_in') }}">Login</a>
+    </div>
+  </div>
+</section>
+{% endif %}
 {% endblock %}

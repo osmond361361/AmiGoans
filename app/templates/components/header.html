@@ -31,7 +31,7 @@
           </ul>
         </div>
       {% else %}
-        <a class="btn ag-btn-outline" href="{{ url_for('auth.sign_in') }}">Sign In</a>
+        <a class="btn ag-btn-outline" href="{{ url_for('auth.sign_in') }}">Login</a>
         <a class="btn ag-btn-primary" href="{{ url_for('auth.join') }}">Join Now</a>
       {% endif %}
     </div>
@@ -52,7 +52,7 @@
         <a class="btn ag-btn-outline w-100" href="{{ url_for('members.profile') }}">My Profile</a>
         <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_out') }}">Sign Out</a>
       {% else %}
-        <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_in') }}">Sign In</a>
+        <a class="btn ag-btn-outline w-100" href="{{ url_for('auth.sign_in') }}">Login</a>
         <a class="btn ag-btn-primary w-100" href="{{ url_for('auth.join') }}">Join Now</a>
       {% endif %}
     </div>

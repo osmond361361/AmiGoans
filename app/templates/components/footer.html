@@ -1,39 +1,56 @@
+{% from "components/_icons.html" import icon %}
 <footer class="ag-footer">
   <div class="container">
     <div class="ag-footer-grid">
       <div class="ag-footer-brand">
         <span class="ag-logo-text ag-footer-logo">Ami Goans</span>
-        <p>A trusted community for UK Goans, connecting people, supporting businesses and celebrating our shared heritage.</p>
+        <p>Your global Goan community &mdash; connecting Goans, celebrating our culture and preserving our heritage for future generations.</p>
+        <ul class="ag-footer-social">
+          <li><a href="#" aria-label="Ami Goans on Facebook">{{ icon("facebook-outline") }}</a></li>
+          <li><a href="#" aria-label="Ami Goans on Instagram">{{ icon("instagram") }}</a></li>
+          <li><a href="#" aria-label="Ami Goans on YouTube">{{ icon("youtube") }}</a></li>
+        </ul>
       </div>
 
       <div class="ag-footer-col">
         <h2 class="ag-footer-heading">Explore</h2>
         <ul>
-          <li><a href="{{ url_for('main.about') }}">About Ami Goans</a></li>
-          <li><a href="{{ url_for('businesses.directory') }}">Businesses</a></li>
+          <li><a href="{{ url_for('businesses.directory') }}">Directory</a></li>
           <li><a href="{{ url_for('events.index') }}">Events</a></li>
+          <li><a href="{{ url_for('heritage.blogs') }}">Stories</a></li>
+          <li><a href="{{ url_for('videos.index') }}">Videos &amp; Podcasts</a></li>
           <li><a href="{{ url_for('heritage.index') }}">Heritage</a></li>
-          <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('heritage.cuisine') }}">Cuisine</a></li>
         </ul>
       </div>
 
       <div class="ag-footer-col">
-        <h2 class="ag-footer-heading">Legal</h2>
+        <h2 class="ag-footer-heading">Community</h2>
         <ul>
-          <li><a href="{{ url_for('main.legal') }}#privacy">Privacy Policy</a></li>
-          <li><a href="{{ url_for('main.legal') }}#cookies">Cookie Policy</a></li>
-          <li><a href="{{ url_for('main.legal') }}#terms">Terms of Use</a></li>
+          <li><a href="{{ url_for('members.index') }}">Find Members</a></li>
           <li><a href="{{ url_for('main.legal') }}#guidelines">Community Guidelines</a></li>
+          <li><a href="{{ url_for('main.contact') }}">Contact Us</a></li>
         </ul>
       </div>
 
       <div class="ag-footer-col">
-        <h2 class="ag-footer-heading">Follow</h2>
-        <ul class="ag-footer-social">
-          <li><a href="#" aria-label="Ami Goans on Facebook">Facebook</a></li>
-          <li><a href="#" aria-label="Ami Goans on Instagram">Instagram</a></li>
-          <li><a href="#" aria-label="Ami Goans on YouTube">YouTube</a></li>
+        <h2 class="ag-footer-heading">Quick Links</h2>
+        <ul>
+          <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+          <li><a href="{{ url_for('main.legal') }}#privacy">Privacy Policy</a></li>
+          <li><a href="{{ url_for('main.legal') }}#terms">Terms &amp; Conditions</a></li>
         </ul>
+      </div>
+
+      <div class="ag-footer-col ag-footer-newsletter">
+        <h2 class="ag-footer-heading">Stay Connected</h2>
+        <p>Get the latest updates on events, stories and more.</p>
+        <form method="POST" action="{{ url_for('main.subscribe') }}" class="ag-newsletter-form">
+          {{ newsletter_form.hidden_tag() }}
+          <label class="visually-hidden" for="footer-newsletter-email">Email address</label>
+          {{ newsletter_form.email(id="footer-newsletter-email", class="form-control", placeholder="Your email address") }}
+          <button type="submit" class="btn ag-btn-primary">Subscribe</button>
+        </form>
       </div>
     </div>
 

@@ -32,6 +32,12 @@ def register_context_processors(app):
     def inject_current_year():
         return {"current_year": datetime.now(timezone.utc).year}
 
+    @app.context_processor
+    def inject_newsletter_form():
+        from app.main.forms import NewsletterForm
+
+        return {"newsletter_form": NewsletterForm()}
+
 
 def register_login_manager(app):
     from app.models import User

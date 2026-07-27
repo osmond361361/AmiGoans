@@ -1,26 +1,29 @@
 {# nav_style is set by header.html before each include: "desktop" renders
-   Businesses/Jobs/More as dropdowns; "mobile" lists every link flat.
+   dropdowns; "mobile" lists every link flat.
    Note: dict key is "links", not "items" -- "items" collides with Python
    dict's built-in .items() method under Jinja's attribute lookup. #}
 {% set nav_entries = [
   {"kind": "link", "endpoint": "main.home", "label": "Home"},
-  {"kind": "link", "endpoint": "main.motto", "label": "Moto"},
-  {"kind": "link", "endpoint": "heritage.index", "label": "Heritage"},
-  {"kind": "link", "endpoint": "heritage.cuisine", "label": "Cuisine"},
-  {"kind": "dropdown", "label": "Businesses", "links": [
+  {"kind": "dropdown", "label": "Directory", "links": [
     {"endpoint": "businesses.directory", "label": "Search for Business"},
     {"endpoint": "businesses.add", "label": "Add Your Business"},
-  ]},
-  {"kind": "dropdown", "label": "Jobs", "links": [
-    {"endpoint": "jobs.index", "anchor": "search", "label": "Search for Jobs"},
+    {"endpoint": "jobs.index", "anchor": "search", "label": "Find a Job"},
     {"endpoint": "jobs.add", "label": "Add Job Recommendation"},
   ]},
+  {"kind": "link", "endpoint": "events.index", "label": "Events"},
+  {"kind": "link", "endpoint": "heritage.blogs", "label": "Stories"},
   {"kind": "link", "endpoint": "videos.index", "label": "Videos / Podcasts"},
-] %}
-{% set more_items = [
-  {"endpoint": "members.index", "label": "Find Members"},
-  {"endpoint": "events.index", "label": "Events"},
-  {"endpoint": "main.about", "label": "About"},
+  {"kind": "dropdown", "label": "Community", "links": [
+    {"endpoint": "members.index", "label": "Find Members"},
+    {"endpoint": "main.legal", "anchor": "guidelines", "label": "Community Guidelines"},
+    {"endpoint": "main.contact", "label": "Contact Us"},
+  ]},
+  {"kind": "dropdown", "label": "Resources", "links": [
+    {"endpoint": "heritage.index", "label": "Heritage"},
+    {"endpoint": "heritage.cuisine", "label": "Cuisine"},
+    {"endpoint": "main.motto", "label": "Our Motto"},
+    {"endpoint": "main.about", "label": "About Ami Goans"},
+  ]},
 ] %}
 
 {% macro entry_href(item) %}{{ url_for(item.endpoint) }}{% if item.anchor %}#{{ item.anchor }}{% endif %}{% endmacro %}
@@ -60,28 +63,4 @@
       </li>
     {% endif %}
   {% endfor %}
-
-  {% if nav_style == "mobile" %}
-    {% for item in more_items %}
-      <li>
-        <a class="ag-nav-link {{ 'active' if request.endpoint == item.endpoint else '' }}"
-           href="{{ url_for(item.endpoint) }}"
-           {% if request.endpoint == item.endpoint %}aria-current="page"{% endif %}>
-          {{ item.label }}
-        </a>
-      </li>
-    {% endfor %}
-  {% else %}
-    <li class="dropdown">
-      <a class="ag-nav-link dropdown-toggle {{ 'active' if request.endpoint in more_items|map(attribute='endpoint')|list else '' }}"
-         href="#" id="ag-more-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        More
-      </a>
-      <ul class="dropdown-menu dropdown-menu-end ag-nav-dropdown-menu" aria-labelledby="ag-more-dropdown">
-        {% for item in more_items %}
-          <li><a class="dropdown-item" href="{{ url_for(item.endpoint) }}">{{ item.label }}</a></li>
-        {% endfor %}
-      </ul>
-    </li>
-  {% endif %}
 </ul>
