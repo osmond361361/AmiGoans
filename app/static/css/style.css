@@ -296,28 +296,13 @@ a {
 .ag-hero-full {
   position: relative;
   overflow: hidden;
-  min-height: 480px;
+  min-height: 380px;
   display: flex;
   align-items: center;
   color: var(--ag-white);
-}
-
-.ag-hero-slides {
-  position: absolute;
-  inset: 0;
-}
-
-.ag-hero-slide {
-  position: absolute;
-  inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0;
-  transition: opacity 1.4s ease;
-}
-
-.ag-hero-slide.active {
-  opacity: 1;
+  border-radius: 0 0 28px 28px;
 }
 
 .ag-hero-full-overlay {
@@ -329,19 +314,19 @@ a {
 .ag-hero-full-content {
   position: relative;
   z-index: 2;
-  padding: 3rem 0;
-  max-width: 640px;
+  padding: 2rem 0;
+  max-width: 620px;
 }
 
 .ag-hero-eyebrow {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 0;
   color: rgba(255, 255, 255, 0.9);
 }
 
 .ag-hero-full-heading {
   color: var(--ag-white);
-  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -352,25 +337,17 @@ a {
   font-size: 0.75em;
 }
 
-.ag-hero-full-motto {
-  font-family: var(--ag-font-script);
-  color: var(--ag-gold);
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
 .ag-hero-full-lead {
   color: rgba(255, 255, 255, 0.92);
-  max-width: 46ch;
-  font-size: 1.05rem;
+  max-width: 50ch;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
 }
 
-.ag-hero-cta-heading {
-  color: var(--ag-white);
-  font-size: 1.5rem;
-  margin-top: 1.25rem;
-  margin-bottom: 0.3rem;
+.ag-hero-full-tagline {
+  color: var(--ag-gold);
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .ag-hero-avatars {
@@ -436,8 +413,8 @@ a {
   background-color: var(--ag-white);
   border-radius: var(--ag-radius);
   box-shadow: var(--ag-shadow);
-  padding: 1.1rem 0.75rem;
-  margin-top: -2.5rem;
+  padding: 0.75rem 0.6rem;
+  margin-top: -1.75rem;
   position: relative;
   z-index: 3;
 }
@@ -456,13 +433,13 @@ a {
   background-color: var(--ag-cream);
 }
 .ag-quick-action-icon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .ag-quick-action-icon-green { background-color: rgba(95, 112, 82, 0.14); color: var(--ag-green); }
 .ag-quick-action-icon-orange { background-color: rgba(143, 90, 56, 0.14); color: var(--ag-orange); }
@@ -487,13 +464,13 @@ a {
 .ag-why-join-card-item {
   background-color: var(--ag-cream);
   border-radius: var(--ag-radius);
-  padding: 1.25rem 1rem;
+  padding: 0.9rem 0.85rem;
   text-align: center;
 }
 .ag-why-join-card-emoji {
   display: block;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.35rem;
 }
 .ag-why-join-card-item p {
   margin: 0;
@@ -518,7 +495,7 @@ a {
 }
 .ag-community-gallery-card img {
   width: 100%;
-  height: 130px;
+  height: 105px;
   object-fit: cover;
   display: block;
 }
@@ -547,12 +524,12 @@ a {
   overflow: hidden;
 }
 .ag-recipe-of-week img {
-  width: 320px;
+  width: 240px;
   object-fit: cover;
   flex-shrink: 0;
 }
 .ag-recipe-of-week-body {
-  padding: 1.5rem 1.5rem 1.5rem 0;
+  padding: 1.1rem 1.25rem 1.1rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -575,7 +552,7 @@ a {
 .ag-quote-banner {
   background-color: var(--ag-green-dark);
   color: var(--ag-white);
-  padding: 2.5rem 0;
+  padding: 1.75rem 0;
 }
 .ag-quote-banner-inner {
   text-align: center;

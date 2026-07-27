@@ -6,34 +6,18 @@
 {% block meta_keywords %}UK Goan, Goan, Goa, Goan NRI, NRI, Ami Goans, Goan community UK, Goan business directory, Goan events UK{% endblock %}
 
 {% block content %}
-<section class="ag-hero-full">
-  <div class="ag-hero-slides" aria-hidden="true">
-    {% for image in [
-      "hero-colva-church.jpg",
-      "hero-vagator-beach.jpg",
-      "our-history-bom-jesus.jpg",
-      "culture-dekhni-dance.jpg",
-    ] %}
-      <div class="ag-hero-slide {{ 'active' if loop.first else '' }}"
-           style="background-image: url('{{ url_for('static', filename='images/heritage/' ~ image) }}');"></div>
-    {% endfor %}
-  </div>
+<section class="ag-hero-full" style="background-image: url('{{ url_for('static', filename='images/amigoans-global-hero.webp') }}');">
   <div class="ag-hero-full-overlay"></div>
 
   <div class="container ag-hero-full-content">
-    <p class="ag-hero-eyebrow">Welcome Home,</p>
+    <p class="ag-hero-eyebrow">Welcome Home</p>
     {% if current_user.is_authenticated %}
       <h1 class="ag-heading-serif ag-hero-full-heading">{{ current_user.display_name }} {{ icon("heart", class="ag-hero-heart") }}</h1>
     {% else %}
-      <h1 class="ag-heading-serif ag-hero-full-heading">Ami Goans {{ icon("heart", class="ag-hero-heart") }}</h1>
+      <h1 class="ag-heading-serif ag-hero-full-heading">A Global Home for Every Goan</h1>
     {% endif %}
-    <p class="ag-hero-full-motto">Connect. Celebrate. Preserve.</p>
-    <p class="ag-hero-full-lead">Your global Goan community &mdash; all on one platform.</p>
-
-    {% if not current_user.is_authenticated %}
-      <h2 class="ag-heading-serif ag-hero-cta-heading">Be Part of Something Beautiful</h2>
-      <p class="ag-hero-full-lead">Join Ami Goans today and stay connected to your roots, your people and your heritage.</p>
-    {% endif %}
+    <p class="ag-hero-full-lead">Wherever life has taken you, Ami Goans brings our global community together to celebrate our culture, share our stories, support one another, and preserve our heritage for generations to come.</p>
+    <p class="ag-hero-full-tagline">Everything Goan, all in one place.</p>
 
     {% if config.DEBUG %}
       <div class="ag-hero-avatars">
