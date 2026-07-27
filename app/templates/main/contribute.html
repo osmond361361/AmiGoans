@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Contribute{% endblock %}
+{% block meta_description %}Share your stories, photos, recipes and ideas with the Ami Goans community.{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Contribute to Ami Goans</h1>
+      <p>Thanks for wanting to share with the community, {{ current_user.display_name }}! Story, photo, recipe and idea submissions are coming in a later stage &mdash; check back soon.</p>
+      <a class="btn ag-btn-primary" href="{{ url_for('main.home') }}">Back to Home</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

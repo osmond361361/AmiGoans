@@ -302,7 +302,8 @@ a {
   color: var(--ag-white);
   background-size: cover;
   background-position: center;
-  border-radius: 0 0 28px 28px;
+  border-radius: 28px;
+  margin-top: 0.75rem;
 }
 
 .ag-hero-full-overlay {
@@ -325,11 +326,14 @@ a {
 }
 
 .ag-hero-full-heading {
+  font-family: var(--ag-font-script);
   color: var(--ag-white);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
 }
 
 .ag-hero-heart {
@@ -546,6 +550,71 @@ a {
   color: var(--ag-green-dark);
   font-size: 1.4rem;
   margin: 0.3rem 0 0.5rem;
+}
+
+/* Contribute */
+.ag-contribute-card {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ag-contribute-text {
+  flex: 0 0 260px;
+}
+.ag-contribute-text h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.ag-contribute-text p {
+  font-size: 0.88rem;
+  color: var(--ag-muted);
+  margin-bottom: 0.4rem;
+}
+.ag-contribute-text .btn {
+  margin-top: 0.5rem;
+}
+.ag-contribute-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  min-width: 280px;
+}
+.ag-contribute-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
+  padding: 0 0.5rem;
+  border-left: 1px solid var(--ag-border);
+}
+.ag-contribute-item:first-child {
+  border-left: none;
+}
+.ag-contribute-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(61, 111, 165, 0.12);
+  color: #3d6fa5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.ag-contribute-icon-warning {
+  background-color: rgba(224, 82, 74, 0.12);
+  color: #e0524a;
+}
+.ag-contribute-item strong {
+  font-size: 0.82rem;
+  color: var(--ag-text);
+}
+.ag-contribute-item span:last-child {
+  font-size: 0.72rem;
+  color: var(--ag-muted);
 }
 
 /* Quote + stats banner */
@@ -1483,6 +1552,13 @@ a {
   }
   .ag-recipe-of-week-body {
     padding: 1.25rem;
+  }
+  .ag-contribute-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem 0.5rem;
+  }
+  .ag-contribute-item {
+    border-left: none;
   }
 }
 

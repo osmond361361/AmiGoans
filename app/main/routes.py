@@ -1,4 +1,5 @@
 from flask import flash, redirect, render_template, request, url_for
+from flask_login import login_required
 
 from app.extensions import db
 from app.main import main_bp
@@ -14,6 +15,12 @@ def home():
 @main_bp.route("/about")
 def about():
     return render_template("main/about.html")
+
+
+@main_bp.route("/contribute")
+@login_required
+def contribute():
+    return render_template("main/contribute.html")
 
 
 @main_bp.route("/motto")

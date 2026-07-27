@@ -38,7 +38,7 @@ def test_404_page(client):
     assert b"Page Not Found" in response.data
 
 
-@pytest.mark.parametrize("path", ["/businesses/add", "/jobs/add"])
+@pytest.mark.parametrize("path", ["/businesses/add", "/jobs/add", "/contribute"])
 def test_add_routes_require_login(client, path):
     response = client.get(path)
     assert response.status_code == 302

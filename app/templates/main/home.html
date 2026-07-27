@@ -166,6 +166,46 @@
   </div>
 </section>
 
+<section class="ag-section ag-section-cream" aria-label="Contribute">
+  <div class="container">
+    <div class="ag-contribute-card">
+      <div class="ag-contribute-text">
+        <h2 class="ag-heading-serif">Share. Preserve. Inspire.</h2>
+        <p>Help us build the world's biggest digital home for Goans.</p>
+        <p>Share your stories, old photos, family recipes, memories and ideas. Together, we preserve our legacy for generations to come.</p>
+        <a class="btn ag-btn-primary" href="{{ url_for('main.contribute') if current_user.is_authenticated else url_for('auth.sign_in', next=url_for('main.contribute')) }}">Contribute Now</a>
+      </div>
+      <div class="ag-contribute-grid">
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("edit") }}</span>
+          <strong>Share a Story</strong>
+          <span>Your memories matter</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("photo") }}</span>
+          <strong>Share Photos</strong>
+          <span>Old pictures. Timeless treasures.</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("restaurant") }}</span>
+          <strong>Share a Recipe</strong>
+          <span>From our kitchen to yours</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("idea") }}</span>
+          <strong>Share an Idea</strong>
+          <span>Help us make Ami Goans better</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon ag-contribute-icon-warning">{{ icon("report") }}</span>
+          <strong>Report an Issue</strong>
+          <span>Help us keep the community safe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="ag-quote-banner">
   <div class="container ag-quote-banner-inner">
     <blockquote class="ag-quote">
