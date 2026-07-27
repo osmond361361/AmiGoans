@@ -326,6 +326,12 @@ a {
   font-size: 1.05rem;
 }
 
+.ag-why-join-emoji {
+  flex-shrink: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
 .ag-hero-panel {
   position: relative;
   overflow: hidden;
