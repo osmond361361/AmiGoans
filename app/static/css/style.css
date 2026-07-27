@@ -328,7 +328,7 @@ a {
 
 .ag-hero-full-heading {
   font-family: var(--ag-font-script);
-  color: var(--ag-white);
+  color: var(--ag-gold);
   font-weight: 600;
   font-size: clamp(2.4rem, 6vw, 3.6rem);
   display: flex;
