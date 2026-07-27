@@ -103,7 +103,47 @@
   </div>
 </section>
 
-<section class="ag-section ag-section-cream" id="explore-community" aria-label="Explore our community">
+<section class="ag-section ag-section-cream" aria-label="Contribute">
+  <div class="container">
+    <div class="ag-contribute-card">
+      <div class="ag-contribute-text">
+        <h2 class="ag-heading-serif">Share. Preserve. Inspire.</h2>
+        <p>Help us build the world's biggest digital home for Goans.</p>
+        <p>Share your stories, old photos, family recipes, memories and ideas. Together, we preserve our legacy for generations to come.</p>
+        <a class="btn ag-btn-primary" href="{{ url_for('main.contribute') if current_user.is_authenticated else url_for('auth.sign_in', next=url_for('main.contribute')) }}">Contribute Now</a>
+      </div>
+      <div class="ag-contribute-grid">
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("edit") }}</span>
+          <strong>Share a Story</strong>
+          <span>Your memories matter</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("photo") }}</span>
+          <strong>Share Photos</strong>
+          <span>Old pictures. Timeless treasures.</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("restaurant") }}</span>
+          <strong>Share a Recipe</strong>
+          <span>From our kitchen to yours</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon">{{ icon("idea") }}</span>
+          <strong>Share an Idea</strong>
+          <span>Help us make Ami Goans better</span>
+        </div>
+        <div class="ag-contribute-item">
+          <span class="ag-contribute-icon ag-contribute-icon-warning">{{ icon("report") }}</span>
+          <strong>Report an Issue</strong>
+          <span>Help us keep the community safe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ag-section" id="explore-community" aria-label="Explore our community">
   <div class="container">
     <h2 class="ag-heading-serif ag-section-heading ag-text-center">Explore Our Community</h2>
     <div class="ag-community-gallery">
@@ -152,54 +192,34 @@
   </div>
 </section>
 
-<section class="ag-section" aria-label="Recipe of the week">
+<section class="ag-section ag-section-cream" aria-label="Featured story, recipe and video">
   <div class="container">
-    <div class="ag-card ag-recipe-of-week">
-      <img src="{{ url_for('static', filename='images/heritage/food-vindaloo.jpg') }}" alt="Goan pork vindaloo">
-      <div class="ag-recipe-of-week-body">
-        <span class="ag-recipe-of-week-eyebrow">Recipe of the Week</span>
-        <h3>Chicken Vindaloo</h3>
-        <p>A fiery Goan curry of Portuguese origin, traditionally marinated in vinegar and garlic and cooked in a spicy chilli paste &mdash; tangier and more complex than the British curry-house version it inspired.</p>
-        <a class="ag-view-all" href="{{ url_for('heritage.cuisine') }}#vindaloo">View Recipe {{ icon("chevron-right") }}</a>
+    <div class="ag-featured-grid">
+      <div class="ag-card ag-featured-card">
+        <img src="{{ url_for('static', filename='images/heritage/hero-vagator-beach.jpg') }}" alt="">
+        <div class="ag-featured-card-body">
+          <span class="ag-featured-card-eyebrow">Featured Story</span>
+          <h3>Goan Migration to Britain</h3>
+          <p>Early seafaring Goans settling in London from the mid-19th century, waves from East Africa in the 1960s&ndash;70s, and generations since &mdash; the many journeys that built the UK Goan community.</p>
+          <a class="ag-view-all" href="{{ url_for('heritage.index') }}">Read Story {{ icon("chevron-right") }}</a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="ag-section ag-section-cream" aria-label="Contribute">
-  <div class="container">
-    <div class="ag-contribute-card">
-      <div class="ag-contribute-text">
-        <h2 class="ag-heading-serif">Share. Preserve. Inspire.</h2>
-        <p>Help us build the world's biggest digital home for Goans.</p>
-        <p>Share your stories, old photos, family recipes, memories and ideas. Together, we preserve our legacy for generations to come.</p>
-        <a class="btn ag-btn-primary" href="{{ url_for('main.contribute') if current_user.is_authenticated else url_for('auth.sign_in', next=url_for('main.contribute')) }}">Contribute Now</a>
+      <div class="ag-card ag-featured-card">
+        <img src="{{ url_for('static', filename='images/heritage/food-vindaloo.jpg') }}" alt="Goan pork vindaloo">
+        <div class="ag-featured-card-body">
+          <span class="ag-featured-card-eyebrow">Recipe of the Week</span>
+          <h3>Chicken Vindaloo</h3>
+          <p>A fiery Goan curry of Portuguese origin, traditionally marinated in vinegar and garlic and cooked in a spicy chilli paste &mdash; tangier than the British curry-house version it inspired.</p>
+          <a class="ag-view-all" href="{{ url_for('heritage.cuisine') }}#vindaloo">View Recipe {{ icon("chevron-right") }}</a>
+        </div>
       </div>
-      <div class="ag-contribute-grid">
-        <div class="ag-contribute-item">
-          <span class="ag-contribute-icon">{{ icon("edit") }}</span>
-          <strong>Share a Story</strong>
-          <span>Your memories matter</span>
-        </div>
-        <div class="ag-contribute-item">
-          <span class="ag-contribute-icon">{{ icon("photo") }}</span>
-          <strong>Share Photos</strong>
-          <span>Old pictures. Timeless treasures.</span>
-        </div>
-        <div class="ag-contribute-item">
-          <span class="ag-contribute-icon">{{ icon("restaurant") }}</span>
-          <strong>Share a Recipe</strong>
-          <span>From our kitchen to yours</span>
-        </div>
-        <div class="ag-contribute-item">
-          <span class="ag-contribute-icon">{{ icon("idea") }}</span>
-          <strong>Share an Idea</strong>
-          <span>Help us make Ami Goans better</span>
-        </div>
-        <div class="ag-contribute-item">
-          <span class="ag-contribute-icon ag-contribute-icon-warning">{{ icon("report") }}</span>
-          <strong>Report an Issue</strong>
-          <span>Help us keep the community safe</span>
+      <div class="ag-card ag-featured-card">
+        <img src="https://img.youtube.com/vi/MC5cXy76bto/hqdefault.jpg" alt="Goa Day London 2025">
+        <div class="ag-featured-card-body">
+          <span class="ag-featured-card-eyebrow">Featured Video</span>
+          <h3>Goa Day London 2025</h3>
+          <p>Highlights from the annual UK Goan Festival at Cranford Community College, Hounslow &mdash; music, dance and the community coming together.</p>
+          <a class="ag-view-all" href="{{ url_for('videos.index') }}">Watch Video {{ icon("chevron-right") }}</a>
         </div>
       </div>
     </div>
