@@ -30,6 +30,11 @@
     <p class="ag-hero-full-motto">Connect. Celebrate. Preserve.</p>
     <p class="ag-hero-full-lead">Your global Goan community &mdash; all on one platform.</p>
 
+    {% if not current_user.is_authenticated %}
+      <h2 class="ag-heading-serif ag-hero-cta-heading">Be Part of Something Beautiful</h2>
+      <p class="ag-hero-full-lead">Join Ami Goans today and stay connected to your roots, your people and your heritage.</p>
+    {% endif %}
+
     {% if config.DEBUG %}
       <div class="ag-hero-avatars">
         <span class="ag-hero-avatar-stack" aria-hidden="true">
@@ -211,19 +216,4 @@
     {% endif %}
   </div>
 </section>
-
-{% if not current_user.is_authenticated %}
-<section class="ag-cta-banner">
-  <div class="container ag-cta-banner-inner">
-    <div class="ag-cta-banner-text">
-      <h2 class="ag-heading-serif">Be Part of Something Beautiful</h2>
-      <p>Join Ami Goans today and stay connected to your roots, your people and your heritage.</p>
-    </div>
-    <div class="ag-cta-banner-buttons">
-      <a class="btn ag-btn-primary" href="{{ url_for('auth.join') }}">Join Now &mdash; It's Free</a>
-      <a class="btn ag-btn-outline-light" href="{{ url_for('auth.sign_in') }}">Login</a>
-    </div>
-  </div>
-</section>
-{% endif %}
 {% endblock %}

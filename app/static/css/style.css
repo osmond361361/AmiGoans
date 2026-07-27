@@ -366,6 +366,13 @@ a {
   font-size: 1.05rem;
 }
 
+.ag-hero-cta-heading {
+  color: var(--ag-white);
+  font-size: 1.5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.3rem;
+}
+
 .ag-hero-avatars {
   display: flex;
   align-items: center;
@@ -624,42 +631,6 @@ a {
   font-family: var(--ag-font-heading);
   font-size: 1.5rem;
   color: var(--ag-white);
-}
-
-/* CTA banner */
-.ag-cta-banner {
-  background-color: var(--ag-orange);
-  color: var(--ag-white);
-  padding: 2rem 0;
-}
-.ag-cta-banner-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.ag-cta-banner-text h2 {
-  color: var(--ag-white);
-  font-size: 1.6rem;
-  margin-bottom: 0.3rem;
-}
-.ag-cta-banner-text p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.9);
-}
-.ag-cta-banner-buttons {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-.ag-cta-banner .ag-btn-primary {
-  background-color: var(--ag-green-dark);
-  border-color: var(--ag-green-dark);
-}
-.ag-cta-banner .ag-btn-primary:hover {
-  background-color: var(--ag-green);
-  border-color: var(--ag-green);
 }
 
 /* Generic sections */
@@ -1557,9 +1528,5 @@ a {
   }
   .ag-community-gallery {
     grid-template-columns: 1fr 1fr;
-  }
-  .ag-cta-banner-inner {
-    text-align: center;
-    justify-content: center;
   }
 }
