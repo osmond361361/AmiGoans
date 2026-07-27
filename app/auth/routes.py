@@ -64,27 +64,30 @@ def sign_out():
     return redirect(url_for("main.home"))
 
 
-def find_or_create_oauth_user(provider, provider_id, email, display_name):
+def find_or_create_oauth_user(provider, provider_id, email, display_name, picture_url=None):
     user = User.query.filter_by(oauth_provider=provider, oauth_id=provider_id).first()
-    if user:
-        return user
 
-    # An account with this email already exists (e.g. created with a
-    # password) - link this provider to it rather than erroring.
-    user = User.query.filter_by(email=email).first()
-    if user:
-        user.oauth_provider = provider
-        user.oauth_id = provider_id
-        db.session.commit()
-        return user
+    if user is None:
+        # An account with this email already exists (e.g. created with a
+        # password) - link this provider to it rather than erroring.
+        user = User.query.filter_by(email=email).first()
+        if user:
+            user.oauth_provider = provider
+            user.oauth_id = provider_id
+        else:
+            user = User(
+                email=email,
+                display_name=display_name,
+                oauth_provider=provider,
+                oauth_id=provider_id,
+            )
+            db.session.add(user)
 
-    user = User(
-        email=email,
-        display_name=display_name,
-        oauth_provider=provider,
-        oauth_id=provider_id,
-    )
-    db.session.add(user)
+    # Keep the provider's photo fresh on every login (harmless if a custom
+    # upload takes display priority - see User.avatar_url).
+    if picture_url:
+        user.oauth_picture_url = picture_url
+
     db.session.commit()
     return user
 
@@ -112,6 +115,7 @@ def google_callback():
         provider_id=userinfo["sub"],
         email=userinfo["email"].lower().strip(),
         display_name=userinfo.get("name") or userinfo["email"],
+        picture_url=userinfo.get("picture"),
     )
     login_user(user)
     flash(f"Welcome, {user.display_name}!", "success")
@@ -130,7 +134,7 @@ def facebook_login():
 @auth_bp.route("/facebook/callback")
 def facebook_callback():
     token = oauth.facebook.authorize_access_token()
-    profile = oauth.facebook.get("me?fields=id,name,email", token=token).json()
+    profile = oauth.facebook.get("me?fields=id,name,email,picture.type(large)", token=token).json()
 
     if not profile.get("email"):
         flash(
@@ -139,11 +143,14 @@ def facebook_callback():
         )
         return redirect(url_for("auth.sign_in"))
 
+    picture_url = (profile.get("picture") or {}).get("data", {}).get("url")
+
     user = find_or_create_oauth_user(
         provider="facebook",
         provider_id=profile["id"],
         email=profile["email"].lower().strip(),
         display_name=profile.get("name") or profile["email"],
+        picture_url=picture_url,
     )
     login_user(user)
     flash(f"Welcome, {user.display_name}!", "success")

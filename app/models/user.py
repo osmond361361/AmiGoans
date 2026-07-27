@@ -16,11 +16,31 @@ class User(UserMixin, db.Model):
 
     oauth_provider = db.Column(db.String(20), nullable=True)
     oauth_id = db.Column(db.String(255), nullable=True)
+    oauth_picture_url = db.Column(db.String(500), nullable=True)
+
+    profile_photo = db.Column(db.String(255), nullable=True)
+    phone_number = db.Column(db.String(30), nullable=True)
+    sms_marketing_consent = db.Column(db.Boolean, nullable=False, default=False)
+    sms_consent_at = db.Column(db.DateTime(timezone=True), nullable=True)
 
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
     created_at = db.Column(
         db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc)
     )
+    updated_at = db.Column(
+        db.DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
+    )
+
+    @property
+    def avatar_url(self):
+        if self.profile_photo:
+            from flask import url_for
+
+            return url_for("static", filename=f"uploads/profiles/{self.profile_photo}")
+        return self.oauth_picture_url
 
     __table_args__ = (
         db.UniqueConstraint("oauth_provider", "oauth_id", name="uq_user_oauth_identity"),

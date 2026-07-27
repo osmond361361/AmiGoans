@@ -250,6 +250,12 @@ a {
   font-size: 1.6rem;
   color: var(--ag-green);
 }
+.ag-account-avatar {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .ag-account-btn:hover {
   border-color: var(--ag-teal);
 }
@@ -915,6 +921,27 @@ a {
   margin-top: 1.25rem;
   margin-bottom: 0;
   font-size: 0.95rem;
+}
+
+.ag-profile-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.ag-profile-photo-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--ag-border);
+}
+.ag-profile-photo-placeholder {
+  background-color: var(--ag-cream);
+}
+.ag-profile-photo-field {
+  flex: 1;
 }
 
 /* Footer */
