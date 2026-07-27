@@ -11,6 +11,7 @@ def test_home_page_loads(client):
     "path",
     [
         "/about",
+        "/motto",
         "/contact",
         "/legal",
         "/auth/sign-in",
