@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from flask import Flask, render_template
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from app.extensions import csrf, db, login_manager, migrate, oauth
+from app.extensions import csrf, db, login_manager, mail, migrate, oauth
 from config import config
 
 
@@ -22,6 +22,7 @@ def create_app(config_name="default"):
     login_manager.init_app(app)
     csrf.init_app(app)
     oauth.init_app(app)
+    mail.init_app(app)
 
     from app import models  # noqa: F401  (registers models with SQLAlchemy metadata)
 

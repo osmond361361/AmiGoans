@@ -17,3 +17,15 @@ class SignInForm(FlaskForm):
     email = StringField("Email", validators=[DataRequired(), Email(), Length(max=255)])
     password = PasswordField("Password", validators=[DataRequired()])
     remember_me = BooleanField("Remember Me")
+
+
+class ForgotPasswordForm(FlaskForm):
+    email = StringField("Email", validators=[DataRequired(), Email(), Length(max=255)])
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField("New Password", validators=[DataRequired(), Length(min=8, max=128)])
+    confirm_password = PasswordField(
+        "Confirm New Password",
+        validators=[DataRequired(), EqualTo("password", message="Passwords must match.")],
+    )
