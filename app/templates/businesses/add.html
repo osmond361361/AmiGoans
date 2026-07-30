@@ -6,7 +6,13 @@
   <div class="container ag-narrow">
     <div class="ag-card ag-auth-card">
       <h1 class="ag-heading-serif">Add Your Business</h1>
-      <p>The business submission form is coming in a later stage. Once it's live, you'll need an Ami Goans account to list a business here.</p>
+      <p>Tell us about your business. Once submitted, it will be reviewed by an admin before it appears in the directory.</p>
+
+      <form method="POST" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        {% include "businesses/_business_form_fields.html" %}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit for Approval</button>
+      </form>
     </div>
   </div>
 </section>

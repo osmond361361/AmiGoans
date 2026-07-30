@@ -1290,6 +1290,23 @@ a {
   background-color: #c62828;
   color: var(--ag-white);
 }
+.ag-badge-inline {
+  position: static;
+  display: inline-block;
+}
+.ag-badge-status-pending {
+  background-color: var(--ag-gold);
+  color: var(--ag-text);
+}
+.ag-badge-status-approved {
+  background-color: var(--ag-green);
+  color: var(--ag-white);
+}
+.ag-badge-status-rejected,
+.ag-badge-status-suspended {
+  background-color: #b3261e;
+  color: var(--ag-white);
+}
 
 /* Business cards */
 .ag-business-grid {
@@ -1307,10 +1324,20 @@ a {
   display: flex;
   flex-direction: column;
 }
+a.ag-business-card,
+a.ag-business-card:hover {
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow 0.15s ease;
+}
+a.ag-business-card:hover {
+  box-shadow: 0 6px 24px rgba(65, 77, 56, 0.16);
+}
 .ag-business-card-image {
   width: 100%;
   height: 120px;
   object-fit: cover;
+  background-color: var(--ag-border);
 }
 .ag-business-card-compact .ag-business-card-image {
   height: 90px;

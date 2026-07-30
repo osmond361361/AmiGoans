@@ -1,0 +1,23 @@
+{% from "components/_form_field.html" import field, select_field %}
+
+<h2 class="h5 mt-4">About Your Business</h2>
+{{ field(form.name) }}
+{{ field(form.description, rows=5) }}
+{{ select_field(form.category) }}
+
+<h2 class="h5 mt-4">Location</h2>
+{{ field(form.town) }}
+{{ field(form.county) }}
+{{ select_field(form.nation) }}
+{{ field(form.postcode_district) }}
+
+<h2 class="h5 mt-4">Contact Details</h2>
+{{ field(form.telephone, placeholder="07700 900123") }}
+{{ field(form.whatsapp, placeholder="07700 900123") }}
+{{ field(form.email) }}
+{{ field(form.website, placeholder="https://") }}
+{{ field(form.facebook_url, placeholder="https://facebook.com/yourpage") }}
+
+<h2 class="h5 mt-4">Images</h2>
+{{ field(form.logo) }}
+{{ field(form.cover_image) }}

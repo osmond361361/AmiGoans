@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Access Denied{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow text-center">
+    <h1 class="ag-heading-serif">Access Denied</h1>
+    <p>You don't have permission to view this page.</p>
+    <a class="btn ag-btn-primary" href="{{ url_for('main.home') }}">Back to Home</a>
+  </div>
+</section>
+{% endblock %}

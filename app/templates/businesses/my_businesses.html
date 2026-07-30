@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}My Businesses{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">My Businesses</h1>
+      <a class="btn ag-btn-primary" href="{{ url_for('businesses.add') }}">Add Another Business</a>
+    </div>
+
+    {% if listings %}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for business in listings %}
+            <tr>
+              <td>{{ business.name }}</td>
+              <td>{{ business.category }}</td>
+              <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ business.status }}">{{ business.status|capitalize }}</span></td>
+              <td>{{ business.created_at.strftime("%d %b %Y") }}</td>
+              <td>
+                {% if business.status == "approved" %}
+                  <a href="{{ url_for('businesses.detail', slug=business.slug) }}">View</a> &middot;
+                {% endif %}
+                <a href="{{ url_for('businesses.edit', slug=business.slug) }}">Edit</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="ag-empty-state">You haven't listed a business yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% macro field(bound_field) %}
+  <div class="mb-3">
+    {{ bound_field.label(class="form-label") }}
+    {{ bound_field(class="form-control" + (" is-invalid" if bound_field.errors else ""), **kwargs) }}
+    {% if bound_field.description %}
+      <div class="form-text">{{ bound_field.description }}</div>
+    {% endif %}
+    {% for error in bound_field.errors %}
+      <div class="invalid-feedback">{{ error }}</div>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro select_field(bound_field) %}
+  <div class="mb-3">
+    {{ bound_field.label(class="form-label") }}
+    {{ bound_field(class="form-select" + (" is-invalid" if bound_field.errors else "")) }}
+    {% for error in bound_field.errors %}
+      <div class="invalid-feedback">{{ error }}</div>
+    {% endfor %}
+  </div>
+{% endmacro %}

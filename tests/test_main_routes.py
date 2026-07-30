@@ -24,7 +24,6 @@ def test_home_page_loads(client):
         "/heritage/cuisine",
         "/tv/",
         "/jobs/",
-        "/admin/",
     ],
 )
 def test_nav_pages_load(client, path):
@@ -38,7 +37,7 @@ def test_404_page(client):
     assert b"Page Not Found" in response.data
 
 
-@pytest.mark.parametrize("path", ["/businesses/add", "/jobs/add", "/contribute"])
+@pytest.mark.parametrize("path", ["/businesses/add", "/jobs/add", "/contribute", "/admin/"])
 def test_add_routes_require_login(client, path):
     response = client.get(path)
     assert response.status_code == 302

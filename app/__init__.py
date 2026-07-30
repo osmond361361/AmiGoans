@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 
 from flask import Flask, render_template
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from app.extensions import csrf, db, login_manager, migrate, oauth
 from config import config
@@ -9,6 +10,12 @@ from config import config
 def create_app(config_name="default"):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
+
+    # Production runs behind Nginx, so without this every request's
+    # remote_addr would be Nginx's own loopback address, not the visitor's
+    # real IP -- Nginx must also be configured to set X-Forwarded-For
+    # (standard for a reverse-proxied Gunicorn app).
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
 
     db.init_app(app)
     migrate.init_app(app, db)
@@ -23,6 +30,11 @@ def create_app(config_name="default"):
     register_context_processors(app)
     register_login_manager(app)
     register_oauth_clients(app)
+    register_request_logging(app)
+
+    from app.cli import register_cli_commands
+
+    register_cli_commands(app)
 
     return app
 
@@ -45,6 +57,35 @@ def register_login_manager(app):
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
+
+
+def register_request_logging(app):
+    @app.before_request
+    def log_site_visit():
+        from flask import request
+        from flask_login import current_user
+
+        from app.extensions import db
+        from app.models import SiteVisit
+
+        if request.path.startswith("/static/"):
+            return
+
+        try:
+            db.session.add(
+                SiteVisit(
+                    path=request.path[:500],
+                    ip_address=request.remote_addr or "unknown",
+                    user_agent=(request.user_agent.string or "")[:500],
+                    user_id=current_user.id if current_user.is_authenticated else None,
+                )
+            )
+            db.session.commit()
+        except Exception:
+            # A logging failure must never break the actual page the
+            # visitor requested.
+            db.session.rollback()
+            app.logger.exception("Failed to record site visit")
 
 
 def register_oauth_clients(app):
@@ -92,6 +133,10 @@ def register_blueprints(app):
 
 
 def register_error_handlers(app):
+    @app.errorhandler(403)
+    def forbidden(error):
+        return render_template("errors/403.html"), 403
+
     @app.errorhandler(404)
     def not_found(error):
         return render_template("errors/404.html"), 404

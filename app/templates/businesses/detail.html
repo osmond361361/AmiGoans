@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% from "components/_icons.html" import icon %}
+{% block title %}{{ business.name }}{% endblock %}
+{% block meta_description %}{{ business.description[:150] }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    {% if business.status != "approved" %}
+      <p class="ag-empty-state">
+        This listing is <strong>{{ business.status }}</strong> and only visible to you and admins &mdash;
+        it isn't public yet.
+      </p>
+    {% endif %}
+
+    {% if business.cover_image %}
+      <img src="{{ url_for('static', filename='uploads/business-covers/' ~ business.cover_image) }}"
+           alt="" class="img-fluid rounded mb-3 w-100">
+    {% endif %}
+
+    <div class="d-flex align-items-center gap-3 mb-2">
+      {% if business.logo %}
+        <img src="{{ url_for('static', filename='uploads/business-logos/' ~ business.logo) }}"
+             alt="" class="rounded" style="width: 72px; height: 72px; object-fit: cover;">
+      {% endif %}
+      <div>
+        <span class="ag-business-card-category">{{ business.category }}</span>
+        <h1 class="ag-heading-serif mb-0">{{ business.name }}</h1>
+      </div>
+    </div>
+
+    <p class="ag-business-card-location">
+      {{ icon("pin") }} {{ business.town }}{% if business.county %}, {{ business.county }}{% endif %}, {{ business.nation }}
+    </p>
+
+    <p>{{ business.description }}</p>
+
+    <ul class="list-unstyled">
+      {% if business.telephone %}<li>{{ icon("phone") }} {{ business.telephone }}</li>{% endif %}
+      {% if business.whatsapp %}<li>WhatsApp: {{ business.whatsapp }}</li>{% endif %}
+      {% if business.email %}<li>{{ icon("mail") }} <a href="mailto:{{ business.email }}">{{ business.email }}</a></li>{% endif %}
+      {% if business.website %}<li>{{ icon("globe") }} <a href="{{ business.website }}" target="_blank" rel="noopener">{{ business.website }}</a></li>{% endif %}
+      {% if business.facebook_url %}<li><a href="{{ business.facebook_url }}" target="_blank" rel="noopener">Facebook Page</a></li>{% endif %}
+    </ul>
+  </div>
+</section>
+{% endblock %}
