@@ -4,7 +4,7 @@ from flask_login import login_required
 from app.extensions import db
 from app.main import main_bp
 from app.main.forms import NewsletterForm
-from app.models import NewsletterSubscriber
+from app.models import NewsletterSubscriber, Page
 
 
 @main_bp.route("/")
@@ -14,7 +14,7 @@ def home():
 
 @main_bp.route("/about")
 def about():
-    return render_template("main/about.html")
+    return render_template("main/about.html", page=Page.query.filter_by(slug="about").first())
 
 
 @main_bp.route("/contribute")
@@ -25,17 +25,28 @@ def contribute():
 
 @main_bp.route("/motto")
 def motto():
-    return render_template("main/motto.html")
+    return render_template("main/motto.html", page=Page.query.filter_by(slug="motto").first())
 
 
 @main_bp.route("/contact")
 def contact():
-    return render_template("main/contact.html")
+    return render_template("main/contact.html", page=Page.query.filter_by(slug="contact").first())
 
 
 @main_bp.route("/legal")
 def legal():
-    return render_template("main/legal.html")
+    pages = {
+        page.slug: page
+        for page in Page.query.filter(
+            Page.slug.in_(["privacy-policy", "terms-conditions", "community-guidelines"])
+        ).all()
+    }
+    return render_template(
+        "main/legal.html",
+        privacy_page=pages.get("privacy-policy"),
+        terms_page=pages.get("terms-conditions"),
+        guidelines_page=pages.get("community-guidelines"),
+    )
 
 
 @main_bp.route("/subscribe", methods=["POST"])

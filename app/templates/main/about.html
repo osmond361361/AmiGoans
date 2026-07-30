@@ -3,8 +3,8 @@
 {% block content %}
 <section class="ag-section">
   <div class="container ag-narrow">
-    <h1 class="ag-heading-serif">About Ami Goans</h1>
-    <p>Ami Goans is a community platform for UK Goans, connecting people, supporting Goan-owned businesses and celebrating our shared heritage.</p>
+    <h1 class="ag-heading-serif">{{ page.title }}</h1>
+    {{ page.content_html | safe }}
   </div>
 </section>
 {% endblock %}

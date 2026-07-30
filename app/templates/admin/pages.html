@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Admin &middot; Pages{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <h1 class="ag-heading-serif">Manage Pages</h1>
+    <p>Edit the text shown on these site pages.</p>
+
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Last Updated</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for page in listings %}
+          <tr>
+            <td>{{ page.title }}</td>
+            <td>{{ page.updated_at.strftime("%d %b %Y %H:%M") }}</td>
+            <td><a href="{{ url_for('admin.edit_page', slug=page.slug) }}">Edit</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -5,9 +5,12 @@
   <div class="container">
     <div class="ag-section-heading-row">
       <h1 class="ag-heading-serif">Admin Dashboard</h1>
-      <a class="btn ag-btn-primary" href="{{ url_for('admin.businesses') }}">
-        Manage Businesses{% if pending_businesses %} ({{ pending_businesses }} pending){% endif %}
-      </a>
+      <div class="d-flex gap-2">
+        <a class="btn ag-btn-outline" href="{{ url_for('admin.pages') }}">Manage Pages</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.businesses') }}">
+          Manage Businesses{% if pending_businesses %} ({{ pending_businesses }} pending){% endif %}
+        </a>
+      </div>
     </div>
 
     <div class="row g-3 mb-4">

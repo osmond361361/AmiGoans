@@ -1,0 +1,119 @@
+"""add pages table
+
+Revision ID: 5bf099ccd132
+Revises: f1150266a1a0
+Create Date: 2026-07-30 23:42:24.058598
+
+"""
+from datetime import datetime, timezone
+
+import sqlalchemy as sa
+from alembic import op
+
+# revision identifiers, used by Alembic.
+revision = '5bf099ccd132'
+down_revision = 'f1150266a1a0'
+branch_labels = None
+depends_on = None
+
+
+PAGES_TABLE = sa.table(
+    "pages",
+    sa.column("slug", sa.String),
+    sa.column("title", sa.String),
+    sa.column("content_html", sa.Text),
+    sa.column("updated_at", sa.DateTime),
+)
+
+MOTTO_CONTENT = """<p class="ag-motto-tagline">Bringing Goans Together</p>
+<p>
+  Wherever in the world we've settled, Ami Goans exists to keep the Goan community connected &mdash;
+  to each other, to Goan-owned businesses, to the events and celebrations that bring us together,
+  and to the culture, heritage and traditions passed down to us, so we can pass them on in turn.
+</p>"""
+
+ABOUT_CONTENT = (
+    "<p>Ami Goans is a community platform for UK Goans, connecting people, "
+    "supporting Goan-owned businesses and celebrating our shared heritage.</p>"
+)
+
+CONTACT_CONTENT = (
+    "<p>A contact form will be added in a later stage. "
+    "In the meantime, please check back soon.</p>"
+)
+
+PRIVACY_CONTENT = """<p>Last updated: 31 July 2026.</p>
+<p>Ami Goans ("we", "us") is a community platform for Goans around the world. This policy explains what personal data we collect and how we use it.</p>
+
+<h3>What we collect</h3>
+<ul>
+  <li><strong>Account details:</strong> your name and email address, and a securely hashed password if you sign up directly (we never store your password in plain text).</li>
+  <li><strong>Social sign-in:</strong> if you sign in with Google or Facebook, we receive your name, email address and profile photo from that provider.</li>
+  <li><strong>Profile information:</strong> anything you choose to add to your profile, including an uploaded photo, mobile number, and SMS marketing preference.</li>
+  <li><strong>Newsletter:</strong> your email address, if you subscribe to updates.</li>
+  <li><strong>Server access logs:</strong> every page request is logged with the visiting device's IP address, the page visited, the date/time, and browser information (user agent), for site security and operational purposes. If you're signed in when you visit, that visit is linked to your account.</li>
+</ul>
+
+<h3>How we use it</h3>
+<p>We use your data to run your account, show your profile within the community, and, only with your explicit consent, send SMS offers from Ami Goans or its advertisers. Server access logs are used to keep the site secure (e.g. spotting abuse) and to understand overall traffic to the site. We do not sell your data, and we do not share it with third parties for advertising purposes.</p>
+
+<h3>Cookies and analytics</h3>
+<p>We use one essential cookie to keep you signed in, plus a CSRF security token on forms. We do not use advertising or third-party analytics cookies, and we do not track you across other websites. See the <a href="/legal#cookies">Cookie Policy</a> below for details. Server access logs (above) are a separate, server-side record of requests to our own site &mdash; not a cookie, and not shared with any analytics or advertising company.</p>
+
+<h3>Data retention and your rights</h3>
+<p>We keep your account data for as long as your account is active. Server access logs are kept for up to 12 months and then deleted. You can update your profile at any time from <a href="/members/profile">My Profile</a>. To request a copy of your data, or to have your account and data deleted, email <a href="mailto:customerservices@amigoans.co.uk">customerservices@amigoans.co.uk</a> &mdash; we'll action deletion requests within 30 days.</p>"""
+
+TERMS_CONTENT = """<ul>
+  <li>You must provide accurate information when creating an account or submitting a business, event or job listing.</li>
+  <li>Content you submit (stories, photos, recipes, listings) remains yours &mdash; you grant Ami Goans a licence to display it on the platform. You're responsible for having the right to share anything you post.</li>
+  <li>We may remove content or suspend accounts that violate these terms or our <a href="/legal#guidelines">Community Guidelines</a>.</li>
+  <li>Ami Goans is under active development. Features may change, and the service is provided without warranty while we build it out.</li>
+</ul>"""
+
+GUIDELINES_CONTENT = """<ul>
+  <li>Be respectful. No harassment, hate speech or abuse.</li>
+  <li>Only list real, Goan-owned or Goan-relevant businesses, events and jobs &mdash; no spam or fraudulent listings.</li>
+  <li>Share stories, photos and recipes that are genuinely yours or that you have permission to share.</li>
+  <li>Report anything that concerns you via <a href="/contribute">Contribute</a> or <a href="/contact">Contact Us</a>.</li>
+</ul>"""
+
+
+def upgrade():
+    # ### commands auto generated by Alembic - please adjust! ###
+    op.create_table('pages',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('slug', sa.String(length=50), nullable=False),
+    sa.Column('title', sa.String(length=150), nullable=False),
+    sa.Column('content_html', sa.Text(), nullable=False),
+    sa.Column('updated_at', sa.DateTime(timezone=True), nullable=False),
+    sa.PrimaryKeyConstraint('id')
+    )
+    with op.batch_alter_table('pages', schema=None) as batch_op:
+        batch_op.create_index(batch_op.f('ix_pages_slug'), ['slug'], unique=True)
+
+    # ### end Alembic commands ###
+
+    # Seed with the site's current, already-live wording for each page, so
+    # this deploy changes nothing visually -- only makes the text editable
+    # from the admin dashboard going forward.
+    now = datetime.now(timezone.utc)
+    op.bulk_insert(
+        PAGES_TABLE,
+        [
+            {"slug": "motto", "title": "Our Motto", "content_html": MOTTO_CONTENT, "updated_at": now},
+            {"slug": "about", "title": "About Ami Goans", "content_html": ABOUT_CONTENT, "updated_at": now},
+            {"slug": "contact", "title": "Contact Us", "content_html": CONTACT_CONTENT, "updated_at": now},
+            {"slug": "privacy-policy", "title": "Privacy Policy", "content_html": PRIVACY_CONTENT, "updated_at": now},
+            {"slug": "terms-conditions", "title": "Terms & Conditions", "content_html": TERMS_CONTENT, "updated_at": now},
+            {"slug": "community-guidelines", "title": "Community Guidelines", "content_html": GUIDELINES_CONTENT, "updated_at": now},
+        ],
+    )
+
+
+def downgrade():
+    # ### commands auto generated by Alembic - please adjust! ###
+    with op.batch_alter_table('pages', schema=None) as batch_op:
+        batch_op.drop_index(batch_op.f('ix_pages_slug'))
+
+    op.drop_table('pages')
+    # ### end Alembic commands ###

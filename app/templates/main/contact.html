@@ -3,8 +3,8 @@
 {% block content %}
 <section class="ag-section">
   <div class="container ag-narrow">
-    <h1 class="ag-heading-serif">Contact Us</h1>
-    <p>A contact form will be added in a later stage. In the meantime, please check back soon.</p>
+    <h1 class="ag-heading-serif">{{ page.title }}</h1>
+    {{ page.content_html | safe }}
   </div>
 </section>
 {% endblock %}

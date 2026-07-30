@@ -4,8 +4,9 @@ from flask import abort, flash, redirect, render_template, request, url_for
 
 from app.admin import admin_bp
 from app.admin.decorators import admin_required
+from app.admin.forms import PageForm
 from app.extensions import db
-from app.models import SiteVisit
+from app.models import Page, SiteVisit
 from app.models.business import STATUSES, Business
 
 
@@ -72,3 +73,46 @@ def update_business_status(business_id):
     return redirect(
         url_for("admin.businesses", status=request.form.get("return_status", "pending"))
     )
+
+
+@admin_bp.route("/pages")
+@admin_required
+def pages():
+    listings = Page.query.order_by(Page.title).all()
+    return render_template("admin/pages.html", listings=listings)
+
+
+PAGE_VIEW_URLS = {
+    "motto": "main.motto",
+    "about": "main.about",
+    "contact": "main.contact",
+    "privacy-policy": "main.legal",
+    "terms-conditions": "main.legal",
+    "community-guidelines": "main.legal",
+}
+PAGE_VIEW_ANCHORS = {
+    "privacy-policy": "privacy",
+    "terms-conditions": "terms",
+    "community-guidelines": "guidelines",
+}
+
+
+@admin_bp.route("/pages/<slug>/edit", methods=["GET", "POST"])
+@admin_required
+def edit_page(slug):
+    page = Page.query.filter_by(slug=slug).first_or_404()
+    form = PageForm(obj=page)
+
+    if form.validate_on_submit():
+        page.title = form.title.data.strip()
+        page.content_html = form.content_html.data
+        db.session.commit()
+        flash(f'"{page.title}" has been updated.', "success")
+        return redirect(url_for("admin.pages"))
+
+    view_endpoint = PAGE_VIEW_URLS.get(slug)
+    view_url = url_for(view_endpoint) if view_endpoint else None
+    if view_url and slug in PAGE_VIEW_ANCHORS:
+        view_url += f"#{PAGE_VIEW_ANCHORS[slug]}"
+
+    return render_template("admin/edit_page.html", form=form, page=page, view_url=view_url)
