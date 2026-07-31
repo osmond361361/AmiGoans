@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Admin &middot; Users &amp; Reports{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Users &amp; Reports</h1>
+      <a class="btn ag-btn-outline" href="{{ url_for('admin.index') }}">&larr; Back to Admin Dashboard</a>
+    </div>
+    <p class="text-muted">Individual user and hit details aren't shown on this page &mdash; download a CSV report below for the full detail.</p>
+
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ total_users }}</div>
+          <div class="text-muted small">Registered users</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ new_users_week }}</div>
+          <div class="text-muted small">New users (last 7 days)</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ new_users_month }}</div>
+          <div class="text-muted small">New users (last 30 days)</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ total_hits }}</div>
+          <div class="text-muted small">Total hits (all time)</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ unique_ips }}</div>
+          <div class="text-muted small">Unique IP addresses</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ hits_today }}</div>
+          <div class="text-muted small">Hits today</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ hits_this_week }}</div>
+          <div class="text-muted small">Hits (last 7 days)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ag-card">
+      <h2 class="h4">Download Reports</h2>
+      <p class="text-muted">Optionally filter by registration/visit date, then download the CSV you need.</p>
+      <form method="get" class="row g-3 align-items-end mb-3" id="report-date-range">
+        <div class="col-auto">
+          <label class="form-label" for="report-start">From</label>
+          <input type="date" class="form-control" id="report-start" name="start" value="{{ start }}">
+        </div>
+        <div class="col-auto">
+          <label class="form-label" for="report-end">To</label>
+          <input type="date" class="form-control" id="report-end" name="end" value="{{ end }}">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn ag-btn-outline">Apply Date Range</button>
+        </div>
+      </form>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.users_csv', start=start, end=end) }}">Download Users CSV</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.hits_csv', start=start, end=end) }}">Download Hits CSV</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

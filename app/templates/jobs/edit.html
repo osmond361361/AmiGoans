@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Edit {{ job.title }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Edit {{ job.title }}</h1>
+      <p>
+        Status:
+        <span class="ag-badge ag-badge-inline ag-badge-status-{{ job.status }}">{{ job.status|capitalize }}</span>
+      </p>
+
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {% include "jobs/_job_form_fields.html" %}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Save Changes</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% from "components/_form_field.html" import field %}
+
+{{ field(form.title) }}
+{{ field(form.location) }}
+{{ field(form.job_url, placeholder="https://") }}
+{{ field(form.description, rows=5) }}

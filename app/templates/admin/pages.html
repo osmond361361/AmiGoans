@@ -3,7 +3,10 @@
 {% block content %}
 <section class="ag-section">
   <div class="container">
-    <h1 class="ag-heading-serif">Manage Pages</h1>
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Manage Pages</h1>
+      <a class="btn ag-btn-outline" href="{{ url_for('admin.index') }}">&larr; Back to Admin Dashboard</a>
+    </div>
     <p>Edit the text shown on these site pages.</p>
 
     <div class="table-responsive">

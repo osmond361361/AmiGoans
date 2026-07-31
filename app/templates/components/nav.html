@@ -25,6 +25,15 @@
     {"endpoint": "main.about", "label": "About Ami Goans"},
   ]},
 ] %}
+{% if current_user.is_authenticated and current_user.is_admin %}
+  {% set _ = nav_entries.append({"kind": "dropdown", "label": "Admin", "links": [
+    {"endpoint": "admin.index", "label": "Admin Dashboard"},
+    {"endpoint": "admin.pages", "label": "Manage Pages"},
+    {"endpoint": "admin.businesses", "label": "Manage Businesses"},
+    {"endpoint": "admin.jobs", "label": "Manage Jobs"},
+    {"endpoint": "admin.reports", "label": "Users & Reports"},
+  ]}) %}
+{% endif %}
 
 {% macro entry_href(item) %}{{ url_for(item.endpoint) }}{% if item.anchor %}#{{ item.anchor }}{% endif %}{% endmacro %}
 

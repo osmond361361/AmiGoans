@@ -6,7 +6,13 @@
   <div class="container ag-narrow">
     <div class="ag-card ag-auth-card">
       <h1 class="ag-heading-serif">Add a Job Recommendation</h1>
-      <p>Job posting is coming in a later stage. Once it's live, you'll need an Ami Goans account to share a job with the community.</p>
+      <p>Know of a job that might suit a fellow Goan? Share the link. Once submitted, it will be reviewed by an admin before it appears publicly.</p>
+
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {% include "jobs/_job_form_fields.html" %}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit for Approval</button>
+      </form>
     </div>
   </div>
 </section>

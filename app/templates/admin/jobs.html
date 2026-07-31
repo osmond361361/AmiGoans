@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Admin &middot; Businesses{% endblock %}
+{% block title %}Admin &middot; Jobs{% endblock %}
 {% block content %}
 <section class="ag-section">
   <div class="container">
     <div class="ag-section-heading-row">
-      <h1 class="ag-heading-serif">Manage Businesses</h1>
+      <h1 class="ag-heading-serif">Manage Jobs</h1>
       <a class="btn ag-btn-outline" href="{{ url_for('admin.index') }}">&larr; Back to Admin Dashboard</a>
     </div>
 
@@ -12,12 +12,12 @@
       {% for status in statuses %}
         <li class="nav-item">
           <a class="nav-link {{ 'active' if status_filter == status else '' }}"
-             href="{{ url_for('admin.businesses', status=status) }}">{{ status|capitalize }}</a>
+             href="{{ url_for('admin.jobs', status=status) }}">{{ status|capitalize }}</a>
         </li>
       {% endfor %}
       <li class="nav-item">
         <a class="nav-link {{ 'active' if status_filter == 'all' else '' }}"
-           href="{{ url_for('admin.businesses', status='all') }}">All</a>
+           href="{{ url_for('admin.jobs', status='all') }}">All</a>
       </li>
     </ul>
 
@@ -25,43 +25,41 @@
       <table class="table table-striped align-middle">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Owner</th>
-            <th>Category</th>
-            <th>Town</th>
+            <th>Title</th>
+            <th>Posted By</th>
+            <th>Location</th>
             <th>Submitted</th>
             <th>Status</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {% for business in listings.items %}
+          {% for job in listings.items %}
           <tr>
-            <td><a href="{{ url_for('businesses.detail', slug=business.slug) }}">{{ business.name }}</a></td>
-            <td>{{ business.owner.display_name }}</td>
-            <td>{{ business.category }}</td>
-            <td>{{ business.town }}</td>
-            <td>{{ business.created_at.strftime("%d %b %Y") }}</td>
-            <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ business.status }}">{{ business.status|capitalize }}</span></td>
+            <td><a href="{{ url_for('jobs.detail', slug=job.slug) }}">{{ job.title }}</a></td>
+            <td>{{ job.posted_by.display_name }}</td>
+            <td>{{ job.location }}</td>
+            <td>{{ job.created_at.strftime("%d %b %Y") }}</td>
+            <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ job.status }}">{{ job.status|capitalize }}</span></td>
             <td class="d-flex gap-2">
-              {% if business.status != "approved" %}
-              <form method="POST" action="{{ url_for('admin.update_business_status', business_id=business.id) }}">
+              {% if job.status != "approved" %}
+              <form method="POST" action="{{ url_for('admin.update_job_status', job_id=job.id) }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="approved">
                 <input type="hidden" name="return_status" value="{{ status_filter }}">
                 <button type="submit" class="btn btn-sm ag-btn-primary">Approve</button>
               </form>
               {% endif %}
-              {% if business.status != "rejected" %}
-              <form method="POST" action="{{ url_for('admin.update_business_status', business_id=business.id) }}">
+              {% if job.status != "rejected" %}
+              <form method="POST" action="{{ url_for('admin.update_job_status', job_id=job.id) }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="rejected">
                 <input type="hidden" name="return_status" value="{{ status_filter }}">
                 <button type="submit" class="btn btn-sm btn-outline-danger">Reject</button>
               </form>
               {% endif %}
-              {% if business.status == "approved" %}
-              <form method="POST" action="{{ url_for('admin.update_business_status', business_id=business.id) }}">
+              {% if job.status == "approved" %}
+              <form method="POST" action="{{ url_for('admin.update_job_status', job_id=job.id) }}">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="status" value="suspended">
                 <input type="hidden" name="return_status" value="{{ status_filter }}">
@@ -72,7 +70,7 @@
           </tr>
           {% else %}
           <tr>
-            <td colspan="7" class="ag-empty-state">No businesses with this status.</td>
+            <td colspan="6" class="ag-empty-state">No jobs with this status.</td>
           </tr>
           {% endfor %}
         </tbody>

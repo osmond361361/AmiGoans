@@ -6,9 +6,12 @@
   <div class="container">
     <div class="ag-section-heading-row">
       <h1 class="ag-heading-serif">Edit: {{ page.title }}</h1>
-      {% if view_url %}
-        <a class="btn ag-btn-outline" href="{{ view_url }}" target="_blank" rel="noopener">View Live Page</a>
-      {% endif %}
+      <div class="d-flex gap-2">
+        <a class="btn ag-btn-outline" href="{{ url_for('admin.pages') }}">&larr; Back to Manage Pages</a>
+        {% if view_url %}
+          <a class="btn ag-btn-outline" href="{{ view_url }}" target="_blank" rel="noopener">View Live Page</a>
+        {% endif %}
+      </div>
     </div>
 
     <form method="POST" novalidate>

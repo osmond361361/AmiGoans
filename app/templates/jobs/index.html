@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "components/_icons.html" import icon %}
 {% block title %}Jobs{% endblock %}
 {% block meta_description %}Job opportunities shared by and for the UK Goan community.{% endblock %}
 {% block content %}
@@ -6,7 +7,47 @@
   <div class="container ag-narrow">
     <h1 class="ag-heading-serif">Jobs</h1>
     <p>A place for the community to share job opportunities they know of, for other Goans to apply.</p>
-    <p class="ag-empty-state">No job links have been shared yet. Job search and posting will be available in a later stage.</p>
+
+    <form class="ag-card ag-filter-bar" role="search" method="get">
+      <label class="visually-hidden" for="job-search">Search job title or location</label>
+      <div class="ag-filter-search">
+        {{ icon("search", class="ag-filter-search-icon") }}
+        <input id="job-search" type="search" name="q" class="form-control" placeholder="Search job title or location&hellip;" value="{{ request.args.get('q', '') }}">
+      </div>
+      <button class="btn ag-btn-primary" type="submit">Search</button>
+    </form>
+
+    {% if listings.items %}
+      <div class="ag-business-grid ag-business-grid-compact mt-4">
+        {% for job in listings.items %}
+          <a class="ag-card ag-business-card ag-business-card-compact" href="{{ url_for('jobs.detail', slug=job.slug) }}">
+            <div class="ag-business-card-body">
+              <h3>{{ job.title }}</h3>
+              <p class="ag-business-card-location">{{ icon("pin") }} {{ job.location }}</p>
+              <p class="text-muted small mb-0">Posted by {{ job.posted_by.display_name }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+
+      {% if listings.pages > 1 %}
+      <nav aria-label="Job listings pagination" class="ag-pagination">
+        <ul class="pagination justify-content-center">
+          {% for page_num in listings.iter_pages() %}
+            {% if page_num %}
+              <li class="page-item {{ 'active' if page_num == listings.page else '' }}">
+                <a class="page-link" href="{{ url_for('jobs.index', page=page_num, q=request.args.get('q', '')) }}">{{ page_num }}</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+    {% else %}
+      <p class="ag-empty-state mt-4">No job links have been shared yet.</p>
+    {% endif %}
   </div>
 </section>
 <section class="ag-section ag-section-cream">

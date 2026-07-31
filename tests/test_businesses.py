@@ -1,5 +1,13 @@
+import re
+
 from app.extensions import db
 from app.models import Business, User
+
+
+def _extract_csrf_token(html):
+    match = re.search(rb'name="csrf_token" value="([^"]+)"', html)
+    assert match is not None, "no csrf_token field found in the response"
+    return match.group(1).decode()
 
 
 def _make_user(app, email, *, is_admin=False):
@@ -151,3 +159,29 @@ def test_non_admin_cannot_change_business_status(client, app):
         data={"status": "approved", "return_status": "pending"},
     )
     assert response.status_code == 403
+
+
+def test_business_status_update_form_carries_a_valid_csrf_token(client, app):
+    _make_user(app, "owner9@example.com")
+    _make_user(app, "admin9@example.com", is_admin=True)
+    _sign_in(client, "owner9@example.com")
+    client.post("/businesses/add", data=_submission_payload(name="CSRF Regression Kitchen"))
+    client.get("/auth/sign-out")
+
+    _sign_in(client, "admin9@example.com")
+
+    with app.app_context():
+        business_id = Business.query.filter_by(name="CSRF Regression Kitchen").first().id
+
+    app.config["WTF_CSRF_ENABLED"] = True
+    try:
+        page = client.get("/admin/businesses")
+        token = _extract_csrf_token(page.data)
+
+        response = client.post(
+            f"/admin/businesses/{business_id}/status",
+            data={"status": "approved", "return_status": "pending", "csrf_token": token},
+        )
+        assert response.status_code == 302
+    finally:
+        app.config["WTF_CSRF_ENABLED"] = False

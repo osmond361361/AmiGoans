@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}My Job Recommendations{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">My Job Recommendations</h1>
+      <a class="btn ag-btn-primary" href="{{ url_for('jobs.add') }}">Add Another Job</a>
+    </div>
+
+    {% if listings %}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in listings %}
+            <tr>
+              <td>{{ job.title }}</td>
+              <td>{{ job.location }}</td>
+              <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ job.status }}">{{ job.status|capitalize }}</span></td>
+              <td>{{ job.created_at.strftime("%d %b %Y") }}</td>
+              <td>
+                {% if job.status == "approved" %}
+                  <a href="{{ url_for('jobs.detail', slug=job.slug) }}">View</a> &middot;
+                {% endif %}
+                <a href="{{ url_for('jobs.edit', slug=job.slug) }}">Edit</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="ag-empty-state">You haven't shared a job link yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

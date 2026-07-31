@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "components/_icons.html" import icon %}
+{% block title %}{{ job.title }}{% endblock %}
+{% block meta_description %}{{ job.title }} &mdash; {{ job.location }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    {% if job.status != "approved" %}
+      <p class="ag-empty-state">
+        This listing is <strong>{{ job.status }}</strong> and only visible to you and admins &mdash;
+        it isn't public yet.
+      </p>
+    {% endif %}
+
+    <h1 class="ag-heading-serif mb-0">{{ job.title }}</h1>
+    <p class="ag-business-card-location">{{ icon("pin") }} {{ job.location }}</p>
+    <p class="text-muted small">Posted by {{ job.posted_by.display_name }} on {{ job.created_at.strftime("%d %b %Y") }}</p>
+
+    {% if job.description %}
+      <p>{{ job.description }}</p>
+    {% endif %}
+
+    <a class="btn ag-btn-primary" href="{{ job.job_url }}" target="_blank" rel="noopener">View Job Listing</a>
+  </div>
+</section>
+{% endblock %}
