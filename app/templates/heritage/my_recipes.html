@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}My Recipes{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">My Recipes</h1>
+      <a class="btn ag-btn-primary" href="{{ url_for('heritage.add_recipe') }}">Share Another Recipe</a>
+    </div>
+
+    {% if listings %}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for recipe in listings %}
+            <tr>
+              <td>{{ recipe.title }}</td>
+              <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ recipe.status }}">{{ recipe.status|capitalize }}</span></td>
+              <td>{{ recipe.created_at.strftime("%d %b %Y") }}</td>
+              <td>
+                {% if recipe.status == "approved" %}
+                  <a href="{{ url_for('heritage.recipe_detail', slug=recipe.slug) }}">View</a> &middot;
+                {% endif %}
+                <a href="{{ url_for('heritage.edit_recipe', slug=recipe.slug) }}">Edit</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="ag-empty-state">You haven't shared a recipe yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Admin &middot; Recipes{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Manage Recipes</h1>
+      <a class="btn ag-btn-outline" href="{{ url_for('admin.index') }}">&larr; Back to Admin Dashboard</a>
+    </div>
+
+    <ul class="nav nav-pills mb-3">
+      {% for status in statuses %}
+        <li class="nav-item">
+          <a class="nav-link {{ 'active' if status_filter == status else '' }}"
+             href="{{ url_for('admin.recipes', status=status) }}">{{ status|capitalize }}</a>
+        </li>
+      {% endfor %}
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if status_filter == 'all' else '' }}"
+           href="{{ url_for('admin.recipes', status='all') }}">All</a>
+      </li>
+    </ul>
+
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Submitted</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for recipe in listings.items %}
+          <tr>
+            <td><a href="{{ url_for('heritage.recipe_detail', slug=recipe.slug) }}">{{ recipe.title }}</a></td>
+            <td>{{ recipe.author.display_name }}</td>
+            <td>{{ recipe.created_at.strftime("%d %b %Y") }}</td>
+            <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ recipe.status }}">{{ recipe.status|capitalize }}</span></td>
+            <td class="d-flex gap-2">
+              {% if recipe.status != "approved" %}
+              <form method="POST" action="{{ url_for('admin.update_recipe_status', recipe_id=recipe.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" value="approved">
+                <input type="hidden" name="return_status" value="{{ status_filter }}">
+                <button type="submit" class="btn btn-sm ag-btn-primary">Approve</button>
+              </form>
+              {% endif %}
+              {% if recipe.status != "rejected" %}
+              <form method="POST" action="{{ url_for('admin.update_recipe_status', recipe_id=recipe.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" value="rejected">
+                <input type="hidden" name="return_status" value="{{ status_filter }}">
+                <button type="submit" class="btn btn-sm btn-outline-danger">Reject</button>
+              </form>
+              {% endif %}
+              {% if recipe.status == "approved" %}
+              <form method="POST" action="{{ url_for('admin.update_recipe_status', recipe_id=recipe.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" value="suspended">
+                <input type="hidden" name="return_status" value="{{ status_filter }}">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Suspend</button>
+              </form>
+              {% endif %}
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="5" class="ag-empty-state">No recipes with this status.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

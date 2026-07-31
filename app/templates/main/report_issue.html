@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "components/_form_field.html" import field %}
+{% block title %}Report an Issue{% endblock %}
+{% block meta_description %}Report an issue to help us keep Ami Goans safe and working well.{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Report an Issue</h1>
+      <p>Help us keep the community safe. An admin will read this and may follow up by email.</p>
+
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ field(form.description, rows=6) }}
+        {{ field(form.page_url, placeholder="https://") }}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit Report</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Admin &middot; {{ "Ideas" if kind == "idea" else "Issues" }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Manage {{ "Ideas" if kind == "idea" else "Issues" }}</h1>
+      <a class="btn ag-btn-outline" href="{{ url_for('admin.index') }}">&larr; Back to Admin Dashboard</a>
+    </div>
+
+    <ul class="nav nav-pills mb-3">
+      {% for status in statuses %}
+        <li class="nav-item">
+          <a class="nav-link {{ 'active' if status_filter == status else '' }}"
+             href="{{ url_for('admin.feedback_list', kind=kind, status=status) }}">{{ status.replace("_", " ")|capitalize }}</a>
+        </li>
+      {% endfor %}
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if status_filter == 'all' else '' }}"
+           href="{{ url_for('admin.feedback_list', kind=kind, status='all') }}">All</a>
+      </li>
+    </ul>
+
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>{{ "Summary" if kind == "idea" else "Description" }}</th>
+            <th>Submitted By</th>
+            <th>Submitted</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in listings.items %}
+          <tr>
+            <td>{{ item.title if item.title else item.description[:80] }}</td>
+            <td>{{ item.submitted_by.display_name }}</td>
+            <td>{{ item.created_at.strftime("%d %b %Y") }}</td>
+            <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ item.status }}">{{ item.status.replace("_", " ")|capitalize }}</span></td>
+            <td><a href="{{ url_for('admin.feedback_detail', feedback_id=item.id) }}">View &amp; Respond</a></td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="5" class="ag-empty-state">Nothing with this status.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

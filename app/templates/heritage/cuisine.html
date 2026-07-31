@@ -196,6 +196,36 @@
   </div>
 </section>
 
+<section class="ag-section ag-section-cream" aria-label="Community recipes">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h2 class="ag-heading-serif ag-section-heading">Community Recipes</h2>
+      <a class="btn ag-btn-primary" href="{{ url_for('heritage.add_recipe') if current_user.is_authenticated else url_for('auth.sign_in', next=url_for('heritage.add_recipe')) }}">Share a Recipe</a>
+    </div>
+    <p>Recipes shared by fellow Goans, from their kitchen to yours.</p>
+
+    {% if community_recipes %}
+      <div class="ag-business-grid ag-business-grid-compact">
+        {% for recipe in community_recipes %}
+          <a class="ag-card ag-business-card ag-business-card-compact" href="{{ url_for('heritage.recipe_detail', slug=recipe.slug) }}">
+            {% if recipe.cover_image %}
+              <img src="{{ url_for('static', filename='uploads/recipe-covers/' ~ recipe.cover_image) }}" alt="" class="ag-business-card-image">
+            {% else %}
+              <div class="ag-business-card-image"></div>
+            {% endif %}
+            <div class="ag-business-card-body">
+              <h3>{{ recipe.title }}</h3>
+              <p class="text-muted small mb-0">By {{ recipe.author.display_name }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="ag-empty-state">No community recipes have been shared yet. Be the first.</p>
+    {% endif %}
+  </div>
+</section>
+
 <section class="ag-section" aria-label="Cooking videos">
   <div class="container">
     <h2 class="ag-heading-serif ag-section-heading">Watch: Goan Recipes</h2>

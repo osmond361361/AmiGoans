@@ -1,10 +1,10 @@
 from flask import flash, redirect, render_template, request, url_for
-from flask_login import login_required
+from flask_login import current_user, login_required
 
 from app.extensions import db
 from app.main import main_bp
-from app.main.forms import NewsletterForm
-from app.models import NewsletterSubscriber, Page
+from app.main.forms import IdeaForm, IssueForm, NewsletterForm
+from app.models import Feedback, NewsletterSubscriber, Page
 
 
 @main_bp.route("/")
@@ -21,6 +21,52 @@ def about():
 @login_required
 def contribute():
     return render_template("main/contribute.html")
+
+
+@main_bp.route("/contribute/idea", methods=["GET", "POST"])
+@login_required
+def share_idea():
+    form = IdeaForm()
+
+    if form.validate_on_submit():
+        db.session.add(
+            Feedback(
+                submitted_by_id=current_user.id,
+                kind="idea",
+                title=form.title.data.strip(),
+                description=form.description.data.strip(),
+                status="new",
+            )
+        )
+        db.session.commit()
+        flash("Thanks for the idea! Our admins will take a look.", "success")
+        return redirect(url_for("main.contribute"))
+
+    return render_template("main/share_idea.html", form=form)
+
+
+@main_bp.route("/contribute/issue", methods=["GET", "POST"])
+@login_required
+def report_issue():
+    form = IssueForm()
+    if request.method == "GET" and not form.page_url.data:
+        form.page_url.data = request.referrer or ""
+
+    if form.validate_on_submit():
+        db.session.add(
+            Feedback(
+                submitted_by_id=current_user.id,
+                kind="issue",
+                description=form.description.data.strip(),
+                page_url=form.page_url.data.strip() if form.page_url.data else None,
+                status="new",
+            )
+        )
+        db.session.commit()
+        flash("Thanks for letting us know! Our admins will look into it.", "success")
+        return redirect(url_for("main.contribute"))
+
+    return render_template("main/report_issue.html", form=form)
 
 
 @main_bp.route("/motto")

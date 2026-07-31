@@ -32,11 +32,14 @@
     {"endpoint": "admin.businesses", "label": "Manage Businesses"},
     {"endpoint": "admin.jobs", "label": "Manage Jobs"},
     {"endpoint": "admin.stories", "label": "Manage Stories"},
+    {"endpoint": "admin.recipes", "label": "Manage Recipes"},
+    {"endpoint": "admin.feedback_list", "kwargs": {"kind": "idea"}, "label": "Manage Ideas"},
+    {"endpoint": "admin.feedback_list", "kwargs": {"kind": "issue"}, "label": "Manage Issues"},
     {"endpoint": "admin.reports", "label": "Users & Reports"},
   ]}) %}
 {% endif %}
 
-{% macro entry_href(item) %}{{ url_for(item.endpoint) }}{% if item.anchor %}#{{ item.anchor }}{% endif %}{% endmacro %}
+{% macro entry_href(item) %}{{ url_for(item.endpoint, **item.get("kwargs", {})) }}{% if item.anchor %}#{{ item.anchor }}{% endif %}{% endmacro %}
 
 <ul class="ag-nav-list">
   {% for entry in nav_entries %}

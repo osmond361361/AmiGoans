@@ -20,21 +20,21 @@
           <strong>Share Photos</strong>
           <span>Coming soon</span>
         </div>
-        <div class="ag-contribute-item ag-contribute-item-disabled">
+        <a class="ag-contribute-item" href="{{ url_for('heritage.add_recipe') }}">
           <span class="ag-contribute-icon">{{ icon("restaurant") }}</span>
           <strong>Share a Recipe</strong>
-          <span>Coming soon</span>
-        </div>
-        <div class="ag-contribute-item ag-contribute-item-disabled">
+          <span>From our kitchen to yours</span>
+        </a>
+        <a class="ag-contribute-item" href="{{ url_for('main.share_idea') }}">
           <span class="ag-contribute-icon">{{ icon("idea") }}</span>
           <strong>Share an Idea</strong>
-          <span>Coming soon</span>
-        </div>
-        <div class="ag-contribute-item ag-contribute-item-disabled">
+          <span>Help us make Ami Goans better</span>
+        </a>
+        <a class="ag-contribute-item" href="{{ url_for('main.report_issue') }}">
           <span class="ag-contribute-icon ag-contribute-icon-warning">{{ icon("report") }}</span>
           <strong>Report an Issue</strong>
-          <span><a href="{{ url_for('main.contact') }}">Contact Us</a></span>
-        </div>
+          <span>Help us keep the community safe</span>
+        </a>
       </div>
 
       <a class="btn ag-btn-outline mt-3" href="{{ url_for('main.home') }}">Back to Home</a>

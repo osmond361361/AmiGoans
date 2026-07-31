@@ -1,0 +1,11 @@
+Hi {{ feedback.submitted_by.display_name }},
+
+Thanks for sharing {{ "your idea" if feedback.kind == "idea" else "an issue" }} with Ami Goans:
+
+"{{ feedback.title or feedback.description[:80] }}"
+
+Here's our response:
+
+{{ feedback.admin_response }}
+
+- Ami Goans

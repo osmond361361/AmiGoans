@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Edit {{ recipe.title }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Edit {{ recipe.title }}</h1>
+      <p>
+        Status:
+        <span class="ag-badge ag-badge-inline ag-badge-status-{{ recipe.status }}">{{ recipe.status|capitalize }}</span>
+      </p>
+
+      <form method="POST" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        {% include "heritage/_recipe_form_fields.html" %}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Save Changes</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

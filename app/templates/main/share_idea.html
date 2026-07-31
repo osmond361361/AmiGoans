@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "components/_form_field.html" import field %}
+{% block title %}Share an Idea{% endblock %}
+{% block meta_description %}Share an idea to help us make Ami Goans better.{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Share an Idea</h1>
+      <p>Help us make Ami Goans better. An admin will read this and may follow up by email.</p>
+
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ field(form.title) }}
+        {{ field(form.description, rows=6) }}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit Idea</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

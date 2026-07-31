@@ -6,13 +6,18 @@ from flask import Response, abort, flash, redirect, render_template, request, ur
 
 from app.admin import admin_bp
 from app.admin.decorators import admin_required
-from app.admin.forms import PageForm
+from app.admin.feedback_email import send_feedback_response_email
+from app.admin.forms import FeedbackResponseForm, PageForm
 from app.admin.geolocation import resolve_ip_location
 from app.extensions import db
 from app.models import Page, SiteVisit, User
 from app.models.business import STATUSES, Business
+from app.models.feedback import STATUSES as FEEDBACK_STATUSES
+from app.models.feedback import Feedback
 from app.models.job import STATUSES as JOB_STATUSES
 from app.models.job import JobPost
+from app.models.recipe import STATUSES as RECIPE_STATUSES
+from app.models.recipe import Recipe
 from app.models.story import STATUSES as STORY_STATUSES
 from app.models.story import Story
 
@@ -63,6 +68,9 @@ def index():
     pending_businesses = Business.query.filter_by(status="pending").count()
     pending_jobs = JobPost.query.filter_by(status="pending").count()
     pending_stories = Story.query.filter_by(status="pending").count()
+    pending_recipes = Recipe.query.filter_by(status="pending").count()
+    pending_ideas = Feedback.query.filter_by(kind="idea", status="new").count()
+    pending_issues = Feedback.query.filter_by(kind="issue", status="new").count()
 
     return render_template(
         "admin/index.html",
@@ -74,6 +82,9 @@ def index():
         pending_businesses=pending_businesses,
         pending_jobs=pending_jobs,
         pending_stories=pending_stories,
+        pending_recipes=pending_recipes,
+        pending_ideas=pending_ideas,
+        pending_issues=pending_issues,
     )
 
 
@@ -176,6 +187,92 @@ def update_story_status(story_id):
     db.session.commit()
     flash(f'"{story.title}" is now {new_status}.', "success")
     return redirect(url_for("admin.stories", status=request.form.get("return_status", "pending")))
+
+
+@admin_bp.route("/recipes")
+@admin_required
+def recipes():
+    status_filter = request.args.get("status", "pending")
+    query = Recipe.query
+    if status_filter in RECIPE_STATUSES:
+        query = query.filter_by(status=status_filter)
+
+    page = request.args.get("page", 1, type=int)
+    listings = query.order_by(Recipe.created_at.desc()).paginate(page=page, per_page=25)
+
+    return render_template(
+        "admin/recipes.html",
+        listings=listings,
+        status_filter=status_filter,
+        statuses=RECIPE_STATUSES,
+    )
+
+
+@admin_bp.route("/recipes/<int:recipe_id>/status", methods=["POST"])
+@admin_required
+def update_recipe_status(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    new_status = request.form.get("status")
+    if new_status not in RECIPE_STATUSES:
+        abort(400)
+
+    recipe.status = new_status
+    db.session.commit()
+    flash(f'"{recipe.title}" is now {new_status}.', "success")
+    return redirect(url_for("admin.recipes", status=request.form.get("return_status", "pending")))
+
+
+@admin_bp.route("/feedback/<kind>")
+@admin_required
+def feedback_list(kind):
+    if kind not in ("idea", "issue"):
+        abort(404)
+
+    status_filter = request.args.get("status", "new")
+    query = Feedback.query.filter_by(kind=kind)
+    if status_filter in FEEDBACK_STATUSES:
+        query = query.filter_by(status=status_filter)
+
+    page = request.args.get("page", 1, type=int)
+    listings = query.order_by(Feedback.created_at.desc()).paginate(page=page, per_page=25)
+
+    return render_template(
+        "admin/feedback_list.html",
+        listings=listings,
+        status_filter=status_filter,
+        statuses=FEEDBACK_STATUSES,
+        kind=kind,
+    )
+
+
+@admin_bp.route("/feedback/item/<int:feedback_id>", methods=["GET", "POST"])
+@admin_required
+def feedback_detail(feedback_id):
+    feedback = Feedback.query.get_or_404(feedback_id)
+    form = FeedbackResponseForm(obj=feedback)
+
+    if form.validate_on_submit():
+        feedback.status = form.status.data
+        feedback.admin_response = (
+            form.admin_response.data.strip() if form.admin_response.data else None
+        )
+        should_send = "send_response" in request.form and feedback.admin_response
+        db.session.commit()
+
+        if should_send:
+            feedback.responded_at = datetime.now(timezone.utc)
+            db.session.commit()
+            try:
+                send_feedback_response_email(feedback)
+                flash("Response saved and emailed to the submitter.", "success")
+            except Exception:
+                flash("Response saved, but the email failed to send.", "danger")
+        else:
+            flash("Saved.", "success")
+
+        return redirect(url_for("admin.feedback_list", kind=feedback.kind))
+
+    return render_template("admin/feedback_detail.html", feedback=feedback, form=form)
 
 
 @admin_bp.route("/pages")

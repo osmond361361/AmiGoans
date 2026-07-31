@@ -1,0 +1,6 @@
+{% from "components/_form_field.html" import field %}
+
+{{ field(form.title) }}
+{{ field(form.ingredients, rows=6) }}
+{{ field(form.instructions, rows=8) }}
+{{ field(form.cover_image) }}

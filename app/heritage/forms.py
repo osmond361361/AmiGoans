@@ -11,3 +11,15 @@ class StoryForm(FlaskForm):
         "Photo (optional)",
         validators=[FileAllowed(["jpg", "jpeg", "png"], "Images only (JPG or PNG).")],
     )
+
+
+class RecipeForm(FlaskForm):
+    title = StringField("Recipe Name", validators=[DataRequired(), Length(min=2, max=150)])
+    ingredients = TextAreaField(
+        "Ingredients", validators=[DataRequired(), Length(min=10, max=4000)]
+    )
+    instructions = TextAreaField("Method", validators=[DataRequired(), Length(min=10, max=6000)])
+    cover_image = FileField(
+        "Photo (optional)",
+        validators=[FileAllowed(["jpg", "jpeg", "png"], "Images only (JPG or PNG).")],
+    )
