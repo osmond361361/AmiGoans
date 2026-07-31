@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}My Stories{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">My Stories</h1>
+      <a class="btn ag-btn-primary" href="{{ url_for('heritage.add_story') }}">Share Another Story</a>
+    </div>
+
+    {% if listings %}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for story in listings %}
+            <tr>
+              <td>{{ story.title }}</td>
+              <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ story.status }}">{{ story.status|capitalize }}</span></td>
+              <td>{{ story.created_at.strftime("%d %b %Y") }}</td>
+              <td>
+                {% if story.status == "approved" %}
+                  <a href="{{ url_for('heritage.story_detail', slug=story.slug) }}">View</a> &middot;
+                {% endif %}
+                <a href="{{ url_for('heritage.edit_story', slug=story.slug) }}">Edit</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="ag-empty-state">You haven't shared a story yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

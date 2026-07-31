@@ -13,6 +13,8 @@ from app.models import Page, SiteVisit, User
 from app.models.business import STATUSES, Business
 from app.models.job import STATUSES as JOB_STATUSES
 from app.models.job import JobPost
+from app.models.story import STATUSES as STORY_STATUSES
+from app.models.story import Story
 
 
 def _parse_date_range():
@@ -54,6 +56,7 @@ def index():
 
     pending_businesses = Business.query.filter_by(status="pending").count()
     pending_jobs = JobPost.query.filter_by(status="pending").count()
+    pending_stories = Story.query.filter_by(status="pending").count()
 
     return render_template(
         "admin/index.html",
@@ -64,6 +67,7 @@ def index():
         recent_visits=recent_visits,
         pending_businesses=pending_businesses,
         pending_jobs=pending_jobs,
+        pending_stories=pending_stories,
     )
 
 
@@ -135,6 +139,39 @@ def update_job_status(job_id):
     return redirect(url_for("admin.jobs", status=request.form.get("return_status", "pending")))
 
 
+@admin_bp.route("/stories")
+@admin_required
+def stories():
+    status_filter = request.args.get("status", "pending")
+    query = Story.query
+    if status_filter in STORY_STATUSES:
+        query = query.filter_by(status=status_filter)
+
+    page = request.args.get("page", 1, type=int)
+    listings = query.order_by(Story.created_at.desc()).paginate(page=page, per_page=25)
+
+    return render_template(
+        "admin/stories.html",
+        listings=listings,
+        status_filter=status_filter,
+        statuses=STORY_STATUSES,
+    )
+
+
+@admin_bp.route("/stories/<int:story_id>/status", methods=["POST"])
+@admin_required
+def update_story_status(story_id):
+    story = Story.query.get_or_404(story_id)
+    new_status = request.form.get("status")
+    if new_status not in STORY_STATUSES:
+        abort(400)
+
+    story.status = new_status
+    db.session.commit()
+    flash(f'"{story.title}" is now {new_status}.', "success")
+    return redirect(url_for("admin.stories", status=request.form.get("return_status", "pending")))
+
+
 @admin_bp.route("/pages")
 @admin_required
 def pages():
@@ -195,6 +232,10 @@ def reports():
     hits_today = db.session.query(SiteVisit).filter(SiteVisit.visited_at >= today_start).count()
     hits_this_week = db.session.query(SiteVisit).filter(SiteVisit.visited_at >= week_start).count()
 
+    total_businesses = Business.query.count()
+    total_jobs = JobPost.query.count()
+    total_stories = Story.query.count()
+
     return render_template(
         "admin/reports.html",
         total_users=total_users,
@@ -204,6 +245,9 @@ def reports():
         unique_ips=unique_ips,
         hits_today=hits_today,
         hits_this_week=hits_this_week,
+        total_businesses=total_businesses,
+        total_jobs=total_jobs,
+        total_stories=total_stories,
         start=request.args.get("start", ""),
         end=request.args.get("end", ""),
     )
@@ -290,4 +334,130 @@ def hits_csv():
         buffer.getvalue(),
         mimetype="text/csv",
         headers={"Content-Disposition": "attachment; filename=amigoans-hits.csv"},
+    )
+
+
+@admin_bp.route("/reports/businesses.csv")
+@admin_required
+def businesses_csv():
+    start_dt, end_dt = _parse_date_range()
+    query = Business.query
+    if start_dt:
+        query = query.filter(Business.created_at >= start_dt)
+    if end_dt:
+        query = query.filter(Business.created_at < end_dt)
+
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(
+        [
+            "ID",
+            "Name",
+            "Owner",
+            "Owner Email",
+            "Category",
+            "Town",
+            "County",
+            "Nation",
+            "Status",
+            "Submitted At (UTC)",
+        ]
+    )
+    for business in query.order_by(Business.created_at.asc()).all():
+        writer.writerow(
+            [
+                business.id,
+                business.name,
+                business.owner.display_name,
+                business.owner.email,
+                business.category,
+                business.town,
+                business.county or "",
+                business.nation,
+                business.status,
+                business.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            ]
+        )
+
+    return Response(
+        buffer.getvalue(),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=amigoans-businesses.csv"},
+    )
+
+
+@admin_bp.route("/reports/jobs.csv")
+@admin_required
+def jobs_csv():
+    start_dt, end_dt = _parse_date_range()
+    query = JobPost.query
+    if start_dt:
+        query = query.filter(JobPost.created_at >= start_dt)
+    if end_dt:
+        query = query.filter(JobPost.created_at < end_dt)
+
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(
+        [
+            "ID",
+            "Title",
+            "Posted By",
+            "Posted By Email",
+            "Location",
+            "Job Link",
+            "Status",
+            "Submitted At (UTC)",
+        ]
+    )
+    for job in query.order_by(JobPost.created_at.asc()).all():
+        writer.writerow(
+            [
+                job.id,
+                job.title,
+                job.posted_by.display_name,
+                job.posted_by.email,
+                job.location,
+                job.job_url,
+                job.status,
+                job.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            ]
+        )
+
+    return Response(
+        buffer.getvalue(),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=amigoans-jobs.csv"},
+    )
+
+
+@admin_bp.route("/reports/stories.csv")
+@admin_required
+def stories_csv():
+    start_dt, end_dt = _parse_date_range()
+    query = Story.query
+    if start_dt:
+        query = query.filter(Story.created_at >= start_dt)
+    if end_dt:
+        query = query.filter(Story.created_at < end_dt)
+
+    buffer = io.StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(["ID", "Title", "Author", "Author Email", "Status", "Submitted At (UTC)"])
+    for story in query.order_by(Story.created_at.asc()).all():
+        writer.writerow(
+            [
+                story.id,
+                story.title,
+                story.author.display_name,
+                story.author.email,
+                story.status,
+                story.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            ]
+        )
+
+    return Response(
+        buffer.getvalue(),
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=amigoans-stories.csv"},
     )

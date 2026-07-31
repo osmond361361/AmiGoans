@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Share Your Story{% endblock %}
+{% block meta_description %}Share your memories and stories with the UK Goan community on Ami Goans.{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Share Your Story</h1>
+      <p>Your memories matter. Once submitted, your story will be reviewed by an admin before it's published.</p>
+
+      <form method="POST" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        {% include "heritage/_story_form_fields.html" %}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit for Approval</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

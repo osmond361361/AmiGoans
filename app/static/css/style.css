@@ -597,9 +597,20 @@ a {
   gap: 0.3rem;
   padding: 0 0.5rem;
   border-left: 1px solid var(--ag-border);
+  text-decoration: none;
+  color: inherit;
 }
 .ag-contribute-item:first-child {
   border-left: none;
+}
+a.ag-contribute-item:hover {
+  color: inherit;
+}
+a.ag-contribute-item:hover .ag-contribute-icon {
+  background-color: rgba(61, 111, 165, 0.22);
+}
+.ag-contribute-item-disabled {
+  opacity: 0.55;
 }
 .ag-contribute-icon {
   width: 40px;

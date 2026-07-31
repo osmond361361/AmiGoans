@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "components/_icons.html" import icon %}
 {% block title %}Contribute{% endblock %}
 {% block meta_description %}Share your stories, photos, recipes and ideas with the Ami Goans community.{% endblock %}
 {% block content %}
@@ -6,8 +7,37 @@
   <div class="container ag-narrow">
     <div class="ag-card ag-auth-card">
       <h1 class="ag-heading-serif">Contribute to Ami Goans</h1>
-      <p>Thanks for wanting to share with the community, {{ current_user.display_name }}! Story, photo, recipe and idea submissions are coming in a later stage &mdash; check back soon.</p>
-      <a class="btn ag-btn-primary" href="{{ url_for('main.home') }}">Back to Home</a>
+      <p>Thanks for wanting to share with the community, {{ current_user.display_name }}! Choose what you'd like to share below.</p>
+
+      <div class="ag-contribute-grid">
+        <a class="ag-contribute-item" href="{{ url_for('heritage.add_story') }}">
+          <span class="ag-contribute-icon">{{ icon("edit") }}</span>
+          <strong>Share a Story</strong>
+          <span>Your memories matter</span>
+        </a>
+        <div class="ag-contribute-item ag-contribute-item-disabled">
+          <span class="ag-contribute-icon">{{ icon("photo") }}</span>
+          <strong>Share Photos</strong>
+          <span>Coming soon</span>
+        </div>
+        <div class="ag-contribute-item ag-contribute-item-disabled">
+          <span class="ag-contribute-icon">{{ icon("restaurant") }}</span>
+          <strong>Share a Recipe</strong>
+          <span>Coming soon</span>
+        </div>
+        <div class="ag-contribute-item ag-contribute-item-disabled">
+          <span class="ag-contribute-icon">{{ icon("idea") }}</span>
+          <strong>Share an Idea</strong>
+          <span>Coming soon</span>
+        </div>
+        <div class="ag-contribute-item ag-contribute-item-disabled">
+          <span class="ag-contribute-icon ag-contribute-icon-warning">{{ icon("report") }}</span>
+          <strong>Report an Issue</strong>
+          <span><a href="{{ url_for('main.contact') }}">Contact Us</a></span>
+        </div>
+      </div>
+
+      <a class="btn ag-btn-outline mt-3" href="{{ url_for('main.home') }}">Back to Home</a>
     </div>
   </div>
 </section>

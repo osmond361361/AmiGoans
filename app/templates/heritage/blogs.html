@@ -1,10 +1,50 @@
 {% extends "base.html" %}
-{% block title %}Blogs{% endblock %}
+{% block title %}Stories{% endblock %}
+{% block meta_description %}Stories, memories and photos shared by the UK Goan community on Ami Goans.{% endblock %}
 {% block content %}
 <section class="ag-section">
   <div class="container ag-narrow">
-    <h1 class="ag-heading-serif">Blogs</h1>
-    <p class="ag-empty-state">Community blog posts will be published here in a later stage.</p>
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Stories</h1>
+      <a class="btn ag-btn-primary" href="{{ url_for('heritage.add_story') if current_user.is_authenticated else url_for('auth.sign_in', next=url_for('heritage.add_story')) }}">Share Your Story</a>
+    </div>
+    <p>Memories, old photos and stories shared by the community.</p>
+
+    {% if listings.items %}
+      <div class="ag-business-grid ag-business-grid-compact mt-4">
+        {% for story in listings.items %}
+          <a class="ag-card ag-business-card ag-business-card-compact" href="{{ url_for('heritage.story_detail', slug=story.slug) }}">
+            {% if story.cover_image %}
+              <img src="{{ url_for('static', filename='uploads/story-covers/' ~ story.cover_image) }}" alt="" class="ag-business-card-image">
+            {% else %}
+              <div class="ag-business-card-image"></div>
+            {% endif %}
+            <div class="ag-business-card-body">
+              <h3>{{ story.title }}</h3>
+              <p class="text-muted small mb-0">By {{ story.author.display_name }}</p>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+
+      {% if listings.pages > 1 %}
+      <nav aria-label="Stories pagination" class="ag-pagination">
+        <ul class="pagination justify-content-center">
+          {% for page_num in listings.iter_pages() %}
+            {% if page_num %}
+              <li class="page-item {{ 'active' if page_num == listings.page else '' }}">
+                <a class="page-link" href="{{ url_for('heritage.blogs', page=page_num) }}">{{ page_num }}</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+    {% else %}
+      <p class="ag-empty-state mt-4">No stories have been shared yet. Be the first.</p>
+    {% endif %}
   </div>
 </section>
 {% endblock %}

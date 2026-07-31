@@ -52,6 +52,24 @@
           <div class="text-muted small">Hits (last 7 days)</div>
         </div>
       </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ total_businesses }}</div>
+          <div class="text-muted small">Business listings (all statuses)</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ total_jobs }}</div>
+          <div class="text-muted small">Job listings (all statuses)</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="ag-card text-center">
+          <div class="fs-3 fw-bold">{{ total_stories }}</div>
+          <div class="text-muted small">Stories (all statuses)</div>
+        </div>
+      </div>
     </div>
 
     <div class="ag-card">
@@ -73,6 +91,9 @@
 
       <div class="d-flex gap-2 flex-wrap">
         <a class="btn ag-btn-primary" href="{{ url_for('admin.users_csv', start=start, end=end) }}">Download Users CSV</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.businesses_csv', start=start, end=end) }}">Download Businesses CSV</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.jobs_csv', start=start, end=end) }}">Download Jobs CSV</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.stories_csv', start=start, end=end) }}">Download Stories CSV</a>
         <a class="btn ag-btn-primary" href="{{ url_for('admin.hits_csv', start=start, end=end) }}">Download Hits CSV</a>
       </div>
     </div>

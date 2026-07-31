@@ -13,6 +13,9 @@
         <a class="btn ag-btn-primary" href="{{ url_for('admin.jobs') }}">
           Manage Jobs{% if pending_jobs %} ({{ pending_jobs }} pending){% endif %}
         </a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.stories') }}">
+          Manage Stories{% if pending_stories %} ({{ pending_stories }} pending){% endif %}
+        </a>
         <a class="btn ag-btn-outline" href="{{ url_for('admin.reports') }}">Users &amp; Reports</a>
       </div>
     </div>
