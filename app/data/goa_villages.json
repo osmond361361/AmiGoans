@@ -1,0 +1,3434 @@
+[
+  {
+    "name": "Aldona",
+    "slug": "aldona-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Aldona",
+    "category": "Rural"
+  },
+  {
+    "name": "Anjuna (Ct)",
+    "slug": "anjuna-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Anjuna-Caisua",
+    "category": "Rural"
+  },
+  {
+    "name": "Arpora",
+    "slug": "arpora-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Arpora-Nagoa",
+    "category": "Rural"
+  },
+  {
+    "name": "Assagao",
+    "slug": "assagao-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Assagao",
+    "category": "Rural"
+  },
+  {
+    "name": "Assonora",
+    "slug": "assonora-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Assanora",
+    "category": "Rural"
+  },
+  {
+    "name": "Bastora",
+    "slug": "bastora-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Bastora",
+    "category": "Rural"
+  },
+  {
+    "name": "Calangute (Ct)",
+    "slug": "calangute-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Candolim",
+    "category": "Rural"
+  },
+  {
+    "name": "Calvim",
+    "slug": "calvim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Aldona",
+    "category": "Rural"
+  },
+  {
+    "name": "Camurlim",
+    "slug": "camurlim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Camurli",
+    "category": "Rural"
+  },
+  {
+    "name": "Canca",
+    "slug": "canca-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Verla Canca",
+    "category": "Rural"
+  },
+  {
+    "name": "Candolim (Ct)",
+    "slug": "candolim-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Candolim",
+    "category": "Rural"
+  },
+  {
+    "name": "Colvale (Ct)",
+    "slug": "colvale-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Colvale",
+    "category": "Rural"
+  },
+  {
+    "name": "Corjuem",
+    "slug": "corjuem-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Aldona",
+    "category": "Rural"
+  },
+  {
+    "name": "Corlim",
+    "slug": "corlim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Cunchelim",
+    "slug": "cunchelim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Guirim (Ct)",
+    "slug": "guirim-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Guirim",
+    "category": "Rural"
+  },
+  {
+    "name": "Marna",
+    "slug": "marna-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Siolim Marna",
+    "category": "Rural"
+  },
+  {
+    "name": "Marra",
+    "slug": "marra-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Pilerne - Marra",
+    "category": "Rural"
+  },
+  {
+    "name": "Mhapsa",
+    "slug": "mhapsa-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Moira (Ct)",
+    "slug": "moira-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Moira",
+    "category": "Rural"
+  },
+  {
+    "name": "Moitem",
+    "slug": "moitem-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Assanora",
+    "category": "Rural"
+  },
+  {
+    "name": "Nachinola",
+    "slug": "nachinola-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Nachinola",
+    "category": "Rural"
+  },
+  {
+    "name": "Nadora",
+    "slug": "nadora-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Nadora",
+    "category": "Rural"
+  },
+  {
+    "name": "Nagoa",
+    "slug": "nagoa-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Arpora-Nagoa",
+    "category": "Rural"
+  },
+  {
+    "name": "Nerul (Ct)",
+    "slug": "nerul-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Nerul",
+    "category": "Rural"
+  },
+  {
+    "name": "Olaulim",
+    "slug": "olaulim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Pomburpa, Olaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Oxel",
+    "slug": "oxel-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Oxel",
+    "category": "Rural"
+  },
+  {
+    "name": "Paliem",
+    "slug": "paliem-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Ucassaim-Paliem-Punola",
+    "category": "Rural"
+  },
+  {
+    "name": "Parra",
+    "slug": "parra-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Parra",
+    "category": "Rural"
+  },
+  {
+    "name": "Penha-De-Franca (Ct)",
+    "slug": "penha-de-franca-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Penha-De-France",
+    "category": "Rural"
+  },
+  {
+    "name": "Pilerne (Ct)",
+    "slug": "pilerne-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Pilerne - Marra",
+    "category": "Rural"
+  },
+  {
+    "name": "Pirna",
+    "slug": "pirna-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Pirna",
+    "category": "Rural"
+  },
+  {
+    "name": "Pomburpa",
+    "slug": "pomburpa-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Pomburpa, Olaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ponolem",
+    "slug": "ponolem-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Aldona",
+    "category": "Rural"
+  },
+  {
+    "name": "Punola",
+    "slug": "punola-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Ucassaim-Paliem-Punola",
+    "category": "Rural"
+  },
+  {
+    "name": "Reis-Magos",
+    "slug": "reis-magos-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Reis-Magos",
+    "category": "Rural"
+  },
+  {
+    "name": "Revora",
+    "slug": "revora-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Revora",
+    "category": "Rural"
+  },
+  {
+    "name": "Saligao (Ct)",
+    "slug": "saligao-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Saligao",
+    "category": "Rural"
+  },
+  {
+    "name": "Salvador-Do-Mundo (Ct)",
+    "slug": "salvador-do-mundo-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Salvador-Do-Mundo",
+    "category": "Rural"
+  },
+  {
+    "name": "Sangolda",
+    "slug": "sangolda-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Sangolda",
+    "category": "Rural"
+  },
+  {
+    "name": "Siolim (Ct)",
+    "slug": "siolim-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Siolim-Sodiem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sircaim",
+    "slug": "sircaim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Sirsaim",
+    "category": "Rural"
+  },
+  {
+    "name": "Socorro (Ct)",
+    "slug": "socorro-ct-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Socorro",
+    "category": "Rural"
+  },
+  {
+    "name": "Tivim",
+    "slug": "tivim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Thivim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ucassaim",
+    "slug": "ucassaim-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Ucassaim-Paliem-Punola",
+    "category": "Rural"
+  },
+  {
+    "name": "Verla",
+    "slug": "verla-bardez",
+    "taluka": "Bardez",
+    "district": "North Goa",
+    "gram_panchayat": "Verla Canca",
+    "category": "Rural"
+  },
+  {
+    "name": "Adwalpale",
+    "slug": "adwalpale-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Advalpal",
+    "category": "Rural"
+  },
+  {
+    "name": "Amone",
+    "slug": "amone-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Amona",
+    "category": "Rural"
+  },
+  {
+    "name": "Arvalem",
+    "slug": "arvalem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Harvalem",
+    "category": "Rural"
+  },
+  {
+    "name": "Aturli",
+    "slug": "aturli-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Mayem",
+    "category": "Rural"
+  },
+  {
+    "name": "Bicholim",
+    "slug": "bicholim-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Bordem",
+    "slug": "bordem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Carapur (Ct)",
+    "slug": "carapur-ct-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Karapur-Sarvan",
+    "category": "Rural"
+  },
+  {
+    "name": "Cotombi",
+    "slug": "cotombi-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Pale, Cotombi",
+    "category": "Rural"
+  },
+  {
+    "name": "Cudnem",
+    "slug": "cudnem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Cudnem",
+    "category": "Rural"
+  },
+  {
+    "name": "Curchirem",
+    "slug": "curchirem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Ona Maulinguem Curchirem",
+    "category": "Rural"
+  },
+  {
+    "name": "Dumacem",
+    "slug": "dumacem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Mencurem Dumacem",
+    "category": "Rural"
+  },
+  {
+    "name": "Lamgao",
+    "slug": "lamgao-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Latambarcem",
+    "slug": "latambarcem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Latambarcem",
+    "category": "Rural"
+  },
+  {
+    "name": "Maem",
+    "slug": "maem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Mayem",
+    "category": "Rural"
+  },
+  {
+    "name": "Maulinguem South",
+    "slug": "maulinguem-south-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Maulinguem-North",
+    "slug": "maulinguem-north-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Ona Maulinguem Curchirem",
+    "category": "Rural"
+  },
+  {
+    "name": "Mencurem",
+    "slug": "mencurem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Mencurem Dumacem",
+    "category": "Rural"
+  },
+  {
+    "name": "Mulgao",
+    "slug": "mulgao-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Mulgao",
+    "category": "Rural"
+  },
+  {
+    "name": "Naroa",
+    "slug": "naroa-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Naroa",
+    "category": "Rural"
+  },
+  {
+    "name": "Navelim",
+    "slug": "navelim-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Navelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ona",
+    "slug": "ona-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Ona Maulinguem Curchirem",
+    "category": "Rural"
+  },
+  {
+    "name": "Pale (Ct)",
+    "slug": "pale-ct-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Pale, Cotombi",
+    "category": "Rural"
+  },
+  {
+    "name": "Piligao",
+    "slug": "piligao-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Piligao",
+    "category": "Rural"
+  },
+  {
+    "name": "Salem",
+    "slug": "salem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Salem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sankhali",
+    "slug": "sankhali-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Sarvona",
+    "slug": "sarvona-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Karapur-Sarvan",
+    "category": "Rural"
+  },
+  {
+    "name": "Sirigao",
+    "slug": "sirigao-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Sirigao",
+    "category": "Rural"
+  },
+  {
+    "name": "Surla",
+    "slug": "surla-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Surla",
+    "category": "Rural"
+  },
+  {
+    "name": "Vainguinim",
+    "slug": "vainguinim-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Mayem",
+    "category": "Rural"
+  },
+  {
+    "name": "Velguem",
+    "slug": "velguem-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": "Velguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Virdi",
+    "slug": "virdi-bicholim",
+    "taluka": "Bicholim",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Agarvado",
+    "slug": "agarvado-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Agarwada Chopdem",
+    "category": "Rural"
+  },
+  {
+    "name": "Alorna",
+    "slug": "alorna-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Alorna",
+    "category": "Rural"
+  },
+  {
+    "name": "Amberem",
+    "slug": "amberem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Casnem, Amberem, Poroscodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Arambol (Ct)",
+    "slug": "arambol-ct-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Arambol",
+    "category": "Rural"
+  },
+  {
+    "name": "Cansarvornem",
+    "slug": "cansarvornem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Kasarvanem",
+    "category": "Rural"
+  },
+  {
+    "name": "Casnem",
+    "slug": "casnem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Casnem, Amberem, Poroscodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Chandel",
+    "slug": "chandel-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Chandel Hasapur",
+    "category": "Rural"
+  },
+  {
+    "name": "Chopdem",
+    "slug": "chopdem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Agarwada Chopdem",
+    "category": "Rural"
+  },
+  {
+    "name": "Corgao",
+    "slug": "corgao-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Corgao",
+    "category": "Rural"
+  },
+  {
+    "name": "Dargalim",
+    "slug": "dargalim-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Dhargal",
+    "category": "Rural"
+  },
+  {
+    "name": "Ibrampur",
+    "slug": "ibrampur-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Ibrampur",
+    "category": "Rural"
+  },
+  {
+    "name": "Mandrem (Ct)",
+    "slug": "mandrem-ct-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Mandrem",
+    "category": "Rural"
+  },
+  {
+    "name": "Mopa",
+    "slug": "mopa-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Tamboxem, Mopa, Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Morgim",
+    "slug": "morgim-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Morjim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ozorim",
+    "slug": "ozorim-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Ozarim",
+    "category": "Rural"
+  },
+  {
+    "name": "Paliem",
+    "slug": "paliem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Paliem",
+    "category": "Rural"
+  },
+  {
+    "name": "Parcem (Ct)",
+    "slug": "parcem-ct-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Parcem",
+    "category": "Rural"
+  },
+  {
+    "name": "Pernem",
+    "slug": "pernem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Poroscodem",
+    "slug": "poroscodem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Casnem, Amberem, Poroscodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Querim",
+    "slug": "querim-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Keri Terecol",
+    "category": "Rural"
+  },
+  {
+    "name": "Tamboxem",
+    "slug": "tamboxem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Tamboxem, Mopa, Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Tiracol",
+    "slug": "tiracol-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Keri Terecol",
+    "category": "Rural"
+  },
+  {
+    "name": "Torxem",
+    "slug": "torxem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Torxem",
+    "category": "Rural"
+  },
+  {
+    "name": "Tuem",
+    "slug": "tuem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Tuem",
+    "category": "Rural"
+  },
+  {
+    "name": "Uguem",
+    "slug": "uguem-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Tamboxem, Mopa, Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Varconda",
+    "slug": "varconda-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Varkhand Nagzar",
+    "category": "Rural"
+  },
+  {
+    "name": "Virnora",
+    "slug": "virnora-pernem",
+    "taluka": "Pernem",
+    "district": "North Goa",
+    "gram_panchayat": "Virnoda",
+    "category": "Rural"
+  },
+  {
+    "name": "Advoi",
+    "slug": "advoi-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Birondem",
+    "category": "Rural"
+  },
+  {
+    "name": "Ambedem",
+    "slug": "ambedem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Ambeli",
+    "slug": "ambeli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Anjunem",
+    "slug": "anjunem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ansolem",
+    "slug": "ansolem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Birondem",
+    "category": "Rural"
+  },
+  {
+    "name": "Assodem",
+    "slug": "assodem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Birondem",
+    "slug": "birondem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Birondem",
+    "category": "Rural"
+  },
+  {
+    "name": "Bombedem",
+    "slug": "bombedem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Buimpal",
+    "slug": "buimpal-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Honda",
+    "category": "Rural"
+  },
+  {
+    "name": "Carambolim-Brama",
+    "slug": "carambolim-brama-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Carambolim-Buzruco",
+    "slug": "carambolim-buzruco-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Caranzol",
+    "slug": "caranzol-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Choraundem",
+    "slug": "choraundem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Codal",
+    "slug": "codal-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Codiem",
+    "slug": "codiem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Pissurlem",
+    "category": "Rural"
+  },
+  {
+    "name": "Codqui",
+    "slug": "codqui-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Codvol",
+    "slug": "codvol-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Compordem",
+    "slug": "compordem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Mauxi",
+    "category": "Rural"
+  },
+  {
+    "name": "Conquirem",
+    "slug": "conquirem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Guleli",
+    "category": "Rural"
+  },
+  {
+    "name": "Cotorem",
+    "slug": "cotorem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Cudcem",
+    "slug": "cudcem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Cumarconda",
+    "slug": "cumarconda-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Pissurlem",
+    "category": "Rural"
+  },
+  {
+    "name": "Dabem",
+    "slug": "dabem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Mauxi",
+    "category": "Rural"
+  },
+  {
+    "name": "Damocem",
+    "slug": "damocem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Guleli",
+    "category": "Rural"
+  },
+  {
+    "name": "Davem",
+    "slug": "davem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Derodem",
+    "slug": "derodem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Dongurli",
+    "slug": "dongurli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Edorem",
+    "slug": "edorem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Golauli",
+    "slug": "golauli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Gonteli",
+    "slug": "gonteli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Govanem",
+    "slug": "govanem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Guleli",
+    "slug": "guleli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Guleli",
+    "category": "Rural"
+  },
+  {
+    "name": "Gululem",
+    "slug": "gululem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ivrem-Buzruco",
+    "slug": "ivrem-buzruco-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Ivrem-Curdo",
+    "slug": "ivrem-curdo-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Maloli",
+    "slug": "maloli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Malpona",
+    "slug": "malpona-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Massordem",
+    "slug": "massordem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Mauxi",
+    "slug": "mauxi-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Mauxi",
+    "category": "Rural"
+  },
+  {
+    "name": "Melauli",
+    "slug": "melauli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Guleli",
+    "category": "Rural"
+  },
+  {
+    "name": "Morlem",
+    "slug": "morlem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Morlem",
+    "category": "Rural"
+  },
+  {
+    "name": "Nagargao",
+    "slug": "nagargao-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Naguem",
+    "slug": "naguem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Mauxi",
+    "category": "Rural"
+  },
+  {
+    "name": "Naneli",
+    "slug": "naneli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Nanorem",
+    "slug": "nanorem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Nanus",
+    "slug": "nanus-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Onda (Ct)",
+    "slug": "onda-ct-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Honda",
+    "category": "Rural"
+  },
+  {
+    "name": "Padeli",
+    "slug": "padeli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Birondem",
+    "category": "Rural"
+  },
+  {
+    "name": "Pale",
+    "slug": "pale-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Pendral",
+    "slug": "pendral-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Pissurlem",
+    "slug": "pissurlem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Pissurlem",
+    "category": "Rural"
+  },
+  {
+    "name": "Podocem",
+    "slug": "podocem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Poriem",
+    "category": "Rural"
+  },
+  {
+    "name": "Ponocem",
+    "slug": "ponocem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Pissurlem",
+    "category": "Rural"
+  },
+  {
+    "name": "Ponsuli",
+    "slug": "ponsuli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Poriem",
+    "slug": "poriem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Poriem",
+    "category": "Rural"
+  },
+  {
+    "name": "Quelaudem",
+    "slug": "quelaudem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Querim",
+    "slug": "querim-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ravona",
+    "slug": "ravona-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Rivem",
+    "slug": "rivem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Saleli",
+    "slug": "saleli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Honda",
+    "category": "Rural"
+  },
+  {
+    "name": "Sanvorcem",
+    "slug": "sanvorcem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Birondem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sanvordem",
+    "slug": "sanvordem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Satorem",
+    "slug": "satorem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Satrem",
+    "slug": "satrem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Sigonem",
+    "slug": "sigonem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Siranguli",
+    "slug": "siranguli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Siroli",
+    "slug": "siroli-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Sirsodem",
+    "slug": "sirsodem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sonal",
+    "slug": "sonal-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sonus-Vonvoliem",
+    "slug": "sonus-vonvoliem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Honda",
+    "category": "Rural"
+  },
+  {
+    "name": "Surla",
+    "slug": "surla-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Dongurli-Thane",
+    "category": "Rural"
+  },
+  {
+    "name": "Ustem",
+    "slug": "ustem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Vaguriem",
+    "slug": "vaguriem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Pissurlem",
+    "category": "Rural"
+  },
+  {
+    "name": "Vainguinim",
+    "slug": "vainguinim-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Valpoi",
+    "slug": "valpoi-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Vantem",
+    "slug": "vantem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Birondem",
+    "category": "Rural"
+  },
+  {
+    "name": "Velguem",
+    "slug": "velguem-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Velus",
+    "slug": "velus-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Xelopo-Buzruco",
+    "slug": "xelopo-buzruco-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Xelopo-Curdo",
+    "slug": "xelopo-curdo-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Cotodem",
+    "category": "Rural"
+  },
+  {
+    "name": "Zarani",
+    "slug": "zarani-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Nagargao",
+    "category": "Rural"
+  },
+  {
+    "name": "Zormen",
+    "slug": "zormen-satari",
+    "taluka": "Satari",
+    "district": "North Goa",
+    "gram_panchayat": "Mauxi",
+    "category": "Rural"
+  },
+  {
+    "name": "Ambarim",
+    "slug": "ambarim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Chodan-Madel",
+    "category": "Rural"
+  },
+  {
+    "name": "Azossim",
+    "slug": "azossim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Azossim-Mandur",
+    "category": "Rural"
+  },
+  {
+    "name": "Bainguinim",
+    "slug": "bainguinim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Se-Old-Goa",
+    "category": "Rural"
+  },
+  {
+    "name": "Bambolim (Ct)",
+    "slug": "bambolim-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Curca, Bambolim, Talaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Batim",
+    "slug": "batim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Batim",
+    "category": "Rural"
+  },
+  {
+    "name": "Calapor (Ct)",
+    "slug": "calapor-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "St. Cruz",
+    "category": "Rural"
+  },
+  {
+    "name": "Capao",
+    "slug": "capao-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Sao Matias",
+    "category": "Rural"
+  },
+  {
+    "name": "Caraim",
+    "slug": "caraim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Chodan-Madel",
+    "category": "Rural"
+  },
+  {
+    "name": "Carambolim",
+    "slug": "carambolim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Carambolim",
+    "category": "Rural"
+  },
+  {
+    "name": "Chimbel (Ct)",
+    "slug": "chimbel-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Chimbel",
+    "category": "Rural"
+  },
+  {
+    "name": "Chorao",
+    "slug": "chorao-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Chodan-Madel",
+    "category": "Rural"
+  },
+  {
+    "name": "Corlim (Ct)",
+    "slug": "corlim-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Corlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Cujira (Og)",
+    "slug": "cujira-og-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "St. Cruz",
+    "category": "Rural"
+  },
+  {
+    "name": "Cumbarjua (Ct)",
+    "slug": "cumbarjua-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Cumbharjua",
+    "category": "Rural"
+  },
+  {
+    "name": "Curca",
+    "slug": "curca-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Curca, Bambolim, Talaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Durgavado",
+    "slug": "durgavado-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Taleigao",
+    "category": "Rural"
+  },
+  {
+    "name": "Ella",
+    "slug": "ella-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Se-Old-Goa",
+    "category": "Rural"
+  },
+  {
+    "name": "Gancim",
+    "slug": "gancim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Batim",
+    "category": "Rural"
+  },
+  {
+    "name": "Gandaulim",
+    "slug": "gandaulim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Cumbharjua",
+    "category": "Rural"
+  },
+  {
+    "name": "Goa-Velha",
+    "slug": "goa-velha-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "St. Andre",
+    "category": "Rural"
+  },
+  {
+    "name": "Goalim-Moula",
+    "slug": "goalim-moula-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Curca, Bambolim, Talaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Goltim",
+    "slug": "goltim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Goltim-Navelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Jua (Ct)",
+    "slug": "jua-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "St. Estevam",
+    "category": "Rural"
+  },
+  {
+    "name": "Malar",
+    "slug": "malar-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Sao Matias",
+    "category": "Rural"
+  },
+  {
+    "name": "Mandur",
+    "slug": "mandur-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Azossim-Mandur",
+    "category": "Rural"
+  },
+  {
+    "name": "Mercurim (Ct)",
+    "slug": "mercurim-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Sao Lourence(Agassaim)",
+    "category": "Rural"
+  },
+  {
+    "name": "Morambi-O-Grande (Merces)",
+    "slug": "morambi-o-grande-merces-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Merces",
+    "category": "Rural"
+  },
+  {
+    "name": "Morambi-O-Pequeno (Merces)",
+    "slug": "morambi-o-pequeno-merces-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Merces",
+    "category": "Rural"
+  },
+  {
+    "name": "Murda (Ct)",
+    "slug": "murda-ct-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Merces",
+    "category": "Rural"
+  },
+  {
+    "name": "Naroa",
+    "slug": "naroa-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Sao Matias",
+    "category": "Rural"
+  },
+  {
+    "name": "Navelim",
+    "slug": "navelim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Goltim-Navelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Neura-O-Grande",
+    "slug": "neura-o-grande-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Neura",
+    "category": "Rural"
+  },
+  {
+    "name": "Neura-O-Pequeno",
+    "slug": "neura-o-pequeno-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Neura",
+    "category": "Rural"
+  },
+  {
+    "name": "Panaji",
+    "slug": "panaji-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Panelim (Og)",
+    "slug": "panelim-og-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Se-Old-Goa",
+    "category": "Rural"
+  },
+  {
+    "name": "Renovadi (Og)",
+    "slug": "renovadi-og-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Merces",
+    "category": "Rural"
+  },
+  {
+    "name": "Siridao",
+    "slug": "siridao-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Siridao-Pale",
+    "category": "Rural"
+  },
+  {
+    "name": "Talaulim",
+    "slug": "talaulim-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Curca, Bambolim, Talaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Taleigao",
+    "slug": "taleigao-tiswadi",
+    "taluka": "Tiswadi",
+    "district": "North Goa",
+    "gram_panchayat": "Taleigao",
+    "category": "Rural"
+  },
+  {
+    "name": "Arossim",
+    "slug": "arossim-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Cansaulim-Arossim-Cuelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Cansaulim",
+    "slug": "cansaulim-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Cansaulim-Arossim-Cuelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Chicalim (Ct)",
+    "slug": "chicalim-ct-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Chicalim",
+    "category": "Rural"
+  },
+  {
+    "name": "Chicolna",
+    "slug": "chicolna-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Chicolna-Bogmalo",
+    "category": "Rural"
+  },
+  {
+    "name": "Cortalim (Ct)",
+    "slug": "cortalim-ct-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Cortalim",
+    "category": "Rural"
+  },
+  {
+    "name": "Cuelim",
+    "slug": "cuelim-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Cansaulim-Arossim-Cuelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Dabolim",
+    "slug": "dabolim-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Chicalim",
+    "category": "Rural"
+  },
+  {
+    "name": "Issorcim",
+    "slug": "issorcim-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Velsao-Pale",
+    "category": "Rural"
+  },
+  {
+    "name": "Mormugao Port",
+    "slug": "mormugao-port-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Pale",
+    "slug": "pale-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Velsao-Pale",
+    "category": "Rural"
+  },
+  {
+    "name": "Quelossim",
+    "slug": "quelossim-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Quelossim",
+    "category": "Rural"
+  },
+  {
+    "name": "Sambhaji",
+    "slug": "sambhaji-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Sancoale (Ct)",
+    "slug": "sancoale-ct-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Sancoale",
+    "category": "Rural"
+  },
+  {
+    "name": "Sao Jacinto Island",
+    "slug": "sao-jacinto-island-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Chicalim",
+    "category": "Rural"
+  },
+  {
+    "name": "Sao Jorge Island",
+    "slug": "sao-jorge-island-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Chicalim",
+    "category": "Rural"
+  },
+  {
+    "name": "Vadem",
+    "slug": "vadem-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Velsao",
+    "slug": "velsao-mormugao",
+    "taluka": "Mormugao",
+    "district": "South Goa",
+    "gram_panchayat": "Velsao-Pale",
+    "category": "Rural"
+  },
+  {
+    "name": "Adcolna",
+    "slug": "adcolna-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Bhoma-Adcolna",
+    "category": "Rural"
+  },
+  {
+    "name": "Bandora (Ct)",
+    "slug": "bandora-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Bandora",
+    "category": "Rural"
+  },
+  {
+    "name": "Betora",
+    "slug": "betora-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Betora-Nirancal",
+    "category": "Rural"
+  },
+  {
+    "name": "Betqui",
+    "slug": "betqui-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Betqui, Candola",
+    "category": "Rural"
+  },
+  {
+    "name": "Boma",
+    "slug": "boma-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Bhoma-Adcolna",
+    "category": "Rural"
+  },
+  {
+    "name": "Borim (Ct)",
+    "slug": "borim-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Borim",
+    "category": "Rural"
+  },
+  {
+    "name": "Candepar",
+    "slug": "candepar-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Curti-Khandepar",
+    "category": "Rural"
+  },
+  {
+    "name": "Candola (Ct)",
+    "slug": "candola-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Betqui, Candola",
+    "category": "Rural"
+  },
+  {
+    "name": "Codar",
+    "slug": "codar-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Betora-Nirancal",
+    "category": "Rural"
+  },
+  {
+    "name": "Conxem",
+    "slug": "conxem-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Betora-Nirancal",
+    "category": "Rural"
+  },
+  {
+    "name": "Cuncoliem",
+    "slug": "cuncoliem-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Veling-Priol",
+    "category": "Rural"
+  },
+  {
+    "name": "Cundaim",
+    "slug": "cundaim-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Kundaim",
+    "category": "Rural"
+  },
+  {
+    "name": "Curti (Ct)",
+    "slug": "curti-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Curti-Khandepar",
+    "category": "Rural"
+  },
+  {
+    "name": "Durbhat",
+    "slug": "durbhat-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Durbhat",
+    "category": "Rural"
+  },
+  {
+    "name": "Gangem",
+    "slug": "gangem-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Usgao-Ganjem",
+    "category": "Rural"
+  },
+  {
+    "name": "Marcaim (Ct)",
+    "slug": "marcaim-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Marcaim",
+    "category": "Rural"
+  },
+  {
+    "name": "Nirancal",
+    "slug": "nirancal-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Betora-Nirancal",
+    "category": "Rural"
+  },
+  {
+    "name": "Orgao (Ct)",
+    "slug": "orgao-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Tivrem-Orgao",
+    "category": "Rural"
+  },
+  {
+    "name": "Ponchavadi",
+    "slug": "ponchavadi-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Panchawadi",
+    "category": "Rural"
+  },
+  {
+    "name": "Ponda",
+    "slug": "ponda-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Priol (Ct)",
+    "slug": "priol-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Veling-Priol",
+    "category": "Rural"
+  },
+  {
+    "name": "Querim",
+    "slug": "querim-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Querim",
+    "category": "Rural"
+  },
+  {
+    "name": "Queula",
+    "slug": "queula-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Quela",
+    "category": "Rural"
+  },
+  {
+    "name": "Savoi-Verem",
+    "slug": "savoi-verem-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Verem-Vaghurme",
+    "category": "Rural"
+  },
+  {
+    "name": "Shiroda",
+    "slug": "shiroda-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Shiroda",
+    "category": "Rural"
+  },
+  {
+    "name": "Telaulim",
+    "slug": "telaulim-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Vadi Talaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Tivrem",
+    "slug": "tivrem-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Tivrem-Orgao",
+    "category": "Rural"
+  },
+  {
+    "name": "Usgao (Ct)",
+    "slug": "usgao-ct-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Usgao-Ganjem",
+    "category": "Rural"
+  },
+  {
+    "name": "Vadi",
+    "slug": "vadi-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Vadi Talaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Vagurbem",
+    "slug": "vagurbem-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Verem-Vaghurme",
+    "category": "Rural"
+  },
+  {
+    "name": "Velinga",
+    "slug": "velinga-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Veling-Priol",
+    "category": "Rural"
+  },
+  {
+    "name": "Volvoi",
+    "slug": "volvoi-ponda",
+    "taluka": "Ponda",
+    "district": "South Goa",
+    "gram_panchayat": "Volvoi",
+    "category": "Rural"
+  },
+  {
+    "name": "Adsulim",
+    "slug": "adsulim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Benaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Ambelim",
+    "slug": "ambelim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Ambelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Aquem-Baixo",
+    "slug": "aquem-baixo-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Aquem Baixo",
+    "category": "Rural"
+  },
+  {
+    "name": "Assolna",
+    "slug": "assolna-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Assolna",
+    "category": "Rural"
+  },
+  {
+    "name": "Benaulim (Ct)",
+    "slug": "benaulim-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Benaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Betalbatim",
+    "slug": "betalbatim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Betalbatim",
+    "category": "Rural"
+  },
+  {
+    "name": "Calata",
+    "slug": "calata-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Majorda",
+    "category": "Rural"
+  },
+  {
+    "name": "Camurlim",
+    "slug": "camurlim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Camurlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Cana",
+    "slug": "cana-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Benaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Carmona",
+    "slug": "carmona-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Carmona",
+    "category": "Rural"
+  },
+  {
+    "name": "Cavelossim",
+    "slug": "cavelossim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Cavelossim",
+    "category": "Rural"
+  },
+  {
+    "name": "Cavorim",
+    "slug": "cavorim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Chandor-Cavorim",
+    "category": "Rural"
+  },
+  {
+    "name": "Chandor",
+    "slug": "chandor-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Chandor-Cavorim",
+    "category": "Rural"
+  },
+  {
+    "name": "Chinchinim (Ct)",
+    "slug": "chinchinim-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Chinchinim-Deussa",
+    "category": "Rural"
+  },
+  {
+    "name": "Colva",
+    "slug": "colva-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Colva",
+    "category": "Rural"
+  },
+  {
+    "name": "Cuncolim",
+    "slug": "cuncolim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Curtorim (Ct)",
+    "slug": "curtorim-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Curtorim",
+    "category": "Rural"
+  },
+  {
+    "name": "Davorlim (Ct)",
+    "slug": "davorlim-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Rumdamol-Davorlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Deussua",
+    "slug": "deussua-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Chinchinim-Deussa",
+    "category": "Rural"
+  },
+  {
+    "name": "Dicarpale",
+    "slug": "dicarpale-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Davorlim Dicarpale",
+    "category": "Rural"
+  },
+  {
+    "name": "Dramapur",
+    "slug": "dramapur-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Dramapur-Sirlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Duncolim",
+    "slug": "duncolim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Seraulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Gaundaulim",
+    "slug": "gaundaulim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Colva",
+    "category": "Rural"
+  },
+  {
+    "name": "Gonsua",
+    "slug": "gonsua-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Betalbatim",
+    "category": "Rural"
+  },
+  {
+    "name": "Guirdolim",
+    "slug": "guirdolim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Guirdolim",
+    "category": "Rural"
+  },
+  {
+    "name": "Loutulim",
+    "slug": "loutulim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Loutulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Macasana",
+    "slug": "macasana-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Macasana",
+    "category": "Rural"
+  },
+  {
+    "name": "Majorda",
+    "slug": "majorda-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Majorda",
+    "category": "Rural"
+  },
+  {
+    "name": "Margao",
+    "slug": "margao-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Mulem",
+    "slug": "mulem-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Paroda",
+    "category": "Rural"
+  },
+  {
+    "name": "Nagoa",
+    "slug": "nagoa-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Nagoa",
+    "category": "Rural"
+  },
+  {
+    "name": "Navelim (Ct)",
+    "slug": "navelim-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Navelim",
+    "category": "Rural"
+  },
+  {
+    "name": "Nuvem (Ct)",
+    "slug": "nuvem-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Nuvem",
+    "category": "Rural"
+  },
+  {
+    "name": "Orlim",
+    "slug": "orlim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Orlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Paroda",
+    "slug": "paroda-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Paroda",
+    "category": "Rural"
+  },
+  {
+    "name": "Rachol",
+    "slug": "rachol-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Rachol",
+    "category": "Rural"
+  },
+  {
+    "name": "Raia (Ct)",
+    "slug": "raia-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Raia",
+    "category": "Rural"
+  },
+  {
+    "name": "Sao Jose De Areal (Ct)",
+    "slug": "sao-jose-de-areal-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "St. Jose-De-Areal",
+    "category": "Rural"
+  },
+  {
+    "name": "Sarzora",
+    "slug": "sarzora-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Sarzora",
+    "category": "Rural"
+  },
+  {
+    "name": "Seraulim",
+    "slug": "seraulim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Seraulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Sernabatim",
+    "slug": "sernabatim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Colva",
+    "category": "Rural"
+  },
+  {
+    "name": "Sirlim",
+    "slug": "sirlim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Dramapur-Sirlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Talaulim",
+    "slug": "talaulim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Telaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Talvorda",
+    "slug": "talvorda-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Utorda",
+    "slug": "utorda-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Majorda",
+    "category": "Rural"
+  },
+  {
+    "name": "Vanelim",
+    "slug": "vanelim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Colva",
+    "category": "Rural"
+  },
+  {
+    "name": "Varca (Ct)",
+    "slug": "varca-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Varca",
+    "category": "Rural"
+  },
+  {
+    "name": "Varoda",
+    "slug": "varoda-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Velim",
+    "slug": "velim-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Velim",
+    "category": "Rural"
+  },
+  {
+    "name": "Verna (Ct)",
+    "slug": "verna-ct-salcete",
+    "taluka": "Salcete",
+    "district": "South Goa",
+    "gram_panchayat": "Verna",
+    "category": "Rural"
+  },
+  {
+    "name": "Agonda",
+    "slug": "agonda-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Agonda",
+    "category": "Rural"
+  },
+  {
+    "name": "Angediva",
+    "slug": "angediva-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Loliem-Polem",
+    "category": "Rural"
+  },
+  {
+    "name": "Canacona",
+    "slug": "canacona-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Shristhal",
+    "category": "Rural"
+  },
+  {
+    "name": "Chaudi",
+    "slug": "chaudi-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Unmapped"
+  },
+  {
+    "name": "Cola",
+    "slug": "cola-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Cola",
+    "category": "Rural"
+  },
+  {
+    "name": "Cotigao",
+    "slug": "cotigao-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Cotigao",
+    "category": "Rural"
+  },
+  {
+    "name": "Gaodongrem",
+    "slug": "gaodongrem-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Gaondongri",
+    "category": "Rural"
+  },
+  {
+    "name": "Loliem",
+    "slug": "loliem-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Loliem-Polem",
+    "category": "Rural"
+  },
+  {
+    "name": "Nagorcem - Palolem",
+    "slug": "nagorcem-palolem-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Unmapped"
+  },
+  {
+    "name": "Poinguinim",
+    "slug": "poinguinim-canacona",
+    "taluka": "Canacona",
+    "district": "South Goa",
+    "gram_panchayat": "Poinguinim",
+    "category": "Rural"
+  },
+  {
+    "name": "Aglote",
+    "slug": "aglote-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Sancordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Bandoli",
+    "slug": "bandoli-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Kirlapal-Dabhal",
+    "category": "Rural"
+  },
+  {
+    "name": "Camarconda",
+    "slug": "camarconda-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Kirlapal-Dabhal",
+    "category": "Rural"
+  },
+  {
+    "name": "Caranzol",
+    "slug": "caranzol-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Colem",
+    "category": "Rural"
+  },
+  {
+    "name": "Codli",
+    "slug": "codli-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Kirlapal-Dabhal",
+    "category": "Rural"
+  },
+  {
+    "name": "Colem",
+    "slug": "colem-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Colem",
+    "category": "Rural"
+  },
+  {
+    "name": "Cormonem",
+    "slug": "cormonem-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Kirlapal-Dabhal",
+    "category": "Rural"
+  },
+  {
+    "name": "Darbandora",
+    "slug": "darbandora-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Dharbandora",
+    "category": "Rural"
+  },
+  {
+    "name": "Moissal",
+    "slug": "moissal-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Kirlapal-Dabhal",
+    "category": "Rural"
+  },
+  {
+    "name": "Molem",
+    "slug": "molem-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Mollem",
+    "category": "Rural"
+  },
+  {
+    "name": "Piliem",
+    "slug": "piliem-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Dharbandora",
+    "category": "Rural"
+  },
+  {
+    "name": "Sancordem",
+    "slug": "sancordem-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Sancordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sangod",
+    "slug": "sangod-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Mollem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sigao",
+    "slug": "sigao-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Colem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sonauli",
+    "slug": "sonauli-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Colem",
+    "category": "Rural"
+  },
+  {
+    "name": "Surla",
+    "slug": "surla-dharbandora",
+    "taluka": "Dharbandora",
+    "district": "South Goa",
+    "gram_panchayat": "Sancordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Adnem",
+    "slug": "adnem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Balli-Adnem",
+    "category": "Rural"
+  },
+  {
+    "name": "Ambaulim",
+    "slug": "ambaulim-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Ambaulim",
+    "category": "Rural"
+  },
+  {
+    "name": "Amona",
+    "slug": "amona-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Assolda",
+    "slug": "assolda-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Assolda",
+    "category": "Rural"
+  },
+  {
+    "name": "Avedem",
+    "slug": "avedem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Avedem-Cotombi",
+    "category": "Rural"
+  },
+  {
+    "name": "Bali",
+    "slug": "bali-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Balli-Adnem",
+    "category": "Rural"
+  },
+  {
+    "name": "Barcem",
+    "slug": "barcem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Barcem",
+    "category": "Rural"
+  },
+  {
+    "name": "Bendordem",
+    "slug": "bendordem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Balli-Adnem",
+    "category": "Rural"
+  },
+  {
+    "name": "Cacora",
+    "slug": "cacora-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Cavorem",
+    "slug": "cavorem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Caurem",
+    "category": "Rural"
+  },
+  {
+    "name": "Cazur",
+    "slug": "cazur-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Caurem",
+    "category": "Rural"
+  },
+  {
+    "name": "Chaifi",
+    "slug": "chaifi-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Avedem-Cotombi",
+    "category": "Rural"
+  },
+  {
+    "name": "Cordem",
+    "slug": "cordem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Balli-Adnem",
+    "category": "Rural"
+  },
+  {
+    "name": "Corla",
+    "slug": "corla-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Caurem",
+    "category": "Rural"
+  },
+  {
+    "name": "Cotombi",
+    "slug": "cotombi-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Avedem-Cotombi",
+    "category": "Rural"
+  },
+  {
+    "name": "Curchorem",
+    "slug": "curchorem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Cusmane",
+    "slug": "cusmane-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Deao",
+    "slug": "deao-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Fatorpa",
+    "slug": "fatorpa-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Fatorpa-Quitol",
+    "category": "Rural"
+  },
+  {
+    "name": "Goculdem",
+    "slug": "goculdem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Barcem",
+    "category": "Rural"
+  },
+  {
+    "name": "Hodar",
+    "slug": "hodar-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Assolda",
+    "category": "Rural"
+  },
+  {
+    "name": "Maina",
+    "slug": "maina-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Caurem",
+    "category": "Rural"
+  },
+  {
+    "name": "Mangal",
+    "slug": "mangal-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Caurem",
+    "category": "Rural"
+  },
+  {
+    "name": "Molcopona",
+    "slug": "molcopona-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Molcornem",
+    "category": "Rural"
+  },
+  {
+    "name": "Molcornem",
+    "slug": "molcornem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Molcornem",
+    "category": "Rural"
+  },
+  {
+    "name": "Morpirla",
+    "slug": "morpirla-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Morpirla",
+    "category": "Rural"
+  },
+  {
+    "name": "Nagvem",
+    "slug": "nagvem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Molcornem",
+    "category": "Rural"
+  },
+  {
+    "name": "Naqueri",
+    "slug": "naqueri-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Naqueri-Betul",
+    "category": "Rural"
+  },
+  {
+    "name": "Padi",
+    "slug": "padi-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Barcem",
+    "category": "Rural"
+  },
+  {
+    "name": "Pirla",
+    "slug": "pirla-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Caurem",
+    "category": "Rural"
+  },
+  {
+    "name": "Quedem",
+    "slug": "quedem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Barcem",
+    "category": "Rural"
+  },
+  {
+    "name": "Quepem",
+    "slug": "quepem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Quisconda",
+    "slug": "quisconda-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Barcem",
+    "category": "Rural"
+  },
+  {
+    "name": "Quitol",
+    "slug": "quitol-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Naqueri-Betul",
+    "category": "Rural"
+  },
+  {
+    "name": "Sirvoi",
+    "slug": "sirvoi-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Xeldem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sulcorna",
+    "slug": "sulcorna-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Caurem",
+    "category": "Rural"
+  },
+  {
+    "name": "Tiloi",
+    "slug": "tiloi-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Balli-Adnem",
+    "category": "Rural"
+  },
+  {
+    "name": "Undorna",
+    "slug": "undorna-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Molcornem",
+    "category": "Rural"
+  },
+  {
+    "name": "Xeldem (Ct)",
+    "slug": "xeldem-ct-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Xeldem",
+    "category": "Rural"
+  },
+  {
+    "name": "Xelvona",
+    "slug": "xelvona-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Assolda",
+    "category": "Rural"
+  },
+  {
+    "name": "Xic-Xelvona",
+    "slug": "xic-xelvona-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Assolda",
+    "category": "Rural"
+  },
+  {
+    "name": "Zanodem",
+    "slug": "zanodem-quepem",
+    "taluka": "Quepem",
+    "district": "South Goa",
+    "gram_panchayat": "Molcornem",
+    "category": "Rural"
+  },
+  {
+    "name": "Antoriem",
+    "slug": "antoriem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Bati",
+    "slug": "bati-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Boma",
+    "slug": "boma-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Kalay(Kalem)",
+    "category": "Rural"
+  },
+  {
+    "name": "Calem",
+    "slug": "calem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Kalay(Kalem)",
+    "category": "Rural"
+  },
+  {
+    "name": "Colomb",
+    "slug": "colomb-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Rivona",
+    "category": "Rural"
+  },
+  {
+    "name": "Comproi",
+    "slug": "comproi-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Coranginim",
+    "slug": "coranginim-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Costi",
+    "slug": "costi-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Kalay(Kalem)",
+    "category": "Rural"
+  },
+  {
+    "name": "Cotarli",
+    "slug": "cotarli-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Cumbari",
+    "slug": "cumbari-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Curdem",
+    "slug": "curdem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Curdi",
+    "category": "Rural"
+  },
+  {
+    "name": "Dongor",
+    "slug": "dongor-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Dongurli",
+    "slug": "dongurli-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Kalay(Kalem)",
+    "category": "Rural"
+  },
+  {
+    "name": "Dudal",
+    "slug": "dudal-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Kalay(Kalem)",
+    "category": "Rural"
+  },
+  {
+    "name": "Kurpem",
+    "slug": "kurpem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Curdi",
+    "category": "Rural"
+  },
+  {
+    "name": "Maulinguem",
+    "slug": "maulinguem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Kalay(Kalem)",
+    "category": "Rural"
+  },
+  {
+    "name": "Muguli",
+    "slug": "muguli-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Naiquinim",
+    "slug": "naiquinim-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Neturlim",
+    "slug": "neturlim-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Neturlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Nundem",
+    "slug": "nundem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Neturlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Odxel",
+    "slug": "odxel-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Kalay(Kalem)",
+    "category": "Rural"
+  },
+  {
+    "name": "Patiem",
+    "slug": "patiem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Porteem",
+    "slug": "porteem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Curdi",
+    "category": "Rural"
+  },
+  {
+    "name": "Potrem",
+    "slug": "potrem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Rivona",
+    "slug": "rivona-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Rivona",
+    "category": "Rural"
+  },
+  {
+    "name": "Rumbrem",
+    "slug": "rumbrem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Salauli",
+    "slug": "salauli-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sanguem",
+    "slug": "sanguem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": null,
+    "category": "Urban"
+  },
+  {
+    "name": "Santona",
+    "slug": "santona-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sanvordem (Ct)",
+    "slug": "sanvordem-ct-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Sanvordem",
+    "category": "Rural"
+  },
+  {
+    "name": "Sigonem",
+    "slug": "sigonem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Todou",
+    "slug": "todou-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Uguem",
+    "slug": "uguem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Uguem",
+    "category": "Rural"
+  },
+  {
+    "name": "Verlem",
+    "slug": "verlem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Neturlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Vichundrem",
+    "slug": "vichundrem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Neturlim",
+    "category": "Rural"
+  },
+  {
+    "name": "Viliena",
+    "slug": "viliena-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Bhati",
+    "category": "Rural"
+  },
+  {
+    "name": "Xelpem",
+    "slug": "xelpem-sanguem",
+    "taluka": "Sanguem",
+    "district": "South Goa",
+    "gram_panchayat": "Uguem",
+    "category": "Rural"
+  }
+]

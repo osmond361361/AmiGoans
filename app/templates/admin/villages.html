@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Admin &middot; Villages{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Manage Villages</h1>
+      <a class="btn ag-btn-outline" href="{{ url_for('admin.index') }}">&larr; Back to Admin Dashboard</a>
+    </div>
+
+    <form method="GET" class="d-flex gap-2 mb-3">
+      <input type="text" name="q" class="form-control" placeholder="Search by village name&hellip;" value="{{ search }}">
+      <button type="submit" class="btn ag-btn-primary">Search</button>
+    </form>
+
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Taluka</th>
+            <th>District</th>
+            <th>Gram Panchayat</th>
+            <th>Population</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for village in listings.items %}
+          <tr>
+            <td>{{ village.name }}</td>
+            <td>{{ village.taluka }}</td>
+            <td>{{ village.district }}</td>
+            <td>{{ village.gram_panchayat or "—" }}</td>
+            <td>{{ "{:,}".format(village.population) if village.population else "—" }}</td>
+            <td><a href="{{ url_for('admin.edit_village', village_id=village.id) }}">Edit</a></td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="6" class="ag-empty-state">No villages found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if listings.pages > 1 %}
+    <nav aria-label="Villages pages">
+      <ul class="pagination">
+        {% for page_num in listings.iter_pages() %}
+          {% if page_num %}
+          <li class="page-item {{ 'active' if page_num == listings.page else '' }}">
+            <a class="page-link" href="{{ url_for('admin.villages', page=page_num, q=search) }}">{{ page_num }}</a>
+          </li>
+          {% else %}
+          <li class="page-item disabled"><span class="page-link">&hellip;</span></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

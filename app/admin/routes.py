@@ -7,7 +7,7 @@ from flask import Response, abort, flash, redirect, render_template, request, ur
 from app.admin import admin_bp
 from app.admin.decorators import admin_required
 from app.admin.feedback_email import send_feedback_response_email
-from app.admin.forms import FeedbackResponseForm, PageForm
+from app.admin.forms import FeedbackResponseForm, PageForm, VillageForm
 from app.admin.geolocation import resolve_ip_location
 from app.extensions import db
 from app.models import Page, SiteVisit, User
@@ -22,6 +22,11 @@ from app.models.recipe import STATUSES as RECIPE_STATUSES
 from app.models.recipe import Recipe
 from app.models.story import STATUSES as STORY_STATUSES
 from app.models.story import Story
+from app.models.village import Village
+from app.models.village_landmark import STATUSES as VILLAGE_LANDMARK_STATUSES
+from app.models.village_landmark import VillageLandmark
+from app.models.village_photo import STATUSES as VILLAGE_PHOTO_STATUSES
+from app.models.village_photo import VillagePhoto
 
 
 def _parse_date_range():
@@ -74,6 +79,8 @@ def index():
     pending_photos = Photo.query.filter_by(status="pending").count()
     pending_ideas = Feedback.query.filter_by(kind="idea", status="new").count()
     pending_issues = Feedback.query.filter_by(kind="issue", status="new").count()
+    pending_village_landmarks = VillageLandmark.query.filter_by(status="pending").count()
+    pending_village_photos = VillagePhoto.query.filter_by(status="pending").count()
 
     return render_template(
         "admin/index.html",
@@ -89,6 +96,8 @@ def index():
         pending_photos=pending_photos,
         pending_ideas=pending_ideas,
         pending_issues=pending_issues,
+        pending_village_landmarks=pending_village_landmarks,
+        pending_village_photos=pending_village_photos,
     )
 
 
@@ -611,4 +620,114 @@ def stories_csv():
         buffer.getvalue(),
         mimetype="text/csv",
         headers={"Content-Disposition": "attachment; filename=amigoans-stories.csv"},
+    )
+
+
+@admin_bp.route("/villages")
+@admin_required
+def villages():
+    search = request.args.get("q", "").strip()
+    query = Village.query
+    if search:
+        query = query.filter(Village.name.ilike(f"%{search}%"))
+
+    page = request.args.get("page", 1, type=int)
+    listings = query.order_by(Village.name).paginate(page=page, per_page=30)
+
+    return render_template("admin/villages.html", listings=listings, search=search)
+
+
+@admin_bp.route("/villages/<int:village_id>/edit", methods=["GET", "POST"])
+@admin_required
+def edit_village(village_id):
+    village = Village.query.get_or_404(village_id)
+    form = VillageForm(obj=village)
+
+    if request.method == "GET" and village.population is not None:
+        form.population.data = str(village.population)
+
+    if form.validate_on_submit():
+        village.gram_panchayat = (
+            form.gram_panchayat.data.strip() if form.gram_panchayat.data else None
+        )
+        village.category = form.category.data.strip() if form.category.data else None
+        population_raw = form.population.data.strip() if form.population.data else ""
+        village.population = int(population_raw) if population_raw.isdigit() else None
+        village.population_source = (
+            form.population_source.data.strip() if form.population_source.data else None
+        )
+        db.session.commit()
+        flash(f'"{village.name}" has been updated.', "success")
+        return redirect(url_for("admin.villages"))
+
+    return render_template("admin/edit_village.html", form=form, village=village)
+
+
+@admin_bp.route("/villages/landmarks")
+@admin_required
+def village_landmarks():
+    status_filter = request.args.get("status", "pending")
+    query = VillageLandmark.query
+    if status_filter in VILLAGE_LANDMARK_STATUSES:
+        query = query.filter_by(status=status_filter)
+
+    page = request.args.get("page", 1, type=int)
+    listings = query.order_by(VillageLandmark.created_at.desc()).paginate(page=page, per_page=25)
+
+    return render_template(
+        "admin/village_landmarks.html",
+        listings=listings,
+        status_filter=status_filter,
+        statuses=VILLAGE_LANDMARK_STATUSES,
+    )
+
+
+@admin_bp.route("/villages/landmarks/<int:landmark_id>/status", methods=["POST"])
+@admin_required
+def update_village_landmark_status(landmark_id):
+    landmark = VillageLandmark.query.get_or_404(landmark_id)
+    new_status = request.form.get("status")
+    if new_status not in VILLAGE_LANDMARK_STATUSES:
+        abort(400)
+
+    landmark.status = new_status
+    db.session.commit()
+    flash(f'"{landmark.name}" is now {new_status}.', "success")
+    return redirect(
+        url_for("admin.village_landmarks", status=request.form.get("return_status", "pending"))
+    )
+
+
+@admin_bp.route("/villages/photos")
+@admin_required
+def village_photos():
+    status_filter = request.args.get("status", "pending")
+    query = VillagePhoto.query
+    if status_filter in VILLAGE_PHOTO_STATUSES:
+        query = query.filter_by(status=status_filter)
+
+    page = request.args.get("page", 1, type=int)
+    listings = query.order_by(VillagePhoto.created_at.desc()).paginate(page=page, per_page=25)
+
+    return render_template(
+        "admin/village_photos.html",
+        listings=listings,
+        status_filter=status_filter,
+        statuses=VILLAGE_PHOTO_STATUSES,
+    )
+
+
+@admin_bp.route("/villages/photos/<int:photo_id>/status", methods=["POST"])
+@admin_required
+def update_village_photo_status(photo_id):
+    photo = VillagePhoto.query.get_or_404(photo_id)
+    new_status = request.form.get("status")
+    if new_status not in VILLAGE_PHOTO_STATUSES:
+        abort(400)
+
+    photo.status = new_status
+    db.session.commit()
+    flash(f"Photo is now {new_status}.", "success")
+    return redirect(
+        url_for("admin.village_photos", status=request.form.get("return_status", "pending"))
     )

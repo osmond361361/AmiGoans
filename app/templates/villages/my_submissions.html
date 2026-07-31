@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}My Village Submissions{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <h1 class="ag-heading-serif">My Village Submissions</h1>
+
+    <h2 class="h5 mt-4">Landmarks</h2>
+    {% if landmarks %}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr><th>Village</th><th>Type</th><th>Name</th><th>Status</th><th>Submitted</th></tr>
+          </thead>
+          <tbody>
+            {% for landmark in landmarks %}
+            <tr>
+              <td><a href="{{ url_for('villages.detail', slug=landmark.village.slug) }}">{{ landmark.village.name }}</a></td>
+              <td>{{ landmark.category|capitalize }}</td>
+              <td>{{ landmark.name }}</td>
+              <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ landmark.status }}">{{ landmark.status|capitalize }}</span></td>
+              <td>{{ landmark.created_at.strftime("%d %b %Y") }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="ag-empty-state">You haven't suggested any landmarks yet.</p>
+    {% endif %}
+
+    <h2 class="h5 mt-4">Photos</h2>
+    {% if photos %}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead>
+            <tr><th>Photo</th><th>Village</th><th>Caption</th><th>Status</th><th>Submitted</th></tr>
+          </thead>
+          <tbody>
+            {% for photo in photos %}
+            <tr>
+              <td><img src="{{ url_for('static', filename='uploads/village-photos/' ~ photo.image) }}" alt="" style="width:60px; height:60px; object-fit:cover;" class="rounded"></td>
+              <td><a href="{{ url_for('villages.detail', slug=photo.village.slug) }}">{{ photo.village.name }}</a></td>
+              <td>{{ photo.caption }}</td>
+              <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ photo.status }}">{{ photo.status|capitalize }}</span></td>
+              <td>{{ photo.created_at.strftime("%d %b %Y") }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="ag-empty-state">You haven't shared a village photo yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

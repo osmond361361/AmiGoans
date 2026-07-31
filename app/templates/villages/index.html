@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Find Your Village{% endblock %}
+{% block meta_description %}Search all {{ village_count }} villages of Goa and discover their taluka, panchayat, landmarks and photos.{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card">
+      <h1 class="ag-heading-serif">Find Your Village</h1>
+      <p>Search all {{ village_count }} villages of Goa, or scroll the list below to find yours. Select a village to see its taluka, panchayat, landmarks and photos shared by the community.</p>
+
+      <div class="ag-village-search">
+        <label class="visually-hidden" for="ag-village-search-input">Search villages</label>
+        <input type="text" id="ag-village-search-input" class="form-control form-control-lg"
+               placeholder="Start typing a village name, e.g. &quot;Na&quot;&hellip;" autocomplete="off">
+        <div class="ag-village-search-results" id="ag-village-search-results"></div>
+      </div>
+
+      <p class="ag-attribution">Village directory sourced from the Census of India village listings. Facts, landmarks and photos on each village page are shared by the Ami Goans community and reviewed by admins.</p>
+    </div>
+  </div>
+</section>
+
+<script type="application/json" id="ag-villages-data">{{ villages_json | tojson }}</script>
+<script>
+(function () {
+  var villages = JSON.parse(document.getElementById("ag-villages-data").textContent);
+  var input = document.getElementById("ag-village-search-input");
+  var results = document.getElementById("ag-village-search-results");
+  var detailUrlTemplate = "{{ url_for('villages.detail', slug='__SLUG__') }}";
+
+  function renderList(list) {
+    results.innerHTML = "";
+    if (list.length === 0) {
+      var empty = document.createElement("p");
+      empty.className = "ag-empty-state ag-village-search-empty";
+      empty.textContent = "No villages match your search.";
+      results.appendChild(empty);
+      return;
+    }
+    list.forEach(function (village) {
+      var link = document.createElement("a");
+      link.className = "ag-village-search-item";
+      link.href = detailUrlTemplate.replace("__SLUG__", village.slug);
+
+      var nameEl = document.createElement("strong");
+      nameEl.textContent = village.name;
+      var metaEl = document.createElement("span");
+      metaEl.textContent = village.taluka + " Taluka, " + village.district;
+
+      link.appendChild(nameEl);
+      link.appendChild(metaEl);
+      results.appendChild(link);
+    });
+  }
+
+  function filterVillages(query) {
+    query = query.trim().toLowerCase();
+    if (!query) {
+      renderList(villages);
+      return;
+    }
+    var startsWith = villages.filter(function (v) {
+      return v.name.toLowerCase().indexOf(query) === 0;
+    });
+    var contains = villages.filter(function (v) {
+      return v.name.toLowerCase().indexOf(query) > 0;
+    });
+    renderList(startsWith.concat(contains));
+  }
+
+  input.addEventListener("input", function () {
+    filterVillages(input.value);
+  });
+
+  renderList(villages);
+})();
+</script>
+{% endblock %}

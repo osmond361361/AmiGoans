@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "components/_form_field.html" import field, select_field %}
+{% block title %}Suggest a Landmark &middot; {{ village.name }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Suggest a Landmark</h1>
+      <p>Add a church, temple, mosque or school in <strong>{{ village.name }}</strong>. Submissions are reviewed by an admin before appearing on the village page.</p>
+
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ select_field(form.category) }}
+        {{ field(form.name) }}
+        {{ field(form.description) }}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit for Approval</button>
+      </form>
+      <a class="btn ag-btn-outline w-100 mt-2" href="{{ url_for('villages.detail', slug=village.slug) }}">Cancel</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

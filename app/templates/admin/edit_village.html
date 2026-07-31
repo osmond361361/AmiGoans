@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% from "components/_form_field.html" import field %}
+{% block title %}Edit {{ village.name }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Edit {{ village.name }}</h1>
+      <a class="btn ag-btn-outline" href="{{ url_for('admin.villages') }}">&larr; Back to Manage Villages</a>
+    </div>
+    <p class="text-muted">{{ village.taluka }} Taluka, {{ village.district }}</p>
+
+    <div class="ag-card">
+      <form method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ field(form.gram_panchayat) }}
+        {{ field(form.category) }}
+        {{ field(form.population) }}
+        {{ field(form.population_source) }}
+        <button type="submit" class="btn ag-btn-primary mt-3">Save</button>
+      </form>
+    </div>
+
+    <a class="btn ag-btn-outline mt-3" href="{{ url_for('villages.detail', slug=village.slug) }}">View public page</a>
+  </div>
+</section>
+{% endblock %}

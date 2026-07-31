@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "components/_form_field.html" import field %}
+{% block title %}Add a Photo &middot; {{ village.name }}{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Add a Photo</h1>
+      <p>Share a photo from <strong>{{ village.name }}</strong>. Once submitted, it will be reviewed by an admin before it's published.</p>
+
+      <form method="POST" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        {{ field(form.caption) }}
+        {{ field(form.image) }}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit for Approval</button>
+      </form>
+      <a class="btn ag-btn-outline w-100 mt-2" href="{{ url_for('villages.detail', slug=village.slug) }}">Cancel</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

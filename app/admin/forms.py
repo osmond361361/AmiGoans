@@ -18,3 +18,10 @@ class FeedbackResponseForm(FlaskForm):
         "Response (emailed to the submitter if sent)",
         validators=[Optional(), Length(max=4000)],
     )
+
+
+class VillageForm(FlaskForm):
+    gram_panchayat = StringField("Gram Panchayat", validators=[Optional(), Length(max=150)])
+    category = StringField("Category", validators=[Optional(), Length(max=20)])
+    population = StringField("Population", validators=[Optional(), Length(max=20)])
+    population_source = StringField("Population Source", validators=[Optional(), Length(max=255)])

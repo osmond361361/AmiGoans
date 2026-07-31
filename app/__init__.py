@@ -121,6 +121,7 @@ def register_blueprints(app):
     from app.main import main_bp
     from app.members import members_bp
     from app.videos import videos_bp
+    from app.villages import villages_bp
 
     app.register_blueprint(main_bp)
     app.register_blueprint(auth_bp, url_prefix="/auth")
@@ -130,6 +131,7 @@ def register_blueprints(app):
     app.register_blueprint(heritage_bp, url_prefix="/heritage")
     app.register_blueprint(videos_bp, url_prefix="/tv")
     app.register_blueprint(jobs_bp, url_prefix="/jobs")
+    app.register_blueprint(villages_bp, url_prefix="/villages")
     app.register_blueprint(admin_bp, url_prefix="/admin")
 
 

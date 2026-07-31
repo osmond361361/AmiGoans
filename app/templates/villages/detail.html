@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}{{ village.name }} &middot; {{ village.taluka }} Taluka{% endblock %}
+{% block meta_description %}{{ village.name }} village in {{ village.taluka }} taluka, {{ village.district }}, Goa &mdash; panchayat, landmarks and photos shared by the Ami Goans community.{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <a class="btn ag-btn-outline mb-3" href="{{ url_for('villages.index') }}">&larr; Find Your Village</a>
+
+    <div class="ag-village-hero">
+      <h1 class="ag-heading-serif">{{ village.name }}</h1>
+      <p class="ag-village-hero-meta">{{ village.taluka }} Taluka &middot; {{ village.district }}</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="ag-card">
+          <h2 class="h5">Village Facts</h2>
+          <dl class="ag-village-facts">
+            <dt>Taluka</dt><dd>{{ village.taluka }}</dd>
+            <dt>District</dt><dd>{{ village.district }}</dd>
+            <dt>Gram Panchayat</dt><dd>{{ village.gram_panchayat or "Not recorded yet" }}</dd>
+            <dt>Category</dt><dd>{{ village.category or "Not recorded" }}</dd>
+            <dt>Population</dt>
+            <dd>
+              {% if village.population %}
+                {{ "{:,}".format(village.population) }}
+                {% if village.population_source %}<br><small class="text-muted">Source: {{ village.population_source }}</small>{% endif %}
+              {% else %}
+                Not yet recorded
+              {% endif %}
+            </dd>
+          </dl>
+          <p class="ag-attribution">Core village data sourced from the Census of India village directory. Facts and photos are shared by the community and reviewed by admins.</p>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <div class="ag-section-heading-row">
+          <h2 class="h5 mb-0">Landmarks</h2>
+          {% if current_user.is_authenticated %}
+            <a class="btn ag-btn-outline btn-sm" href="{{ url_for('villages.add_landmark', slug=village.slug) }}">+ Suggest a Landmark</a>
+          {% else %}
+            <a class="btn ag-btn-outline btn-sm" href="{{ url_for('auth.sign_in', next=url_for('villages.add_landmark', slug=village.slug)) }}">+ Suggest a Landmark</a>
+          {% endif %}
+        </div>
+
+        {% if landmarks_by_category %}
+          {% for category, items in landmarks_by_category.items() %}
+            <h3 class="ag-village-landmark-category">{{ category_labels.get(category, category|capitalize) }}</h3>
+            <div class="ag-village-landmark-list">
+              {% for landmark in items %}
+                <div class="ag-village-landmark-card">
+                  <strong>{{ landmark.name }}</strong>
+                  {% if landmark.description %}<p>{{ landmark.description }}</p>{% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="ag-empty-state">No landmarks recorded yet. Know a church, temple or school here? Be the first to add one.</p>
+        {% endif %}
+
+        <div class="ag-section-heading-row mt-4">
+          <h2 class="h5 mb-0">Photos</h2>
+          {% if current_user.is_authenticated %}
+            <a class="btn ag-btn-outline btn-sm" href="{{ url_for('villages.add_photo', slug=village.slug) }}">+ Add a Photo</a>
+          {% else %}
+            <a class="btn ag-btn-outline btn-sm" href="{{ url_for('auth.sign_in', next=url_for('villages.add_photo', slug=village.slug)) }}">+ Add a Photo</a>
+          {% endif %}
+        </div>
+
+        {% if photos %}
+          <div class="ag-village-photo-grid">
+            {% for photo in photos %}
+              <figure class="ag-village-photo-item">
+                <img src="{{ url_for('static', filename='uploads/village-photos/' ~ photo.image) }}" alt="{{ photo.caption }}">
+                <figcaption>{{ photo.caption }}</figcaption>
+              </figure>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="ag-empty-state">No photos yet. Share one from {{ village.name }}.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

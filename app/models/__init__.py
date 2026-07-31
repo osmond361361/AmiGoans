@@ -9,6 +9,9 @@ from app.models.recipe import Recipe
 from app.models.site_visit import SiteVisit
 from app.models.story import Story
 from app.models.user import User
+from app.models.village import Village
+from app.models.village_landmark import VillageLandmark
+from app.models.village_photo import VillagePhoto
 
 __all__ = [
     "User",
@@ -22,4 +25,7 @@ __all__ = [
     "Recipe",
     "Feedback",
     "Photo",
+    "Village",
+    "VillageLandmark",
+    "VillagePhoto",
 ]

@@ -28,6 +28,13 @@
         <a class="btn ag-btn-primary" href="{{ url_for('admin.feedback_list', kind='issue') }}">
           Manage Issues{% if pending_issues %} ({{ pending_issues }} new){% endif %}
         </a>
+        <a class="btn ag-btn-outline" href="{{ url_for('admin.villages') }}">Manage Villages</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.village_landmarks') }}">
+          Manage Village Landmarks{% if pending_village_landmarks %} ({{ pending_village_landmarks }} pending){% endif %}
+        </a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.village_photos') }}">
+          Manage Village Photos{% if pending_village_photos %} ({{ pending_village_photos }} pending){% endif %}
+        </a>
         <a class="btn ag-btn-outline" href="{{ url_for('admin.reports') }}">Users &amp; Reports</a>
       </div>
     </div>
