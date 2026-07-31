@@ -15,11 +15,11 @@
           <strong>Share a Story</strong>
           <span>Your memories matter</span>
         </a>
-        <div class="ag-contribute-item ag-contribute-item-disabled">
+        <a class="ag-contribute-item" href="{{ url_for('heritage.add_photo') }}">
           <span class="ag-contribute-icon">{{ icon("photo") }}</span>
           <strong>Share Photos</strong>
-          <span>Coming soon</span>
-        </div>
+          <span>Old pictures, timeless treasures</span>
+        </a>
         <a class="ag-contribute-item" href="{{ url_for('heritage.add_recipe') }}">
           <span class="ag-contribute-icon">{{ icon("restaurant") }}</span>
           <strong>Share a Recipe</strong>

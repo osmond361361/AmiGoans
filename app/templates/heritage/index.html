@@ -98,4 +98,27 @@
   </div>
 </section>
 
+<section class="ag-section ag-section-cream" aria-label="Community photos">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h2 class="ag-heading-serif ag-section-heading">Community Photos</h2>
+      <a class="btn ag-btn-primary" href="{{ url_for('heritage.add_photo') if current_user.is_authenticated else url_for('auth.sign_in', next=url_for('heritage.add_photo')) }}">Share Photos</a>
+    </div>
+    <p>Old pictures, timeless treasures &mdash; shared by the community.</p>
+
+    {% if community_photos %}
+      <div class="ag-category-grid">
+        {% for photo in community_photos %}
+          <figure class="ag-card" style="padding:0; overflow:hidden;">
+            <img src="{{ url_for('static', filename='uploads/photos/' ~ photo.image) }}" alt="{{ photo.caption }}" style="width:100%; height:200px; object-fit:cover; display:block;">
+            <figcaption class="p-2 small text-muted">{{ photo.caption }} &mdash; {{ photo.author.display_name }}</figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="ag-empty-state">No community photos have been shared yet. Be the first.</p>
+    {% endif %}
+  </div>
+</section>
+
 {% endblock %}

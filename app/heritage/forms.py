@@ -23,3 +23,10 @@ class RecipeForm(FlaskForm):
         "Photo (optional)",
         validators=[FileAllowed(["jpg", "jpeg", "png"], "Images only (JPG or PNG).")],
     )
+
+
+class PhotoForm(FlaskForm):
+    caption = StringField("Caption", validators=[DataRequired(), Length(min=2, max=255)])
+    image = FileField(
+        "Photo", validators=[FileAllowed(["jpg", "jpeg", "png"], "Images only (JPG or PNG).")]
+    )

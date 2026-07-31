@@ -19,6 +19,9 @@
         <a class="btn ag-btn-primary" href="{{ url_for('admin.recipes') }}">
           Manage Recipes{% if pending_recipes %} ({{ pending_recipes }} pending){% endif %}
         </a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.photos') }}">
+          Manage Photos{% if pending_photos %} ({{ pending_photos }} pending){% endif %}
+        </a>
         <a class="btn ag-btn-primary" href="{{ url_for('admin.feedback_list', kind='idea') }}">
           Manage Ideas{% if pending_ideas %} ({{ pending_ideas }} new){% endif %}
         </a>

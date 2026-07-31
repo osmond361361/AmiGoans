@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "components/_form_field.html" import field %}
+{% block title %}Share Photos{% endblock %}
+{% block meta_description %}Share old photos and memories with the UK Goan community on Ami Goans.{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container ag-narrow">
+    <div class="ag-card ag-auth-card">
+      <h1 class="ag-heading-serif">Share Photos</h1>
+      <p>Old pictures, timeless treasures. Once submitted, your photo will be reviewed by an admin before it's published.</p>
+
+      <form method="POST" enctype="multipart/form-data" novalidate>
+        {{ form.hidden_tag() }}
+        {{ field(form.caption) }}
+        {{ field(form.image) }}
+        <button type="submit" class="btn ag-btn-primary w-100 mt-3">Submit for Approval</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

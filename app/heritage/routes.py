@@ -7,7 +7,8 @@ from PIL import Image
 
 from app.extensions import db
 from app.heritage import heritage_bp
-from app.heritage.forms import RecipeForm, StoryForm
+from app.heritage.forms import PhotoForm, RecipeForm, StoryForm
+from app.models.photo import Photo
 from app.models.recipe import Recipe
 from app.models.recipe import unique_slug as unique_recipe_slug
 from app.models.story import Story, unique_slug
@@ -100,10 +101,36 @@ def _apply_form_to_recipe(form, recipe):
         _delete_recipe_image(old_cover)
 
 
+def _save_photo_image(file_storage):
+    upload_dir = os.path.join(current_app.config["UPLOAD_FOLDER"], "photos")
+    os.makedirs(upload_dir, exist_ok=True)
+
+    max_dimension = 1600
+    image = Image.open(file_storage.stream).convert("RGB")
+    width, height = image.size
+    if max(width, height) > max_dimension:
+        scale = max_dimension / max(width, height)
+        image = image.resize((int(width * scale), int(height * scale)), Image.LANCZOS)
+
+    filename = f"photo-{uuid.uuid4().hex[:10]}.jpg"
+    image.save(os.path.join(upload_dir, filename), "JPEG", quality=88)
+    return filename
+
+
+def _delete_photo_image(filename):
+    if not filename:
+        return
+    path = os.path.join(current_app.config["UPLOAD_FOLDER"], "photos", filename)
+    if os.path.exists(path):
+        os.remove(path)
+
+
 @heritage_bp.route("/")
 def index():
-    # Stage 5 adds real heritage articles.
-    return render_template("heritage/index.html")
+    community_photos = (
+        Photo.query.filter_by(status="approved").order_by(Photo.created_at.desc()).limit(12).all()
+    )
+    return render_template("heritage/index.html", community_photos=community_photos)
 
 
 @heritage_bp.route("/blogs")
@@ -244,3 +271,60 @@ def cuisine():
         Recipe.query.filter_by(status="approved").order_by(Recipe.created_at.desc()).limit(12).all()
     )
     return render_template("heritage/cuisine.html", community_recipes=community_recipes)
+
+
+@heritage_bp.route("/photos/mine")
+@login_required
+def my_photos():
+    listings = (
+        Photo.query.filter_by(author_id=current_user.id).order_by(Photo.created_at.desc()).all()
+    )
+    return render_template("heritage/my_photos.html", listings=listings)
+
+
+@heritage_bp.route("/photos/add", methods=["GET", "POST"])
+@login_required
+def add_photo():
+    form = PhotoForm()
+
+    if form.validate_on_submit():
+        if not form.image.data:
+            form.image.errors.append("Please choose a photo to upload.")
+        else:
+            photo = Photo(
+                author_id=current_user.id,
+                caption=form.caption.data.strip(),
+                image=_save_photo_image(form.image.data),
+                status="pending",
+            )
+            db.session.add(photo)
+            db.session.commit()
+            flash(
+                "Thanks for sharing! Your photo has been submitted and is awaiting admin "
+                "approval.",
+                "success",
+            )
+            return redirect(url_for("heritage.my_photos"))
+
+    return render_template("heritage/photo_add.html", form=form)
+
+
+@heritage_bp.route("/photos/<int:photo_id>/edit", methods=["GET", "POST"])
+@login_required
+def edit_photo(photo_id):
+    photo = Photo.query.get_or_404(photo_id)
+    if photo.author_id != current_user.id and not current_user.is_admin:
+        abort(403)
+
+    form = PhotoForm(obj=photo)
+    if form.validate_on_submit():
+        photo.caption = form.caption.data.strip()
+        if form.image.data:
+            old_image = photo.image
+            photo.image = _save_photo_image(form.image.data)
+            _delete_photo_image(old_image)
+        db.session.commit()
+        flash("Your photo has been updated.", "success")
+        return redirect(url_for("heritage.my_photos"))
+
+    return render_template("heritage/photo_edit.html", form=form, photo=photo)

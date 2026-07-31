@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Admin &middot; Photos{% endblock %}
+{% block content %}
+<section class="ag-section">
+  <div class="container">
+    <div class="ag-section-heading-row">
+      <h1 class="ag-heading-serif">Manage Photos</h1>
+      <a class="btn ag-btn-outline" href="{{ url_for('admin.index') }}">&larr; Back to Admin Dashboard</a>
+    </div>
+
+    <ul class="nav nav-pills mb-3">
+      {% for status in statuses %}
+        <li class="nav-item">
+          <a class="nav-link {{ 'active' if status_filter == status else '' }}"
+             href="{{ url_for('admin.photos', status=status) }}">{{ status|capitalize }}</a>
+        </li>
+      {% endfor %}
+      <li class="nav-item">
+        <a class="nav-link {{ 'active' if status_filter == 'all' else '' }}"
+           href="{{ url_for('admin.photos', status='all') }}">All</a>
+      </li>
+    </ul>
+
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Caption</th>
+            <th>Author</th>
+            <th>Submitted</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for photo in listings.items %}
+          <tr>
+            <td><img src="{{ url_for('static', filename='uploads/photos/' ~ photo.image) }}" alt="" style="width:60px; height:60px; object-fit:cover;" class="rounded"></td>
+            <td>{{ photo.caption }}</td>
+            <td>{{ photo.author.display_name }}</td>
+            <td>{{ photo.created_at.strftime("%d %b %Y") }}</td>
+            <td><span class="ag-badge ag-badge-inline ag-badge-status-{{ photo.status }}">{{ photo.status|capitalize }}</span></td>
+            <td class="d-flex gap-2">
+              {% if photo.status != "approved" %}
+              <form method="POST" action="{{ url_for('admin.update_photo_status', photo_id=photo.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" value="approved">
+                <input type="hidden" name="return_status" value="{{ status_filter }}">
+                <button type="submit" class="btn btn-sm ag-btn-primary">Approve</button>
+              </form>
+              {% endif %}
+              {% if photo.status != "rejected" %}
+              <form method="POST" action="{{ url_for('admin.update_photo_status', photo_id=photo.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" value="rejected">
+                <input type="hidden" name="return_status" value="{{ status_filter }}">
+                <button type="submit" class="btn btn-sm btn-outline-danger">Reject</button>
+              </form>
+              {% endif %}
+              {% if photo.status == "approved" %}
+              <form method="POST" action="{{ url_for('admin.update_photo_status', photo_id=photo.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="status" value="suspended">
+                <input type="hidden" name="return_status" value="{{ status_filter }}">
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Suspend</button>
+              </form>
+              {% endif %}
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="6" class="ag-empty-state">No photos with this status.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+{% endblock %}

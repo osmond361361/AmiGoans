@@ -16,6 +16,8 @@ from app.models.feedback import STATUSES as FEEDBACK_STATUSES
 from app.models.feedback import Feedback
 from app.models.job import STATUSES as JOB_STATUSES
 from app.models.job import JobPost
+from app.models.photo import STATUSES as PHOTO_STATUSES
+from app.models.photo import Photo
 from app.models.recipe import STATUSES as RECIPE_STATUSES
 from app.models.recipe import Recipe
 from app.models.story import STATUSES as STORY_STATUSES
@@ -69,6 +71,7 @@ def index():
     pending_jobs = JobPost.query.filter_by(status="pending").count()
     pending_stories = Story.query.filter_by(status="pending").count()
     pending_recipes = Recipe.query.filter_by(status="pending").count()
+    pending_photos = Photo.query.filter_by(status="pending").count()
     pending_ideas = Feedback.query.filter_by(kind="idea", status="new").count()
     pending_issues = Feedback.query.filter_by(kind="issue", status="new").count()
 
@@ -83,6 +86,7 @@ def index():
         pending_jobs=pending_jobs,
         pending_stories=pending_stories,
         pending_recipes=pending_recipes,
+        pending_photos=pending_photos,
         pending_ideas=pending_ideas,
         pending_issues=pending_issues,
     )
@@ -220,6 +224,39 @@ def update_recipe_status(recipe_id):
     db.session.commit()
     flash(f'"{recipe.title}" is now {new_status}.', "success")
     return redirect(url_for("admin.recipes", status=request.form.get("return_status", "pending")))
+
+
+@admin_bp.route("/photos")
+@admin_required
+def photos():
+    status_filter = request.args.get("status", "pending")
+    query = Photo.query
+    if status_filter in PHOTO_STATUSES:
+        query = query.filter_by(status=status_filter)
+
+    page = request.args.get("page", 1, type=int)
+    listings = query.order_by(Photo.created_at.desc()).paginate(page=page, per_page=25)
+
+    return render_template(
+        "admin/photos.html",
+        listings=listings,
+        status_filter=status_filter,
+        statuses=PHOTO_STATUSES,
+    )
+
+
+@admin_bp.route("/photos/<int:photo_id>/status", methods=["POST"])
+@admin_required
+def update_photo_status(photo_id):
+    photo = Photo.query.get_or_404(photo_id)
+    new_status = request.form.get("status")
+    if new_status not in PHOTO_STATUSES:
+        abort(400)
+
+    photo.status = new_status
+    db.session.commit()
+    flash(f"Photo is now {new_status}.", "success")
+    return redirect(url_for("admin.photos", status=request.form.get("return_status", "pending")))
 
 
 @admin_bp.route("/feedback/<kind>")
