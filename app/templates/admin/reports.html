@@ -74,7 +74,7 @@
 
     <div class="ag-card">
       <h2 class="h4">Download Reports</h2>
-      <p class="text-muted">Optionally filter by registration/visit date, then download the CSV you need.</p>
+      <p class="text-muted">Optionally filter by registration/visit date, then download the CSV you need. The status filter applies to the Businesses, Jobs and Stories reports only.</p>
       <form method="get" class="row g-3 align-items-end mb-3" id="report-date-range">
         <div class="col-auto">
           <label class="form-label" for="report-start">From</label>
@@ -85,15 +85,24 @@
           <input type="date" class="form-control" id="report-end" name="end" value="{{ end }}">
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn ag-btn-outline">Apply Date Range</button>
+          <label class="form-label" for="report-status">Status</label>
+          <select class="form-select" id="report-status" name="status">
+            <option value="all" {{ "selected" if status == "all" }}>All</option>
+            {% for listing_status in listing_statuses %}
+              <option value="{{ listing_status }}" {{ "selected" if status == listing_status }}>{{ listing_status|capitalize }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn ag-btn-outline">Apply Filters</button>
         </div>
       </form>
 
       <div class="d-flex gap-2 flex-wrap">
         <a class="btn ag-btn-primary" href="{{ url_for('admin.users_csv', start=start, end=end) }}">Download Users CSV</a>
-        <a class="btn ag-btn-primary" href="{{ url_for('admin.businesses_csv', start=start, end=end) }}">Download Businesses CSV</a>
-        <a class="btn ag-btn-primary" href="{{ url_for('admin.jobs_csv', start=start, end=end) }}">Download Jobs CSV</a>
-        <a class="btn ag-btn-primary" href="{{ url_for('admin.stories_csv', start=start, end=end) }}">Download Stories CSV</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.businesses_csv', start=start, end=end, status=status) }}">Download Businesses CSV</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.jobs_csv', start=start, end=end, status=status) }}">Download Jobs CSV</a>
+        <a class="btn ag-btn-primary" href="{{ url_for('admin.stories_csv', start=start, end=end, status=status) }}">Download Stories CSV</a>
         <a class="btn ag-btn-primary" href="{{ url_for('admin.hits_csv', start=start, end=end) }}">Download Hits CSV</a>
       </div>
     </div>

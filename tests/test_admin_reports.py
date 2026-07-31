@@ -172,3 +172,107 @@ def test_stories_csv_download_contains_all_statuses(client, app):
     assert response.mimetype == "text/csv"
     assert b"CSV Test Story" in response.data
     assert b"author@example.com" in response.data
+
+
+def test_businesses_csv_respects_status_filter(client, app):
+    owner_id = _make_user(app, "owner2@example.com")
+    _make_user(app, "admin9@example.com", is_admin=True)
+
+    with app.app_context():
+        db.session.add_all(
+            [
+                Business(
+                    owner_id=owner_id,
+                    name="Pending Kitchen",
+                    slug="pending-kitchen",
+                    description="A test business for the status filter.",
+                    category="Restaurants",
+                    town="Leeds",
+                    nation="England",
+                    status="pending",
+                ),
+                Business(
+                    owner_id=owner_id,
+                    name="Approved Kitchen",
+                    slug="approved-kitchen",
+                    description="A test business for the status filter.",
+                    category="Restaurants",
+                    town="Leeds",
+                    nation="England",
+                    status="approved",
+                ),
+            ]
+        )
+        db.session.commit()
+
+    _sign_in(client, "admin9@example.com")
+    response = client.get("/admin/reports/businesses.csv?status=approved")
+    assert response.status_code == 200
+    assert b"Approved Kitchen" in response.data
+    assert b"Pending Kitchen" not in response.data
+
+
+def test_jobs_csv_respects_status_filter(client, app):
+    poster_id = _make_user(app, "poster2@example.com")
+    _make_user(app, "admin10@example.com", is_admin=True)
+
+    with app.app_context():
+        db.session.add_all(
+            [
+                JobPost(
+                    posted_by_id=poster_id,
+                    title="Pending Job",
+                    slug="pending-job",
+                    location="Leeds",
+                    job_url="https://example.com/careers/pending-job",
+                    status="pending",
+                ),
+                JobPost(
+                    posted_by_id=poster_id,
+                    title="Approved Job",
+                    slug="approved-job",
+                    location="Leeds",
+                    job_url="https://example.com/careers/approved-job",
+                    status="approved",
+                ),
+            ]
+        )
+        db.session.commit()
+
+    _sign_in(client, "admin10@example.com")
+    response = client.get("/admin/reports/jobs.csv?status=approved")
+    assert response.status_code == 200
+    assert b"Approved Job" in response.data
+    assert b"Pending Job" not in response.data
+
+
+def test_stories_csv_respects_status_filter(client, app):
+    author_id = _make_user(app, "author2@example.com")
+    _make_user(app, "admin11@example.com", is_admin=True)
+
+    with app.app_context():
+        db.session.add_all(
+            [
+                Story(
+                    author_id=author_id,
+                    title="Pending Story",
+                    slug="pending-story",
+                    body="A" * 60,
+                    status="pending",
+                ),
+                Story(
+                    author_id=author_id,
+                    title="Approved Story",
+                    slug="approved-story",
+                    body="A" * 60,
+                    status="approved",
+                ),
+            ]
+        )
+        db.session.commit()
+
+    _sign_in(client, "admin11@example.com")
+    response = client.get("/admin/reports/stories.csv?status=approved")
+    assert response.status_code == 200
+    assert b"Approved Story" in response.data
+    assert b"Pending Story" not in response.data

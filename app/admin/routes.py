@@ -37,6 +37,12 @@ def _parse_date_range():
     return start_dt, end_dt
 
 
+def _status_filter():
+    """Read ?status=pending/approved/rejected/suspended; anything else means no filter."""
+    status = request.args.get("status", "")
+    return status if status in STATUSES else None
+
+
 @admin_bp.route("/")
 @admin_required
 def index():
@@ -250,6 +256,8 @@ def reports():
         total_stories=total_stories,
         start=request.args.get("start", ""),
         end=request.args.get("end", ""),
+        status=request.args.get("status", "all"),
+        listing_statuses=STATUSES,
     )
 
 
@@ -341,11 +349,14 @@ def hits_csv():
 @admin_required
 def businesses_csv():
     start_dt, end_dt = _parse_date_range()
+    status = _status_filter()
     query = Business.query
     if start_dt:
         query = query.filter(Business.created_at >= start_dt)
     if end_dt:
         query = query.filter(Business.created_at < end_dt)
+    if status:
+        query = query.filter_by(status=status)
 
     buffer = io.StringIO()
     writer = csv.writer(buffer)
@@ -390,11 +401,14 @@ def businesses_csv():
 @admin_required
 def jobs_csv():
     start_dt, end_dt = _parse_date_range()
+    status = _status_filter()
     query = JobPost.query
     if start_dt:
         query = query.filter(JobPost.created_at >= start_dt)
     if end_dt:
         query = query.filter(JobPost.created_at < end_dt)
+    if status:
+        query = query.filter_by(status=status)
 
     buffer = io.StringIO()
     writer = csv.writer(buffer)
@@ -435,11 +449,14 @@ def jobs_csv():
 @admin_required
 def stories_csv():
     start_dt, end_dt = _parse_date_range()
+    status = _status_filter()
     query = Story.query
     if start_dt:
         query = query.filter(Story.created_at >= start_dt)
     if end_dt:
         query = query.filter(Story.created_at < end_dt)
+    if status:
+        query = query.filter_by(status=status)
 
     buffer = io.StringIO()
     writer = csv.writer(buffer)
