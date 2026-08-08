@@ -11,6 +11,34 @@
       <p class="ag-village-hero-meta">{{ village.taluka }} Taluka &middot; {{ village.district }}</p>
     </div>
 
+    {% if village.wiki_image %}
+      <figure class="ag-village-wiki-photo">
+        <img src="{{ url_for('static', filename='images/villages/' ~ village.wiki_image) }}" alt="{{ village.name }}">
+        {% if village.wiki_image_attribution %}
+          <figcaption class="ag-attribution">
+            {{ village.wiki_image_attribution }}, via Wikimedia Commons
+            {% if village.wiki_image_source_url %}(<a href="{{ village.wiki_image_source_url }}" target="_blank" rel="noopener">full details</a>){% endif %}
+          </figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+
+    {% if village.wiki_summary %}
+      <div class="ag-card ag-village-wiki-summary">
+        <p>{{ village.wiki_summary }}</p>
+        {% if village.wiki_history %}
+          <h2 class="h5">History</h2>
+          <p>{{ village.wiki_history }}</p>
+        {% endif %}
+        {% if village.wiki_url %}
+          <p class="ag-attribution">
+            Text adapted from <a href="{{ village.wiki_url }}" target="_blank" rel="noopener">Wikipedia</a>,
+            available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> licence.
+          </p>
+        {% endif %}
+      </div>
+    {% endif %}
+
     <div class="row g-4">
       <div class="col-md-4">
         <div class="ag-card">

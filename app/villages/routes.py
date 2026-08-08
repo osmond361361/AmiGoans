@@ -1,5 +1,6 @@
 import os
 import uuid
+from datetime import datetime, timezone
 
 from flask import current_app, flash, redirect, render_template, url_for
 from flask_login import current_user, login_required
@@ -11,6 +12,7 @@ from app.models.village_landmark import VillageLandmark
 from app.models.village_photo import VillagePhoto
 from app.villages import villages_bp
 from app.villages.forms import VillageLandmarkForm, VillagePhotoForm
+from app.villages.wikipedia import clean_name, fetch_village_wikipedia
 
 CATEGORY_LABELS = {
     "church": "Churches",
@@ -52,6 +54,28 @@ def index():
 @villages_bp.route("/<slug>")
 def detail(slug):
     village = Village.query.filter_by(slug=slug).first_or_404()
+
+    if village.wiki_checked_at is None:
+        images_dir = os.path.join(current_app.static_folder, "images", "villages")
+        this_name = clean_name(village.name).lower()
+        other_names = Village.query.with_entities(Village.name).filter(Village.id != village.id)
+        has_conflict = any(clean_name(name).lower() == this_name for (name,) in other_names)
+        try:
+            info = fetch_village_wikipedia(
+                village.name,
+                taluka=village.taluka,
+                require_taluka_match=has_conflict,
+                images_dir=images_dir,
+                slug=village.slug,
+            )
+        except Exception:
+            info = None
+        if info:
+            for field, value in info.items():
+                setattr(village, field, value)
+        village.wiki_checked_at = datetime.now(timezone.utc)
+        db.session.commit()
+
     landmarks = (
         VillageLandmark.query.filter_by(village_id=village.id, status="approved")
         .order_by(VillageLandmark.category, VillageLandmark.name)

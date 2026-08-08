@@ -252,6 +252,65 @@ def test_my_submissions_lists_users_own_submissions(client, app):
     assert b"Old Banyan Tree" in response.data
 
 
+def test_detail_page_caches_wikipedia_info_on_first_view(client, app, monkeypatch):
+    village_id = _make_village(app)
+    calls = []
+
+    def fake_fetch(name, **kwargs):
+        calls.append(name)
+        return {
+            "wiki_summary": "Aldona is a village in Bardez taluka of Goa, India.",
+            "wiki_history": "Aldona was historically known for its churches.",
+            "wiki_url": "https://en.wikipedia.org/wiki/Aldona",
+            "wiki_image": None,
+            "wiki_image_attribution": None,
+            "wiki_image_source_url": None,
+        }
+
+    monkeypatch.setattr("app.villages.routes.fetch_village_wikipedia", fake_fetch)
+
+    response = client.get("/villages/aldona-bardez")
+    assert response.status_code == 200
+    assert b"Aldona is a village in Bardez taluka" in response.data
+    assert b"Aldona was historically known for its churches" in response.data
+    assert calls == ["Aldona"]
+
+    with app.app_context():
+        village = db.session.get(Village, village_id)
+        assert village.wiki_summary == "Aldona is a village in Bardez taluka of Goa, India."
+        assert village.wiki_checked_at is not None
+
+
+def test_detail_page_does_not_refetch_once_already_checked(client, app, monkeypatch):
+    from datetime import datetime, timezone
+
+    _make_village(app)
+    with app.app_context():
+        village = Village.query.filter_by(slug="aldona-bardez").first()
+        village.wiki_checked_at = datetime.now(timezone.utc)
+        db.session.commit()
+
+    def fail_if_called(*args, **kwargs):
+        raise AssertionError("should not re-fetch a village already checked")
+
+    monkeypatch.setattr("app.villages.routes.fetch_village_wikipedia", fail_if_called)
+
+    response = client.get("/villages/aldona-bardez")
+    assert response.status_code == 200
+
+
+def test_detail_page_survives_a_wikipedia_lookup_error(client, app, monkeypatch):
+    _make_village(app)
+
+    def raise_error(*args, **kwargs):
+        raise RuntimeError("network unreachable")
+
+    monkeypatch.setattr("app.villages.routes.fetch_village_wikipedia", raise_error)
+
+    response = client.get("/villages/aldona-bardez")
+    assert response.status_code == 200
+
+
 def test_admin_can_edit_village_population(client, app):
     village_id = _make_village(app)
     _make_user(app, "admin3@example.com", is_admin=True)

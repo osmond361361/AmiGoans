@@ -18,6 +18,14 @@ class Village(db.Model):
     population = db.Column(db.Integer, nullable=True)
     population_source = db.Column(db.String(255), nullable=True)
 
+    wiki_summary = db.Column(db.Text, nullable=True)
+    wiki_history = db.Column(db.Text, nullable=True)
+    wiki_url = db.Column(db.String(500), nullable=True)
+    wiki_image = db.Column(db.String(255), nullable=True)
+    wiki_image_attribution = db.Column(db.String(500), nullable=True)
+    wiki_image_source_url = db.Column(db.String(500), nullable=True)
+    wiki_checked_at = db.Column(db.DateTime(timezone=True), nullable=True)
+
     created_at = db.Column(
         db.DateTime(timezone=True), nullable=False, default=lambda: datetime.now(timezone.utc)
     )
